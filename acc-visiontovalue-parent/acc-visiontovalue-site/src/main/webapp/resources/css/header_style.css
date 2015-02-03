@@ -157,6 +157,12 @@
 #cssmenu ul ul a:hover {
   color: #ffffff;
 }
+
+#cssmenu ul li:hover {
+	color: #F5F500;
+}
+
+
 #cssmenu > ul > li.has-sub > a:hover:before {
   border-top: 5px solid #ffffff;
 }
