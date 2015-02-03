@@ -53,7 +53,7 @@
   font-weight: 700;
   font-size: 13px;
   font-family: Arial, Helvetica, sans-serif;
-  border-right: 1px solid #003366;
+  border-right: 1px solid #003367;
   color: #ffffff;
   padding: 12px 20px;
 }
@@ -88,7 +88,7 @@
 #cssmenu > ul > li.has-sub:hover > a {
   padding-bottom: 14px;
   z-index: 999;
-  border-color: #003366;
+  border-color: #003367;
 }
 #cssmenu ul li.has-sub:hover > ul,
 #cssmenu ul li.has-sub:hover > div {
@@ -96,8 +96,8 @@
 }
 #cssmenu > ul > li.has-sub > a:hover,
 #cssmenu > ul > li.has-sub:hover > a {
-  background: #003366;
-  border-color: #003366;
+  background: #003367;
+  border-color: #003367;
 }
 #cssmenu ul li > ul,
 #cssmenu ul li > div {
@@ -105,7 +105,7 @@
   width: auto;
   position: absolute;
   top: 38px;
-  background: #003366;
+  background: #003367;
   border-radius: 0 0 5px 5px;
   z-index: 999;
   padding: 10px 0;
@@ -151,7 +151,7 @@
   background: linear-gradient(top, #003367 0%, #222222 100%);
 }
 #cssmenu > ul > li > a:hover {
-  background: #003366;
+  background: #003367;
   color: #ffffff;
 }
 #cssmenu ul ul a:hover {
