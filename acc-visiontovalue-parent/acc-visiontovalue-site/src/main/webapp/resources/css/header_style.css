@@ -94,18 +94,14 @@
 #cssmenu ul li.has-sub:hover > div {
   display: block;
  }
-#cssmenu > ul > li.has-sub > a:hover,
-#cssmenu > ul > li.has-sub:hover > a {
-  background: #003367;
-  border-color: #003367;
-}
+
 #cssmenu ul li > ul,
 #cssmenu ul li > div {
   display: none;
   width: auto;
   position: absolute;
   top: 38px;
-  background: #003367;
+  background: #98AFC7;
   border-radius: 0 0 5px 5px;
   z-index: 999;
   padding: 10px 0;
@@ -123,7 +119,8 @@
 }
 #cssmenu ul li > ul li {
   display: block;
-  list-style: inside none;
+  
+  ist-style: inside none;
   position: relative;
   margin: 0;
   padding: 0;
@@ -132,16 +129,11 @@
   outline: none;
   display: block;
   position: relative;
-  font: 10pt Arial, Helvetica, sans-serif;
+  font: 11pt Arial, Helvetica, sans-serif;
   color: #ffffff;
   text-decoration: none;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 8px 20px;
-}
-
-#cssmenu ul  li :hover {
-	color: #F5F500;
 }
 
 #cssmenu,
@@ -156,7 +148,6 @@
   background: linear-gradient(top, #003367 0%, #222222 100%);
 }
 #cssmenu > ul > li > a:hover {
-  background: #003367;
   color: #ffffff;
 }
 #cssmenu ul ul a:hover {
