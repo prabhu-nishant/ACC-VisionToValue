@@ -24,7 +24,7 @@
 }
 #cssmenu > ul > li {
   list-style: inside none;
-  float: left;
+  float: none;
   display: inline-block;
   position: relative;
   margin: 0;
@@ -93,7 +93,7 @@
 #cssmenu ul li.has-sub:hover > ul,
 #cssmenu ul li.has-sub:hover > div {
   display: block;
-}
+ }
 #cssmenu > ul > li.has-sub > a:hover,
 #cssmenu > ul > li.has-sub:hover > a {
   background: #003367;
@@ -139,6 +139,11 @@
   margin: 0;
   padding: 8px 20px;
 }
+
+#cssmenu ul  li :hover {
+	color: #F5F500;
+}
+
 #cssmenu,
 #cssmenu ul ul > li:hover > a,
 #cssmenu ul ul li a:hover {

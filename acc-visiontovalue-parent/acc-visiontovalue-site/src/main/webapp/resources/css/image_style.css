@@ -1,7 +1,7 @@
 #image {
 	
-	float:left;
+	display:block;
 	position:relative;
-	top:30px;
-	height :400px;
+	top:50px;
+	left :10px;
 }
