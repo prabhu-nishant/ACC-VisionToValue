@@ -8,6 +8,7 @@
 	top:75px;
 	width: 1200px;
 }
+
 #button_div > ul {
 	list-style: inside none;
 	margin: 0;
@@ -16,17 +17,6 @@
 
 #button_div ul  li {
 	display: inline-block;
-	float: none;
-	list-style: inside none;
-	position: relative;
-}
-
-#button_div.align-center > ul {
-	text-align: center;
-}
-#button_div.align-center > ul > li {
-	float: none;
-	margin-left: -3px;
 }
 
 #title {
@@ -68,4 +58,90 @@
 	background:#FFA62F;
 	border:none;
 	text-decoration: none;
+}
+
+#display_div {
+	display: block;
+	height : 700px;
+	left   :25px;
+	position: relative;
+	top     :100px;
+	width   :1200px;
+}
+
+#display_div div {
+	display: inline-block;
+}
+
+#questions_div{
+	height : 700px;
+	display: block;
+	width   :850px;
+	position: absolute;
+}
+
+#viewed_div{
+	height:700px;
+	left:900px;
+	position: absolute;
+	width   :300px;
+}
+
+#tabs_div{
+	background: #D1D0CE;
+	border-radius:5px;
+	display: block;
+	height: 50px;
+	position: relative;
+	width: 850px;
+}
+
+#tabs_div > ul {
+	list-style: inside none;
+	margin: 0;
+	padding: 0;
+}
+
+#tabs_div ul li {
+	display: inline-block;
+}
+
+#tab_title {
+	background:#D1D0CE;
+	color:#OOOOOO;
+	display:block;
+	float:none;
+	font-weight: 700;
+	font-size: 17px;
+	font-family: Arial, Helvetica, sans-serif;
+	height:15px;
+	position: relative;
+	vertical-align: middle;
+	width:313px;
+}
+
+.tab_button  {
+	background:#ffffff;
+	border:none;
+	border-radius:5px 5px 0 0; 
+	color:#OOOOOO;
+	font-weight: 700;
+	font-size:15px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	height : 45px;
+	position: relative;
+	top:4px;
+	width: 174px;
+	padding: 0;
+}
+
+.tab_button:focus {
+    outline: 0;
+	border:none;
+}
+
+.tab_button:hover {
+	text-decoration: none;
+	top:5px;
 }
