@@ -119,8 +119,7 @@
 }
 #cssmenu ul li > ul li {
   display: block;
-  
-  ist-style: inside none;
+  list-style: inside none;
   position: relative;
   margin: 0;
   padding: 0;
@@ -129,8 +128,7 @@
   outline: none;
   display: block;
   position: relative;
-  font: 10pt Arial, Helvetica, sans-serif;
-  font-weight: 700;
+  font: 11pt Arial, Helvetica, sans-serif;
   color: #ffffff;
   text-decoration: none;
   margin: 0;

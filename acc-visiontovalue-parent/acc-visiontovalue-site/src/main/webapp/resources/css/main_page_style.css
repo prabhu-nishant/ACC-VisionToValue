@@ -5,7 +5,7 @@
 	height: 50px;
 	left:25px;
 	position: relative;
-	top:100px;
+	top:75px;
 	width: 1200px;
 }
 #button_div > ul {
@@ -30,7 +30,7 @@
 }
 
 #title {
-	background:#67b11c;
+	background:#6AA121;
 	border-radius: 5px;
 	color:#ffffff;
 	display: table-cell;
@@ -46,7 +46,7 @@
 }
 
 .button  {
-	background:#78c5f5;
+	background:#808080;
 	border:none;
 	border-radius: 10px;
 	color:#ffffff;
@@ -65,7 +65,7 @@
 }
 
 .button:hover {
-	background:#3cb0fd;
+	background:#FFA62F;
 	border:none;
 	text-decoration: none;
 }
