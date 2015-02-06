@@ -3,6 +3,21 @@
 <head>
 {{> WEB-INF/views/header.mustache}}
 <link rel="stylesheet" type="text/css" href="{{base_path}}/resources/css/main_page_style.css" />
+<script>
+	function buttonClick(buttonId) {
+	
+		var x = document.getElementsByClassName("tab_button");
+		for (var i = 0; i < x.length; i++) {
+			x[i].style.cssText="background:#FFF5EE;height : 30px;top:11px";
+		}
+		
+		var y = document.getElementsByClassName("tab_active");
+		y[0].style.cssText="background:#FFF5EE;height : 30px;top:11px;";
+		
+		var z = document.getElementById(buttonId);
+		z.style.cssText="background:#ffffff;height : 40px;top:8px;";
+	}
+</script>
 </head>
 <body>
 <div id="button_div">
@@ -15,19 +30,20 @@
  	</ul>
 </div>
 <div id="display_div">
-	<div id="questions_div">
+	<div id="main_div">
 		<div id="tabs_div">
 			<ul>
 				<li><div id="tab_title"><span>&nbsp&nbsp Top Questions<span></div></li>
-				<li><button class="tab_button" id="visionToRoadMap">Vision to RoadMap</button></li>
-				<li><button class="tab_button" id="roadMapToDeploy">RoadMap to Deploy</button></li>
-				<li><button class="tab_button" id="deployToValue">Deploy to Value</button></li>
+				<li><button class="tab_active" id="visionToRoadMap" onclick="buttonClick('visionToRoadMap')">Vision to RoadMap</button></li>
+				<li><button class="tab_button" id="roadMapToDeploy" onclick="buttonClick('roadMapToDeploy')">RoadMap to Deploy</button></li>
+				<li><button class="tab_button" id="deployToValue" onclick="buttonClick('deployToValue')">Deploy to Value</button></li>
+			</ul
 			</ul>
 		</div>
 		<div id="tab_content_div">
 		</div>
 	</div>
-	<div id="viewed_div">
+	<div id="view_div">
 	</div>
 </div>
 </body>

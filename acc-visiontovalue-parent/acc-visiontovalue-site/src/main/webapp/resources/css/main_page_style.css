@@ -55,7 +55,7 @@
 }
 
 .button:hover {
-	background:#FFA62F;
+	background:#EE9A4D;
 	border:none;
 	text-decoration: none;
 }
@@ -73,14 +73,14 @@
 	display: inline-block;
 }
 
-#questions_div{
+#main_div{
 	height : 700px;
 	display: block;
 	width   :850px;
 	position: absolute;
 }
 
-#viewed_div{
+#view_div{
 	height:700px;
 	left:900px;
 	position: absolute;
@@ -89,7 +89,7 @@
 
 #tabs_div{
 	background: #D1D0CE;
-	border-radius:5px;
+	border-radius:5px 5px 0 0;
 	display: block;
 	height: 50px;
 	position: relative;
@@ -104,6 +104,7 @@
 
 #tabs_div ul li {
 	display: inline-block;
+	margin: 2px;
 }
 
 #tab_title {
@@ -117,11 +118,10 @@
 	height:15px;
 	position: relative;
 	vertical-align: middle;
-	width:313px;
+	width:285px;
 }
 
-.tab_button  {
-	background:#ffffff;
+.tab_button,.tab_active  {
 	border:none;
 	border-radius:5px 5px 0 0; 
 	color:#OOOOOO;
@@ -129,19 +129,32 @@
 	font-size:15px;
 	font-family: Arial, Helvetica, sans-serif;
 	text-decoration: none;
-	height : 45px;
 	position: relative;
-	top:4px;
 	width: 174px;
 	padding: 0;
+	outline:0;
 }
 
-.tab_button:focus {
-    outline: 0;
-	border:none;
+.tab_button {
+	height : 30px;
+	background:#FFF5EE;
+	top:11px;
 }
 
-.tab_button:hover {
-	text-decoration: none;
-	top:5px;
+.tab_active {
+	height : 40px;
+	background:#ffffff;
+	top:8px;
+}
+
+
+#tab_content_div{
+	border-left: 2px solid;
+	border-right: 2px solid;
+	border-bottom: 2px solid;
+	border-color:#D1D0CE;
+	display:block;
+	height :600px;
+	position: relative;
+	width: 846px;
 }
