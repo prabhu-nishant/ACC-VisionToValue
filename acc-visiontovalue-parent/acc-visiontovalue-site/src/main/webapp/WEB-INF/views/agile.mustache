@@ -6,6 +6,20 @@
 <script>
 	function buttonClick(buttonId) {
 	
+		var x = document.getElementsByClassName("button");
+		for (var i = 0; i < x.length; i++) {
+			x[i].style.cssText="background:#808080;";
+		}
+		
+		var y = document.getElementsByClassName("button_active");
+		y[0].style.cssText="background:#808080;";
+		
+		var z = document.getElementById(buttonId);
+		z.style.cssText="background:#EE9A4D;";
+	}
+   
+	function tabClick(buttonId) {
+	
 		var x = document.getElementsByClassName("tab_button");
 		for (var i = 0; i < x.length; i++) {
 			x[i].style.cssText="background:#FFF5EE;height : 30px;top:12px";
@@ -24,9 +38,9 @@
 	<ul>
 		<li><div id="title"><span>&nbsp&nbsp Agile Community</span></div></li>
 		<li>&nbsp&nbsp</li>
-        <li><button class="button" id="askQuestions">Ask Question</button></li>
-    	<li><button class="button" id="library">Library</button></li>
-    	<li><button class="button" id="questions">Questions</button></li>
+        <li><button class="button" id="askQuestions" onclick="buttonClick('askQuestions')">Ask Question</button></li>
+    	<li><button class="button" id="library" onclick="buttonClick('library')">Library</button></li>
+    	<li><button class="button_active" id="questions" onclick="buttonClick('questions')">Questions</button></li>
  	</ul>
 </div>
 <div id="display_div">
@@ -34,9 +48,9 @@
 		<div id="tabs_div">
 			<ul>
 				<li><div id="tab_title"><span>&nbsp&nbsp Top Questions<span></div></li>
-				<li><button class="tab_active" id="visionToRoadMap" onclick="buttonClick('visionToRoadMap')">Vision to RoadMap</button></li>
-				<li><button class="tab_button" id="roadMapToDeploy" onclick="buttonClick('roadMapToDeploy')">RoadMap to Deploy</button></li>
-				<li><button class="tab_button" id="deployToValue" onclick="buttonClick('deployToValue')">Deploy to Value</button></li>
+				<li><button class="tab_active" id="visionToRoadMap" onclick="tabClick('visionToRoadMap')">Vision to RoadMap</button></li>
+				<li><button class="tab_button" id="roadMapToDeploy" onclick="tabClick('roadMapToDeploy')">RoadMap to Deploy</button></li>
+				<li><button class="tab_button" id="deployToValue" onclick="tabClick('deployToValue')">Deploy to Value</button></li>
 			</ul
 			</ul>
 		</div>

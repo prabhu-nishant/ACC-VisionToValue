@@ -21,7 +21,7 @@
 
 #title {
 	background:#6AA121;
-	border-radius: 5px;
+	border-radius: 5px 0 0 5px ;
 	color:#ffffff;
 	display: table-cell;
 	float:none;
@@ -35,8 +35,7 @@
 	width: 690px;
 }
 
-.button  {
-	background:#808080;
+.button ,.button_active{
 	border:none;
 	border-radius: 10px;
 	color:#ffffff;
@@ -46,12 +45,17 @@
 	text-decoration: none;
 	top:-20px;
 	height : 29px;
+	outline: 0;
 	position: relative;
 	width: 160px;
 }
 
-.button:focus {
-    outline: 0;border:none;
+.button {
+	background:#808080;
+}
+
+.button_active{
+	background:#EE9A4D;
 }
 
 .button:hover {
