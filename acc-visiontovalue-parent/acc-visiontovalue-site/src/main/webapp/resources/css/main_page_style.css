@@ -20,7 +20,7 @@
 }
 
 #title {
-	background:#6AA121;
+	background:#003367;
 	border-radius: 5px 0 0 5px ;
 	color:#ffffff;
 	display: table-cell;
@@ -55,11 +55,11 @@
 }
 
 .button_active{
-	background:#EE9A4D;
+	background:#6AA121;
 }
 
 .button:hover {
-	background:#EE9A4D;
+	background:#6AA121;
 	border:none;
 	text-decoration: none;
 }
@@ -82,6 +82,7 @@
 	display: block;
 	width   :850px;
 	position: absolute;
+	top:25px;
 }
 
 #view_div{
@@ -153,12 +154,10 @@
 
 
 #tab_content_div{
-	border-left: 2px solid;
-	border-right: 2px solid;
-	border-bottom: 2px solid;
 	border-color:#D1D0CE;
 	display:block;
 	height :600px;
 	position: relative;
-	width: 846px;
+	width: 850px;
+	top:30px;
 }

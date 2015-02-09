@@ -4,6 +4,25 @@
 {{> WEB-INF/views/header.mustache}}
 <link rel="stylesheet" type="text/css" href="{{base_path}}/resources/css/main_page_style.css" />
 <script>
+
+	$(document).ready(function() {
+	
+		var activetab = document.getElementsByClassName("tab_active");
+		$.ajax({
+			datatype: "html",
+			type: "GET",
+			url: "{{base_path}}/agile/question?page="+activetab,
+			success: function(response) {
+				$("#tab_content_div").empty();
+				$("#tab_content_div").html(response);
+			},
+				error: function(e) {
+				alert("Error: " + e);
+			}
+		});
+	});
+
+
 	function buttonClick(buttonId) {
 	
 		var x = document.getElementsByClassName("button");
@@ -15,7 +34,7 @@
 		y[0].style.cssText="background:#808080;";
 		
 		var z = document.getElementById(buttonId);
-		z.style.cssText="background:#EE9A4D;";
+		z.style.cssText="background:#6AA121;";
 	}
    
 	function tabClick(buttonId) {
@@ -30,6 +49,20 @@
 		
 		var z = document.getElementById(buttonId);
 		z.style.cssText="background:#ffffff;height : 40px;top:8px;";
+		
+		$.ajax({
+			datatype: "html",
+			type: "GET",
+			url: "{{base_path}}/agile/question?page="+buttonId,
+			success: function(response) {
+				$("#tab_content_div").empty();
+				$("#tab_content_div").html(response);
+			},
+				error: function(e) {
+				alert("Error: " + e);
+			}
+		});
+		
 	}
 </script>
 </head>
@@ -38,7 +71,7 @@
 	<ul>
 		<li><div id="title"><span>&nbsp&nbsp Agile Community</span></div></li>
 		<li>&nbsp&nbsp</li>
-        <li><button class="button" id="askQuestions" onclick="buttonClick('askQuestions')">Ask Question</button></li>
+        <li><button class="button" id="askquestions" onclick="buttonClick('askquestions')">Ask Question</button></li>
     	<li><button class="button" id="library" onclick="buttonClick('library')">Library</button></li>
     	<li><button class="button_active" id="questions" onclick="buttonClick('questions')">Questions</button></li>
  	</ul>
@@ -48,9 +81,9 @@
 		<div id="tabs_div">
 			<ul>
 				<li><div id="tab_title"><span>&nbsp&nbsp Top Questions<span></div></li>
-				<li><button class="tab_active" id="visionToRoadMap" onclick="tabClick('visionToRoadMap')">Vision to RoadMap</button></li>
-				<li><button class="tab_button" id="roadMapToDeploy" onclick="tabClick('roadMapToDeploy')">RoadMap to Deploy</button></li>
-				<li><button class="tab_button" id="deployToValue" onclick="tabClick('deployToValue')">Deploy to Value</button></li>
+				<li><button class="tab_active" id="visiontoroadmap" onclick="tabClick('visiontoroadmap')">Vision to RoadMap</button></li>
+				<li><button class="tab_button" id="roadmaptodeploy" onclick="tabClick('roadmaptodeploy')">RoadMap to Deploy</button></li>
+				<li><button class="tab_button" id="deploytovalue" onclick="tabClick('deploytovalue')">Deploy to Value</button></li>
 			</ul
 			</ul>
 		</div>
