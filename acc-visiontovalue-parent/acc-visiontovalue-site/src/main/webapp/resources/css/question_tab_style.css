@@ -2,7 +2,7 @@ table{
 	 display: table;
 	 border:0;
 	 cellpadding:10px;
-	 width:850px;
+	 width:900px;
 	 font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -29,7 +29,7 @@ table td {
 
 #table_button_div{
 	
-	left:650px;
+	left:600px;
 	position:relative;
 }
 
@@ -45,13 +45,13 @@ table td {
 	border-radius: 10px;
 	color:#ffffff;
 	font-weight: 700;
-	font-size:12px;
+	font-size:15px;
 	font-family: Arial, Helvetica, sans-serif;
 	text-decoration: none;
 	height : 29px;
 	outline: 0;
 	position: relative;
-	width: 100px;
+	width: 150px;
 }
 
 .button_table:hover {

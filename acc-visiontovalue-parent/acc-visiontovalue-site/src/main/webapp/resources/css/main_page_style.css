@@ -80,7 +80,7 @@
 #main_div{
 	height : 800px;
 	display: block;
-	width   :850px;
+	width   :900px;
 	position: absolute;
 }
 
@@ -88,7 +88,7 @@
 	height:800px;
 	left:900px;
 	position: absolute;
-	width   :300px;
+	width   :250px;
 }
 
 #tabs_div{
@@ -97,7 +97,7 @@
 	display: block;
 	height: 50px;
 	position: relative;
-	width: 850px;
+	width: 900px;
 }
 
 #tabs_div > ul {
@@ -157,6 +157,6 @@
 	display:block;
 	height :725px;
 	position: relative;
-	width: 850px;
+	width: 900px;
 	top:25px;
 }
