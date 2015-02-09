@@ -14,13 +14,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(Include.NON_NULL)
 @JsonAutoDetect(getterVisibility = Visibility.NONE)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonPropertyOrder({ "question","answerList", "lastModifiedDate" })
+@JsonPropertyOrder({ "questionId","questionString","answerList", "lastModifiedDate" })
 public class Question {
 
 	private static final long serialVersionUID = 7056018561552669496L;
 
 	@JsonProperty
-	private String question;
+	private Long questionId;
+	
+	@JsonProperty
+	private String questionString;
 	
 	@JsonProperty
 	private List<Answer> answerList;
@@ -44,11 +47,20 @@ public class Question {
 		this.lastModifiedDate = lastModifiedDate;
 	}
 
-	public String getQuestion() {
-		return question;
+	public Long getQuestionId() {
+		return questionId;
 	}
 
-	public void setQuestion(String question) {
-		this.question = question;
+	public void setQuestionId(Long questionId) {
+		this.questionId = questionId;
+	}
+
+	
+	public String getQuestionString() {
+		return questionString;
+	}
+
+	public void setQuestionString(String questionString) {
+		this.questionString = questionString;
 	}
 }

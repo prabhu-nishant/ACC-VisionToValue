@@ -2,17 +2,22 @@
 <link rel="stylesheet" type="text/css" href="{{base_path}}/resources/css/question_tab_style.css" />
 </head>
 <body>
+<div id="table_div">
 <table>
 	{{#questionList}}
 	<tr>
+		<td width="2%" align="center">
+			<input type="checkbox" name={{questionId}} />
+		</td>
 		<td align="center"><font size="4" color="#FF9900">1</font></td>
 		<td align="left">
 			<b>
-				<a class="link" href="#">{{question}}<a>
+				<a class="link" href="#">{{questionString}}<a>
 			<b>
 		</td>
 	</tr>
 	<tr>
+		<td/>
 		<td align="center"><font size="4" color="#FF9900">Answers</font></td>
 		<td align="right">
 			<font size="2" color="#B6B6B4">
@@ -21,9 +26,13 @@
 		</td>
 	</tr>
 	</tr>
-		<td colspan="2"><hr color="#E5E4E2"></td>
+		<td colspan="3"><hr color="#E5E4E2"></td>
 	</tr>
 	{{/questionList}}
 </table>
+</div>
+<div id="table_button_div">
+	<button class="button_table" id="saveclick">Save as PDF</button>
+	<button class="button_table" id="morequestions">More questions</button>
 </div>
 </body>

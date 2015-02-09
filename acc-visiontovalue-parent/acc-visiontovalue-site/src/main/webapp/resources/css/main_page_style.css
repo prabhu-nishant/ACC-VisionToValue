@@ -78,15 +78,14 @@
 }
 
 #main_div{
-	height : 700px;
+	height : 800px;
 	display: block;
 	width   :850px;
 	position: absolute;
-	top:25px;
 }
 
 #view_div{
-	height:700px;
+	height:800px;
 	left:900px;
 	position: absolute;
 	width   :300px;
@@ -156,8 +155,8 @@
 #tab_content_div{
 	border-color:#D1D0CE;
 	display:block;
-	height :600px;
+	height :725px;
 	position: relative;
 	width: 850px;
-	top:30px;
+	top:25px;
 }

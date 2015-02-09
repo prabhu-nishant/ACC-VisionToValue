@@ -35,25 +35,47 @@ public class AgilePageController {
 		
 		List<Question> questionList = new ArrayList<Question>();
 		Question question1 = new Question ();
-		question1.setQuestion("What is Agile");
+		question1.setQuestionId(1L);
+		question1.setQuestionString("What is Agile");
 		question1.setLastModifiedDate(new Date());
 		
 		Question question2 = new Question ();
-		question2.setQuestion("Question 2");
+		question2.setQuestionId(2L);
+		question2.setQuestionString("Question 2");
 		question2.setLastModifiedDate(new Date());
 		
 		Question question3 = new Question ();
-		question3.setQuestion("Question 3");
+		question3.setQuestionId(3L);
+		question3.setQuestionString("Question 3");
 		question3.setLastModifiedDate(new Date());
 		
 		Question question4 = new Question ();
-		question4.setQuestion("Question 4");
+		question4.setQuestionId(4L);
+		question4.setQuestionString("Question 4");
 		question4.setLastModifiedDate(new Date());
+
+		Question question5 = new Question ();
+		question5.setQuestionId(5L);
+		question5.setQuestionString("Question 5");
+		question5.setLastModifiedDate(new Date());
+		
+		Question question6 = new Question ();
+		question6.setQuestionId(6L);
+		question6.setQuestionString("Question 6");
+		question6.setLastModifiedDate(new Date());
+		
+		Question question7 = new Question ();
+		question7.setQuestionId(7L);
+		question7.setQuestionString("Question 7");
+		question7.setLastModifiedDate(new Date());
 		
 		questionList.add(question1);
 		questionList.add(question2);
 		questionList.add(question3);
 		questionList.add(question4);
+		questionList.add(question5);
+		questionList.add(question6);
+		questionList.add(question7);
 		
 		model.addAttribute("base_path",basepath);	
 		model.addAttribute("questionList",questionList);	
