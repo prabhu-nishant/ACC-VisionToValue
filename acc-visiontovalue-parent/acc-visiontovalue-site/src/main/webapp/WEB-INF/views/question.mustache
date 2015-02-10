@@ -2,13 +2,30 @@
 {{> WEB-INF/views/common_header_tags.mustache}}
 <script type="text/javascript">
 
-	function  saveClick (){
+	function saveClick(){
+	
+		var checkedValues = $('input:checkbox:checked').map(function() {
+    			return this.value;
+		}).get();
+		
 		var doc = new jsPDF();
-    	doc.text(20, 20, 'Hello world!');
-    	doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-    	doc.addPage();
-    	doc.text(20, 20, 'Do you like that?');
-	    doc.save('Test.pdf');
+		var j = 20;
+		for (var i = 0; i < checkedValues.length; i++) {
+		
+			{{#questionList}}
+		
+				if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
+					
+					doc.text(20, j, "{{questionString}}" );
+					j=j+10;
+				}
+				
+			{{/questionList}}
+				
+			j=j+20;
+		}
+		
+		doc.save('Test.pdf');
 	}
 	
 </script>
@@ -19,7 +36,7 @@
 	{{#questionList}}
 	<tr>
 		<td width="2%" align="center">
-			<input type="checkbox" name={{questionId}} />
+			<input type="checkbox" name={{questionId}} value={{questionId}}>
 		</td>
 		<td align="center"><font size="4" color="#FF9900">1</font></td>
 		<td align="left">

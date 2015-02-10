@@ -77,9 +77,11 @@ public class AgilePageController {
 		questionList.add(question6);
 		questionList.add(question7);
 		
+		
 		model.addAttribute("base_path",basepath);	
 		model.addAttribute("questionList",questionList);	
 		
 		return "question";
 	}
+	
 }
