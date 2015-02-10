@@ -8,17 +8,17 @@
 	
 		var activetab = document.getElementsByClassName("tab_active");
 		$.ajax({
-			datatype: "html",
-			type: "GET",
-			url: "{{base_path}}/agile/question?page="+activetab,
-			success: function(response) {
+				datatype: "html",
+				type: "GET",
+				url: "{{base_path}}/agile/question?page="+activetab,
+				success: function(response) {
 				$("#tab_content_div").empty();
 				$("#tab_content_div").html(response);
 			},
-				error: function(e) {
+			error: function(e) {
 				alert("Error: " + e);
 			}
-		});
+		});	
 	});
 
 
