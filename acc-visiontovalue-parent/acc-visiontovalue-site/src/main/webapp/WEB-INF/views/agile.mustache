@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-{{> WEB-INF/views/header.mustache}}
-<link rel="stylesheet" type="text/css" href="{{base_path}}/resources/css/main_page_style.css" />
+{{> WEB-INF/views/common_header_tags.mustache}}
 <script>
 
 	$(document).ready(function() {
@@ -67,6 +66,7 @@
 </script>
 </head>
 <body>
+{{> WEB-INF/views/header.mustache}}
 <div id="button_div">
 	<ul>
 		<li><div id="title"><span>&nbsp&nbsp Agile Community</span></div></li>

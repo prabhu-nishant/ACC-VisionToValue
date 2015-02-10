@@ -1,5 +1,17 @@
 <head>
-<link rel="stylesheet" type="text/css" href="{{base_path}}/resources/css/question_tab_style.css" />
+{{> WEB-INF/views/common_header_tags.mustache}}
+<script type="text/javascript">
+
+	function  saveClick (){
+		var doc = new jsPDF();
+    	doc.text(20, 20, 'Hello world!');
+    	doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+    	doc.addPage();
+    	doc.text(20, 20, 'Do you like that?');
+	    doc.save('Test.pdf');
+	}
+	
+</script>
 </head>
 <body>
 <div id="table_div">
@@ -32,7 +44,8 @@
 </table>
 </div>
 <div id="table_button_div">
-	<button class="button_table" id="saveclick">Save as PDF</button>
+	<button class="button_table" id="saveclick" onClick="saveClick()">Save as PDF</button>
 	<button class="button_table" id="morequestions">More questions</button>
 </div>
 </body>
+<html>
