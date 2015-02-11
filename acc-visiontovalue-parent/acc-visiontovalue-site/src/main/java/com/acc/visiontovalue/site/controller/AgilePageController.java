@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.acc.visiontovalue.site.model.Question;
 
 @Controller
-@RequestMapping("/agile")
+@RequestMapping(value="/agile")
 public class AgilePageController {
 
 	@Value("${acc.visiontovalue.site.basepath}")
@@ -25,8 +25,10 @@ public class AgilePageController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String loadAgileCommunityPage(HttpServletRequest request,Model model){
 		
-		model.addAttribute("base_path",basepath);	
-		return "agile";
+		model.addAttribute("base_path",basepath);
+		model.addAttribute("communityName","Agile");
+		model.addAttribute("community","agile");
+		return "home";
 	}
 	
 	
@@ -34,8 +36,10 @@ public class AgilePageController {
 	public String loadPageOnButtonClick(@RequestParam("page") String page,HttpServletRequest request,Model model){
 		
 		model.addAttribute("base_path",basepath);
+		model.addAttribute("community","agile");
 		return page;
 	}
+	
 	
 	@RequestMapping(value="/question_view" ,method=RequestMethod.GET)
 	public String loadQuestionsTab(@RequestParam("tab") String tab,HttpServletRequest request,Model model){
@@ -86,9 +90,16 @@ public class AgilePageController {
 		questionList.add(question7);
 		
 		model.addAttribute("base_path",basepath);
+		model.addAttribute("community","agile");
 		model.addAttribute("questionList",questionList);	
 		
 		return "question_view";
 	}
 	
+	@RequestMapping(value="/question_detail" ,method=RequestMethod.GET)
+	public String loadQuestionsDetail(@RequestParam("questionId") Long questionId,HttpServletRequest request,Model model){
+		
+		
+		return "question_detail";
+	}
 }

@@ -2,10 +2,25 @@
 {{> WEB-INF/views/common_header_tags.mustache}}
 <script type="text/javascript">
 
-	function getQuestionDetail(){
+	function getQuestionDetail(questionId){
 		
-		var main_div = document.getElementById("main_div");
-		main_div.innerHTML="";
+		$.ajax({
+			datatype: "html",
+			type: "GET",
+			url: "{{base_path}}/{{community}}/question_detail?questionId="+questionId,
+			success: function(response) {
+			
+				var main_div = document.getElementById("main_div");
+				main_div.innerHTML="";
+				main_div.innerHTML=response;
+				
+			},
+				error: function(e) {
+				alert("Error: " + e);
+			}
+		});
+		
+		
 	
 	}
 
@@ -48,7 +63,7 @@
 		<td align="center"><font size="4" color="#FF9900">1</font></td>
 		<td align="left">
 			<b>
-				<a class="link" href="#" onclick="getQuestionDetail()">{{questionString}}<a>
+				<a class="link" href="#" onclick="getQuestionDetail('{{questionId}}')">{{questionString}}<a>
 			<b>
 		</td>
 	</tr>

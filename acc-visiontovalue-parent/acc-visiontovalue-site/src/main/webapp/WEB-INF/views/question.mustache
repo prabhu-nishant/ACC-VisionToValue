@@ -23,7 +23,7 @@
 		$.ajax({
 			datatype: "html",
 			type: "GET",
-			url: "{{base_path}}/agile/question_view?tab="+tabId,
+			url: "{{base_path}}/{{community}}/question_view?tab="+tabId,
 			success: function(response) {
 				$("#tab_content_div").empty();
 				$("#tab_content_div").html(response);

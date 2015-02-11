@@ -25,7 +25,7 @@
 		$.ajax({
 				datatype: "html",
 				type: "GET",
-				url: "{{base_path}}/agile/page?page="+buttonId,
+				url: "{{base_path}}/{{community}}/page?page="+buttonId,
 				success: function(response) {
 				$("#main_div").empty();
 				$("#main_div").html(response);
@@ -41,7 +41,7 @@
 {{> WEB-INF/views/header.mustache}}
 <div id="button_div">
 	<ul>
-		<li><div id="title"><span>&nbsp&nbsp Agile Community</span></div></li>
+		<li><div id="title"><span>&nbsp&nbsp {{communityName}} Community</span></div></li>
 		<li>&nbsp&nbsp</li>
         <li><button class="button" id="askquestion" onclick="buttonClick('askquestion')">Ask Question</button></li>
     	<li><button class="button" id="library" onclick="buttonClick('library')">Library</button></li>
