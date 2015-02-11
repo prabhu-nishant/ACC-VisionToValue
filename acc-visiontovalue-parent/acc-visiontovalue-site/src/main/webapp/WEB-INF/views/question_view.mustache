@@ -19,8 +19,6 @@
 				alert("Error: " + e);
 			}
 		});
-		
-		
 	
 	}
 
@@ -39,7 +37,12 @@
 				if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
 					
 					doc.text(20, j, "{{questionString}}" );
-					j=j+10;
+					doc.text(20, j+5, "{{detailedDescription}}" );
+					doc.text(20, j+10, "{{community}}" );
+					doc.text(20, j+15, "{{category}}" );
+					doc.text(20, j+20, "{{lastModifiedDate}}" );
+					
+					j=j+20;
 				}
 				
 			{{/questionList}}
@@ -60,7 +63,7 @@
 		<td width="2%" align="center">
 			<input type="checkbox" name={{questionId}} value={{questionId}}>
 		</td>
-		<td align="center"><font size="4" color="#FF9900">1</font></td>
+		<td align="center"><font size="4" color="#FF9900">{{answerCount}}</font></td>
 		<td align="left">
 			<b>
 				<a class="link" href="#" onclick="getQuestionDetail('{{questionId}}')">{{questionString}}<a>
