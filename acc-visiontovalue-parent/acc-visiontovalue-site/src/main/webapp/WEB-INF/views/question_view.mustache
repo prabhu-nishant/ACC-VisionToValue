@@ -1,0 +1,74 @@
+<head>
+{{> WEB-INF/views/common_header_tags.mustache}}
+<script type="text/javascript">
+
+	function getQuestionDetail(){
+		
+		var main_div = document.getElementById("main_div");
+		main_div.innerHTML="";
+	
+	}
+
+	function saveClick(){
+	
+		var checkedValues = $('input:checkbox:checked').map(function() {
+    			return this.value;
+		}).get();
+		
+		var doc = new jsPDF();
+		var j = 20;
+		for (var i = 0; i < checkedValues.length; i++) {
+		
+			{{#questionList}}
+		
+				if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
+					
+					doc.text(20, j, "{{questionString}}" );
+					j=j+10;
+				}
+				
+			{{/questionList}}
+				
+			j=j+20;
+		}
+		
+		doc.save('Test.pdf');
+	}
+	
+</script>
+</head>
+<body>
+<div id="table_div">
+<table>
+	{{#questionList}}
+	<tr>
+		<td width="2%" align="center">
+			<input type="checkbox" name={{questionId}} value={{questionId}}>
+		</td>
+		<td align="center"><font size="4" color="#FF9900">1</font></td>
+		<td align="left">
+			<b>
+				<a class="link" href="#" onclick="getQuestionDetail()">{{questionString}}<a>
+			<b>
+		</td>
+	</tr>
+	<tr>
+		<td/>
+		<td align="center"><font size="4" color="#FF9900">Answers</font></td>
+		<td align="right">
+			<font size="2" color="#B6B6B4">
+				<i>modified 10 mins ago <b>Username</b></i>
+			</font>
+		</td>
+	</tr>
+	</tr>
+		<td colspan="3"><hr color="#E5E4E2"></td>
+	</tr>
+	{{/questionList}}
+</table>
+</div>
+<div id="table_button_div">
+	<button class="button_table" id="saveclick" onClick="saveClick()">Save as PDF</button>
+	<button class="button_table" id="morequestions">More questions</button>
+</div>
+</body>

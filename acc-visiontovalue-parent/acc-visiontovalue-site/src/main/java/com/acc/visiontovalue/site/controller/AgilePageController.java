@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,8 +29,16 @@ public class AgilePageController {
 		return "agile";
 	}
 	
-	@RequestMapping(value="/question" ,method=RequestMethod.GET)
-	public String loadQuestionsTab(@RequestParam("page") String page,HttpServletRequest request,Model model){
+	
+	@RequestMapping(value="/page" ,method=RequestMethod.GET)
+	public String loadPageOnButtonClick(@RequestParam("page") String page,HttpServletRequest request,Model model){
+		
+		model.addAttribute("base_path",basepath);
+		return page;
+	}
+	
+	@RequestMapping(value="/question_view" ,method=RequestMethod.GET)
+	public String loadQuestionsTab(@RequestParam("tab") String tab,HttpServletRequest request,Model model){
 		
 		
 		List<Question> questionList = new ArrayList<Question>();
@@ -81,7 +88,7 @@ public class AgilePageController {
 		model.addAttribute("base_path",basepath);
 		model.addAttribute("questionList",questionList);	
 		
-		return "question";
+		return "question_view";
 	}
 	
 }

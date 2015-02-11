@@ -1,67 +1,52 @@
 <head>
 {{> WEB-INF/views/common_header_tags.mustache}}
-<script type="text/javascript">
-
-	function saveClick(){
+<script>
 	
-		var checkedValues = $('input:checkbox:checked').map(function() {
-    			return this.value;
-		}).get();
+	$(document).ready(function() {
+		tabClick('visiontoroadmap');
 		
-		var doc = new jsPDF();
-		var j = 20;
-		for (var i = 0; i < checkedValues.length; i++) {
-		
-			{{#questionList}}
-		
-				if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
-					
-					doc.text(20, j, "{{questionString}}" );
-					j=j+10;
-				}
-				
-			{{/questionList}}
-				
-			j=j+20;
+	});
+	
+	function tabClick(tabId) {
+	
+		var x = document.getElementsByClassName("tab_button");
+		for (var i = 0; i < x.length; i++) {
+			x[i].style.cssText="background:#FFF5EE;height : 30px;top:12px";
 		}
 		
-		doc.save('Test.pdf');
+		var y = document.getElementsByClassName("tab_active");
+		y[0].style.cssText="background:#FFF5EE;height : 30px;top:12px;";
+		
+		var z = document.getElementById(tabId);
+		z.style.cssText="background:#ffffff;height : 40px;top:8px;";
+		
+		$.ajax({
+			datatype: "html",
+			type: "GET",
+			url: "{{base_path}}/agile/question_view?tab="+tabId,
+			success: function(response) {
+				$("#tab_content_div").empty();
+				$("#tab_content_div").html(response);
+			},
+				error: function(e) {
+				alert("Error: " + e);
+			}
+		});
+		
 	}
 	
 </script>
 </head>
 <body>
-<div id="table_div">
-<table>
-	{{#questionList}}
-	<tr>
-		<td width="2%" align="center">
-			<input type="checkbox" name={{questionId}} value={{questionId}}>
-		</td>
-		<td align="center"><font size="4" color="#FF9900">1</font></td>
-		<td align="left">
-			<b>
-				<a class="link" href="#">{{questionString}}<a>
-			<b>
-		</td>
-	</tr>
-	<tr>
-		<td/>
-		<td align="center"><font size="4" color="#FF9900">Answers</font></td>
-		<td align="right">
-			<font size="2" color="#B6B6B4">
-				<i>modified 10 mins ago <b>Username</b></i>
-			</font>
-		</td>
-	</tr>
-	</tr>
-		<td colspan="3"><hr color="#E5E4E2"></td>
-	</tr>
-	{{/questionList}}
-</table>
+<div id="tabs_div">
+	<ul>
+		<li><div id="tab_title"><span>&nbsp&nbsp Top Questions<span></div></li>
+		<li><button class="tab_active" id="visiontoroadmap" onclick="tabClick('visiontoroadmap')">Vision to RoadMap</button></li>
+		<li><button class="tab_button" id="roadmaptodeploy" onclick="tabClick('roadmaptodeploy')">RoadMap to Deploy</button></li>
+		<li><button class="tab_button" id="deploytovalue" onclick="tabClick('deploytovalue')">Deploy to Value</button></li>
+	</ul
+	</ul>
 </div>
-<div id="table_button_div">
-	<button class="button_table" id="saveclick" onClick="saveClick()">Save as PDF</button>
-	<button class="button_table" id="morequestions">More questions</button>
+<div id="tab_content_div">
 </div>
 </body>
