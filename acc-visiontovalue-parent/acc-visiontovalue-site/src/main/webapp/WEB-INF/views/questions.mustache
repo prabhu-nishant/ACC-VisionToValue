@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
 {{> WEB-INF/views/common_header_tags.mustache}}
 <script>
@@ -23,7 +25,7 @@
 		$.ajax({
 			datatype: "html",
 			type: "GET",
-			url: "{{base_path}}/{{community}}/question_view?tab="+tabId,
+			url: "{{base_path}}/{{community}}/questions/view?tab="+tabId,
 			success: function(response) {
 				$("#tab_content_div").empty();
 				$("#tab_content_div").html(response);
@@ -34,19 +36,25 @@
 		});
 		
 	}
-	
 </script>
 </head>
 <body>
-<div id="tabs_div">
-	<ul>
-		<li><div id="tab_title"><span>&nbsp&nbsp Top Questions<span></div></li>
-		<li><button class="tab_active" id="visiontoroadmap" onclick="tabClick('visiontoroadmap')">Vision to RoadMap</button></li>
-		<li><button class="tab_button" id="roadmaptodeploy" onclick="tabClick('roadmaptodeploy')">RoadMap to Deploy</button></li>
-		<li><button class="tab_button" id="deploytovalue" onclick="tabClick('deploytovalue')">Deploy to Value</button></li>
-	</ul
-	</ul>
-</div>
-<div id="tab_content_div">
+{{> WEB-INF/views/header.mustache}}
+{{> WEB-INF/views/link_navigator.mustache}}
+<div id="display_div">
+	<div id="main_div">
+		<div id="tabs_div">
+			<ul>
+				<li><div id="tab_title"><span>&nbsp&nbsp Top Questions<span></div></li>
+				<li><button class="tab_active" id="visiontoroadmap" onclick="tabClick('visiontoroadmap')">Vision to RoadMap</button></li>
+				<li><button class="tab_button" id="roadmaptodeploy" onclick="tabClick('roadmaptodeploy')">RoadMap to Deploy</button></li>
+				<li><button class="tab_button" id="deploytovalue" onclick="tabClick('deploytovalue')">Deploy to Value</button></li>
+			</ul>
+		</div>
+		<div id="tab_content_div"/>
+	</div>
+	<div id="view_div">
+	</div>
 </div>
 </body>
+<html>

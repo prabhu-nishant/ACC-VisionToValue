@@ -2,26 +2,6 @@
 {{> WEB-INF/views/common_header_tags.mustache}}
 <script type="text/javascript">
 
-	function getQuestionDetail(questionId){
-		
-		$.ajax({
-			datatype: "html",
-			type: "GET",
-			url: "{{base_path}}/{{community}}/question_detail?questionId="+questionId,
-			success: function(response) {
-			
-				var main_div = document.getElementById("main_div");
-				main_div.innerHTML="";
-				main_div.innerHTML=response;
-				
-			},
-				error: function(e) {
-				alert("Error: " + e);
-			}
-		});
-	
-	}
-
 	function saveClick(){
 	
 		var checkedValues = $('input:checkbox:checked').map(function() {
@@ -37,12 +17,19 @@
 				if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
 					
 					doc.text(20, j, "{{questionString}}" );
-					doc.text(20, j+5, "{{detailedDescription}}" );
-					doc.text(20, j+10, "{{community}}" );
-					doc.text(20, j+15, "{{category}}" );
-					doc.text(20, j+20, "{{lastModifiedDate}}" );
+					doc.text(20, j+10, "{{detailedDescription}}" );
+					doc.text(20, j+30, "{{community}}" );
+					doc.text(20, j+40, "{{category}}" );
+					doc.text(20, j+50, "{{lastModifiedDate}}" );
 					
-					j=j+20;
+					var k = 80;
+					{{#answerList}}
+						doc.text(20, k, "{{answerString}}" );
+						doc.text(20, k+10, "{{date}}" );
+						k=k+20;				
+					{{/answerList}}
+					
+					j=k+20;
 				}
 				
 			{{/questionList}}
@@ -52,7 +39,7 @@
 		
 		doc.save('Test.pdf');
 	}
-	
+		
 </script>
 </head>
 <body>
@@ -66,7 +53,7 @@
 		<td align="center"><font size="4" color="#FF9900">{{answerCount}}</font></td>
 		<td align="left">
 			<b>
-				<a class="link" href="#" onclick="getQuestionDetail('{{questionId}}')">{{questionString}}<a>
+				<a class="link" href="{{base_path}}/{{community}}/questions/detail/{{questionId}}">{{questionString}}<a>
 			<b>
 		</td>
 	</tr>
@@ -79,7 +66,7 @@
 			</font>
 		</td>
 	</tr>
-	</tr>
+	<tr>
 		<td colspan="3"><hr color="#E5E4E2"></td>
 	</tr>
 	{{/questionList}}

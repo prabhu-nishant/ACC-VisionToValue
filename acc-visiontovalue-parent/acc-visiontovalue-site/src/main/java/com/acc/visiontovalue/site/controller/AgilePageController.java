@@ -3,17 +3,18 @@ package com.acc.visiontovalue.site.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.acc.visiontovalue.site.model.Answer;
 import com.acc.visiontovalue.site.model.Question;
 
 @Controller
@@ -25,24 +26,19 @@ public class AgilePageController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String loadAgileCommunityPage(HttpServletRequest request,Model model){
-		
-		model.addAttribute("base_path",basepath);
-		model.addAttribute("communityName","Agile");
-		model.addAttribute("community","agile");
-		return "home";
+		return "redirect:/agile/questions" ;
 	}
 	
-	
-	@RequestMapping(value="/page" ,method=RequestMethod.GET)
-	public String loadPageOnButtonClick(@RequestParam("page") String page,HttpServletRequest request,Model model){
+	@RequestMapping(value="/questions" ,method=RequestMethod.GET)
+	public String loadAgileCommunityQuestionsPage(HttpServletRequest request,Model model){
 		
-		model.addAttribute("base_path",basepath);
-		model.addAttribute("community","agile");
-		return page;
+		setCommonAttributes(model);
+		return "questions";
 	}
+
 	
 	
-	@RequestMapping(value="/question_view" ,method=RequestMethod.GET)
+	@RequestMapping(value="/questions/view" ,method=RequestMethod.GET)
 	public String loadQuestionsTab(@RequestParam("tab") String tab,HttpServletRequest request,Model model){
 		
 		List<Question> questionList = new ArrayList<Question>();
@@ -56,15 +52,14 @@ public class AgilePageController {
 			
 		}
 		
-		model.addAttribute("base_path",basepath);
-		model.addAttribute("community","agile");
+		setCommonAttributes(model);
 		model.addAttribute("questionList",questionList);	
 		
-		return "question_view";
+		return "questions_view";
 	}
 
-	@RequestMapping(value="/question_detail" ,method=RequestMethod.GET)
-	public String loadQuestionsDetail(@RequestParam("questionId") Long questionId,HttpServletRequest request,Model model){
+	@RequestMapping(value="/questions/detail/{questionId}" ,method=RequestMethod.GET)
+	public String loadQuestionsDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
 		
 		Question question = null;
 		
@@ -78,10 +73,9 @@ public class AgilePageController {
 			
 		}
 		
-		
+		setCommonAttributes(model);
 		model.addAttribute("question",question);
-		
-		return "question_detail";
+		return "questions_detail";
 	}
 	
 	private List<Question> getQuestionList() {
@@ -95,6 +89,22 @@ public class AgilePageController {
 		question1.setQuestionString("Question A");
 		question1.setDetailedDescription("Detailed description for "+question1.getQuestionString());
 		question1.setLastModifiedDate(new Date());
+		
+		Answer ans1 = new Answer();
+		ans1.setAnswerId(1L);
+		ans1.setAnswerString("1. Answer for Question A");
+		ans1.setDate(new Date());
+		
+		Answer ans_1 = new Answer();
+		ans_1.setAnswerId(2L);
+		ans_1.setAnswerString("2. Answer for Question A");
+		ans_1.setDate(new Date());
+		
+		List<Answer> answerList = new ArrayList<Answer>();
+		answerList.add(ans1);
+		answerList.add(ans_1);
+		
+		question1.setAnswerList(answerList);
 		
 		Question question2 = new Question ();
 		question2.setQuestionId(2L);
@@ -229,6 +239,12 @@ public class AgilePageController {
 		questionList.add(question14);
 		
 		return questionList;
+	}
+	
+	private void setCommonAttributes(Model model) {
+		model.addAttribute("base_path",basepath);
+		model.addAttribute("communityName","Agile");
+		model.addAttribute("community","agile");
 	}
 	
 }

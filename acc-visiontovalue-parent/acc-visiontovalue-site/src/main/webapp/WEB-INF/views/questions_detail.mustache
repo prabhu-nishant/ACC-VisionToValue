@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> WEB-INF/views/common_header_tags.mustache}}
+<script type="text/javascript">
+	
+	function saveAnswer(){
+		
+		var doc = new jsPDF();
+		{{#question}}
+			doc.text(20, 10, "{{questionString}}" );
+			doc.text(20, 20, "{{detailedDescription}}" );
+			doc.text(20, 30, "{{community}}" );
+			doc.text(20, 40, "{{category}}" );
+			doc.text(20, 50, "{{lastModifiedDate}}" );
+			var j =60;		
+			{{#answerList}}
+				doc.text(20, j, "{{answerString}}" );
+				doc.text(20, j+10, "{{date}}" );
+				j=j+20;				
+			{{/answerList}}
+					
+			doc.save('{{questionId}}.pdf');
+		{{/question}}
+	}
+
+</script>
+</head>
+<body>
+{{> WEB-INF/views/header.mustache}}
+{{> WEB-INF/views/link_navigator.mustache}}
+<div id="display_div">
+	
+	<div id="main_div">
+		{{#question}}
+		<div id="question_detail_header">{{questionString}}</div>
+	
+		<hr color="#E5E4E2">
+	
+		<div id="detailedDescription">{{detailedDescription}}</div>
+	
+		<div id="answers_table">
+			<table>
+				{{#answerList}}
+					<tr>
+						<td>
+							{{answerString}}
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<font size="2" color="#B6B6B4">
+								<i>modified 10 mins ago <b>Username</b></i>
+							</font>
+						</td>
+					</tr>
+					<tr>	
+						<td><hr color="#E5E4E2"></td>
+					</tr>
+				{{/answerList}}
+			</table>
+		</div>
+		<div id="answers_table_button_div">
+			<button class="answers_button" id="saveAnswer" onClick="saveAnswer()">Save as PDF</button>
+		</div>
+		{{/question}}
+	</div>
+	
+	<div id="view_div">
+	</div>
+	
+</div>
+</body>
+</html>
