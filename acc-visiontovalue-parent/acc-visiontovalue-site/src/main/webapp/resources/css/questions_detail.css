@@ -53,6 +53,7 @@ table td {
 
 #answers_table_button_div{
 	
+	top:10px;
 	left:750px;
 	position:relative;
 }
