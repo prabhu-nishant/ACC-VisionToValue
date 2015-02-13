@@ -39,8 +39,8 @@
 	
 		<div id="detailedDescription">{{detailedDescription}}</div>
 	
-		<div id="answers_table">
-			<table>
+		<div id="answers_div">
+			<table class="answer_table">
 				{{#answerList}}
 					<tr>
 						<td>
@@ -61,8 +61,12 @@
 			</table>
 		</div>
 		{{/question}}
-		<div id="answers_table_button_div">
-			<button class="answers_button" id="saveAnswer" onClick="saveAnswer()">Save as PDF</button>
+		<div id="answer_box">
+			<textarea placeholder="Post your answer"></textarea>
+			<div id="answers_button_div">
+				<button class="save_button" id="saveAnswer" onClick="saveAnswer()">Save as PDF</button>
+				<button class="save_button" id="submitAnswer" >Post answer</button>
+			</div>
 		</div>
 	</div>
 	
