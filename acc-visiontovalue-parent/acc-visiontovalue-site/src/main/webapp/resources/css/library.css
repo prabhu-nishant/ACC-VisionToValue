@@ -1,8 +1,9 @@
-#best_practice_div{
+#best_practice_div,#best_table_div{
 	
 	display:block;
 	float:left
 }
+
 
 #best_practice_div > a {
 	
@@ -37,4 +38,18 @@
 #best_practice_div  table td {
 	padding-top: .5em;
 	padding-bottom: .5em;
+}
+
+#library_button_div{
+	
+	float:left;	
+	left:750px;
+	position:relative;
+	top:20px;
+}
+
+#library_button_div button{
+	
+	display:inline-block;
+	
 }
