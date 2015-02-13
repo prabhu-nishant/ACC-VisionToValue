@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.acc.visiontovalue.site.model.Answer;
+import com.acc.visiontovalue.site.model.BestPractice;
 import com.acc.visiontovalue.site.model.Question;
 
 @Controller
@@ -36,6 +37,97 @@ public class AgilePageController {
 		return "questions";
 	}
 
+	
+	@RequestMapping(value="/library" ,method=RequestMethod.GET)
+	public String loadAgileCommunityLibraryPage(HttpServletRequest request,Model model){
+		
+		List<BestPractice> bestpracticesList = new ArrayList<BestPractice>();
+		
+		BestPractice bestPractice1 = new BestPractice();
+		bestPractice1.setBestPracticeId(1L);
+		bestPractice1.setTopic("Best Practice 1");
+		bestPractice1.setSolutionString("");
+		bestPractice1.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice2 = new BestPractice();
+		bestPractice2.setBestPracticeId(2L);
+		bestPractice2.setTopic("Best Practice 2");
+		bestPractice2.setSolutionString("");
+		bestPractice2.setLastUpdatedTime(new Date());
+		
+		
+		BestPractice bestPractice3 = new BestPractice();
+		bestPractice3.setBestPracticeId(3L);
+		bestPractice3.setTopic("Best Practice 3");
+		bestPractice3.setSolutionString("");
+		bestPractice3.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice4 = new BestPractice();
+		bestPractice4.setBestPracticeId(4L);
+		bestPractice4.setTopic("Best Practice 4");
+		bestPractice4.setSolutionString("");
+		bestPractice4.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice5 = new BestPractice();
+		bestPractice5.setBestPracticeId(5L);
+		bestPractice5.setTopic("Best Practice 5");
+		bestPractice5.setSolutionString("");
+		bestPractice5.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice6 = new BestPractice();
+		bestPractice6.setBestPracticeId(6L);
+		bestPractice6.setTopic("Best Practice 6");
+		bestPractice6.setSolutionString("");
+		bestPractice6.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice7 = new BestPractice();
+		bestPractice7.setBestPracticeId(7L);
+		bestPractice7.setTopic("Best Practice 7");
+		bestPractice7.setSolutionString("");
+		bestPractice7.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice8 = new BestPractice();
+		bestPractice8.setBestPracticeId(4L);
+		bestPractice8.setTopic("Best Practice 8");
+		bestPractice8.setSolutionString("");
+		bestPractice8.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice9 = new BestPractice();
+		bestPractice9.setBestPracticeId(9L);
+		bestPractice9.setTopic("Best Practice 9");
+		bestPractice9.setSolutionString("");
+		bestPractice9.setLastUpdatedTime(new Date());
+		
+		bestpracticesList.add(bestPractice1);
+		bestpracticesList.add(bestPractice2);
+		bestpracticesList.add(bestPractice3);
+		bestpracticesList.add(bestPractice4);
+		bestpracticesList.add(bestPractice5);
+		bestpracticesList.add(bestPractice6);
+		bestpracticesList.add(bestPractice7);
+		bestpracticesList.add(bestPractice8);
+		bestpracticesList.add(bestPractice9);
+		
+		setCommonAttributes(model);
+		model.addAttribute("bestpracticesList",bestpracticesList);
+		
+		return "library";
+	}
+	
+	@RequestMapping(value="/ask_question" ,method=RequestMethod.GET)
+	public String loadAgileCommunityAskQuestionPage(HttpServletRequest request,Model model){
+		
+		setCommonAttributes(model);
+		return "ask_question";
+	}
+	
+	@RequestMapping(value="/scenarios" ,method=RequestMethod.GET)
+	public String loadAgileCommunityScenariosPage(HttpServletRequest request,Model model){
+		
+		setCommonAttributes(model);
+		return "scenarios";
+	}
+	
 	
 	
 	@RequestMapping(value="/questions/view" ,method=RequestMethod.GET)

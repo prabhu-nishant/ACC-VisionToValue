@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({ "questionId","questionString","detailedDescription","answerCount","answerList","community","category","lastModifiedDate" })
 public class Question {
 
-	private static final long serialVersionUID = 7056018561552669496L;
+	private static final long serialVersionUID = 3056018561552669496L;
 
 	@JsonProperty
 	private Long questionId;
