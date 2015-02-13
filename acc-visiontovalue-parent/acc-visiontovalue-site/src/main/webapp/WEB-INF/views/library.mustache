@@ -13,8 +13,8 @@
 	<div id="main_div">
 		<div id="best_practice_div">
 			<a href="#"><img src="{{base_path}}/resources/images/4.png" title="Add topic" height="25" width="25"/> Add new topic </a>
-			{{#bestpracticesList}}
 			<table class="best_practice_table">
+				{{#bestpracticesList}}
 				<tr>
 					<td width="50%">
 						<a class="link" href="#">{{topic}}</a>
@@ -34,8 +34,8 @@
 				<tr>
 					<td colspan="4"><hr color="#E5E4E2"></td>
 				</tr>
+				{{/bestpracticesList}}
 			</table>
-			{{/bestpracticesList}}
 		</div>
 		<div id="view_div">
 		</div>

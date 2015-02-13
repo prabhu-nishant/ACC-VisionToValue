@@ -60,7 +60,9 @@
 #answer_box textarea{
 	
 	height:200px;
-	width :900px;
+	width :890px;
+	position:relative;
+	top:20px;
 }
 
 #answers_button_div{
@@ -70,6 +72,7 @@
 	top:10px;
 	left:600px;
 	position:relative;
+	top:20px;
 }
 
 

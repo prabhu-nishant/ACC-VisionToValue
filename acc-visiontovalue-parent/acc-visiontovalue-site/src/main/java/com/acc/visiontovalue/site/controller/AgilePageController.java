@@ -33,7 +33,7 @@ public class AgilePageController {
 	@RequestMapping(value="/questions" ,method=RequestMethod.GET)
 	public String loadAgileCommunityQuestionsPage(HttpServletRequest request,Model model){
 		
-		setCommonAttributes(model);
+		setCommonAttributes(model,"questions");
 		return "questions";
 	}
 
@@ -108,7 +108,7 @@ public class AgilePageController {
 		bestpracticesList.add(bestPractice8);
 		bestpracticesList.add(bestPractice9);
 		
-		setCommonAttributes(model);
+		setCommonAttributes(model,"library");
 		model.addAttribute("bestpracticesList",bestpracticesList);
 		
 		return "library";
@@ -117,14 +117,14 @@ public class AgilePageController {
 	@RequestMapping(value="/ask_question" ,method=RequestMethod.GET)
 	public String loadAgileCommunityAskQuestionPage(HttpServletRequest request,Model model){
 		
-		setCommonAttributes(model);
+		setCommonAttributes(model,"ask_question");
 		return "ask_question";
 	}
 	
 	@RequestMapping(value="/scenarios" ,method=RequestMethod.GET)
 	public String loadAgileCommunityScenariosPage(HttpServletRequest request,Model model){
 		
-		setCommonAttributes(model);
+		setCommonAttributes(model,"scenarios");
 		return "scenarios";
 	}
 	
@@ -144,7 +144,7 @@ public class AgilePageController {
 			
 		}
 		
-		setCommonAttributes(model);
+		setCommonAttributes(model,"questions");
 		model.addAttribute("questionList",questionList);	
 		
 		return "questions_view";
@@ -165,7 +165,7 @@ public class AgilePageController {
 			
 		}
 		
-		setCommonAttributes(model);
+		setCommonAttributes(model,"questions");
 		model.addAttribute("question",question);
 		return "questions_detail";
 	}
@@ -333,10 +333,11 @@ public class AgilePageController {
 		return questionList;
 	}
 	
-	private void setCommonAttributes(Model model) {
+	private void setCommonAttributes(Model model,String page) {
 		model.addAttribute("base_path",basepath);
 		model.addAttribute("communityName","Agile");
 		model.addAttribute("community","agile");
+		model.addAttribute("page",page);
 	}
 	
 }
