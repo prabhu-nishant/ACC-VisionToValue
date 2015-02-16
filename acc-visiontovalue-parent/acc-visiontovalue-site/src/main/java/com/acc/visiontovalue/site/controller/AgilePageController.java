@@ -367,45 +367,219 @@ public class AgilePageController {
 		question10.setCommunity("agile");
 		question10.setAnswerCount(0);
 		question10.setCategory("roadmaptodeploy");
-		question10.setQuestionString("");
-		question10.setDetailedDescription("How do I handle the challenge of high story point backlog?");
+		question10.setQuestionString("As a Business User, I want  to see the solutions faster and provide feedbacks so that the solutions can align closer to our Business Users Requirements and improve Speed to Market");
+		question10.setDetailedDescription("As a Business User, I want  to see the solutions faster and provide feedbacks so that the solutions can align closer to our Business Users Requirements and improve Speed to Market");
 		question10.setLastModifiedDate(new Date());
+		question10.setRecommendedSolution("Accenture Prototype Accelerator Factory:"
+				+"\nIt is a prototyping service that is used to create the prototype for new applications or while modeling new business processes"
+
+				+"\n\nThere are 4 types of prototypes:"
+				+"\n1. Off the shelf"
+				+"\n2. New Web"
+				+"\n3. Mobile"
+				+"\n4. Web + Mobile"
+
+				+"\n\nHow-To:"
+				+"\nThis process works as follows:"
+				+"\n- Quickly analyze the business requirements and design "
+				+"\n- Develop visual specifications to depict system flow and interaction"
+				+"\n- Validate with business users and gather feedback."
+				+"\n- Meet prototype objectives without ambiguity, use visuals instead of words, "
+				+"\n- Ensure that everyone including business shares a common understanding.");
+		
+		question10.setAnswerList(new ArrayList<Answer>());
 		
 		Question question11 = new Question ();
 		question11.setQuestionId(11L);
 		question11.setCommunity("agile");
-		question11.setAnswerCount(20);
+		question11.setAnswerCount(0);
 		question11.setCategory("roadmaptodeploy");
-		question11.setQuestionString("Question  K");
-		question11.setDetailedDescription("Detailed description for "+question11.getQuestionString());
+		question11.setQuestionString("As a Developer, I want to make sure that I write optimized lines of code so that there is defect rate is low");
+		question11.setDetailedDescription("As a Developer, I want to make sure that I write optimized lines of code so that there is defect rate is low");
 		question11.setLastModifiedDate(new Date());
+		question11.setRecommendedSolution("Test Driven Development (TDD):"
+				+"\nTest-driven development (TDD) is an evolutionary approach to development which combines test-first development where you write a test before you write just enough production code to fulfill that test and refactoring."
+
+				+"\n\nHow-To:"
+				+"\n1. The developer writes an (initially failing) automated test case that defines a desired improvement or new function."
+				+"\n2. The developer produces the minimum amount of code to pass that test."
+				+"\n3. Finally refactors the new code to acceptable standards");
+		question11.setAnswerList(new ArrayList<Answer>());
 		
 		Question question12 = new Question ();
 		question12.setQuestionId(12L);
 		question12.setCommunity("agile");
-		question12.setAnswerCount(6);
-		question12.setCategory("deploytovalue");
-		question12.setQuestionString("Question L");
-		question12.setDetailedDescription("Detailed description for "+question12.getQuestionString());
+		question12.setAnswerCount(0);
+		question12.setCategory("roadmaptodeploy");
+		question12.setQuestionString("How do I know what is the release goal and by when can we achieve it ?");
+		question12.setDetailedDescription("How do I know what is the release goal and by when can we achieve it ?");
 		question12.setLastModifiedDate(new Date());
+		
+		question12.setRecommendedSolution("Release Planning:"
+		+"\nRelease Planning is performed during Sprint 0 at the beginning of a release to identify the release timelines (typically 3-6 months), the goals of the release, the scope and the number of Iterations in that release"
+
+		+"\n\nFor more details, refer: https://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Release%20Planning%20Guidelines_E73369A2.html ");
+		question12.setAnswerList(new ArrayList<Answer>());
 		
 		Question question13 = new Question ();
 		question13.setQuestionId(13L);
 		question13.setCommunity("agile");
-		question13.setAnswerCount(9);
-		question13.setCategory("deploytovalue");
-		question13.setQuestionString("Question  M");
-		question13.setDetailedDescription("Detailed description for "+question13.getQuestionString());
+		question13.setAnswerCount(0);
+		question13.setCategory("roadmaptodeploy");
+		question13.setQuestionString("How do I ensure that there is a continuous focus on productivity gain ?");
+		question13.setDetailedDescription("How do I ensure that there is a continuous focus on productivity gain ?");
 		question13.setLastModifiedDate(new Date());
+		question13.setRecommendedSolution("Kaizen (Continuous Improvement):"
+				+"\nKaizen refers to philosophy or practices that focus upon continuous improvement of processes in manufacturing ,engineering, business management or any process"
+				+"\n\nHow-To:"
+				+"\nThere are few techniques that can be used to perform continuous improvement."
+				+"\n1. PDCA Cycle - Plan, Do, Check and Act cycle"
+				+"\n2. Fishbone Diagram - visually representing a series of root causes stemming from one problem");
+		
+		question13.setAnswerList(new ArrayList<Answer>());
+		
 		
 		Question question14 = new Question ();
 		question14.setQuestionId(14L);
 		question14.setCommunity("agile");
-		question14.setAnswerCount(14);
-		question14.setCategory("deploytovalue");
-		question14.setQuestionString("Question  N");
-		question14.setDetailedDescription("Detailed description for "+question14.getQuestionString());
+		question14.setAnswerCount(0);
+		question14.setCategory("roadmaptodeploy");
+		question14.setQuestionString("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
+		question14.setDetailedDescription("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
 		question14.setLastModifiedDate(new Date());
+		question14.setRecommendedSolution("Sprint Planning:"
+				+"\nThis is a planning meeting that is conducted at the beginning of a Sprint to identify the goal of the Sprint and create the Sprint Backlog. The Product Owner, the Scrum Master, the team, and the manager attend this meeting. The stories selected for the Sprint are broken into tasks, and the tasks are estimated in hours"
+
+				+"\n\nFor more details, refer: https://methodology.accenture.com/dist_agile/#meth.dist_agile/tasks/Sprint%20Planning_D7E1FA41.html ");
+		question14.setAnswerList(new ArrayList<Answer>());
+		
+		Question question15 = new Question ();
+		question15.setQuestionId(15L);
+		question15.setCommunity("agile");
+		question15.setAnswerCount(0);
+		question15.setCategory("roadmaptodeploy");
+		question15.setQuestionString("How do I perform daily planning and resolve day to day impediments ?");
+		question15.setDetailedDescription("How do I perform daily planning and resolve day to day impediments ?");
+		question15.setLastModifiedDate(new Date());
+		question15.setRecommendedSolution("Daily Standup:"
+				+"\nThis is a daily meeting of the team where all the team members and the Scrum master are present and discuss the progress, plan the day and highlight the impediments. This meeting is time-boxed to 15 minutes. "
+
+				+"\nHow-To:"
+				+"\nAll the team members has to answer following 3 questions:  "
+
+				+"\nWhat did you do yesterday?" 
+				+"\nWhat will you do today? "
+				+"\nWhat are the impediments in your work? ");
+		question15.setAnswerList(new ArrayList<Answer>());
+		
+		Question question16 = new Question ();
+		question16.setQuestionId(16L);
+		question16.setCommunity("agile");
+		question16.setAnswerCount(0);
+		question16.setCategory("roadmaptodeploy");
+		question16.setQuestionString("How do I ensure that the sprint goals are delivered and meet the expectations ?");
+		question16.setDetailedDescription("How do I ensure that the sprint goals are delivered and meet the expectations ?");
+		question16.setLastModifiedDate(new Date());
+		question16.setRecommendedSolution("Sprint Review:"
+				+"\nThis is a review meeting with the Product Owner conducted at the end of the sprint. The Team demo the user stories committed for the sprint and the Product Owner provides feedback. Finally the user stories are accepted or rejected by the Product Owner."
+
+				+"\n\nFor more details, refer: https://methodology.accenture.com/dist_agile/#meth.dist_agile/tasks/Sprint%20Review_F7669F0B.html ");
+		question16.setAnswerList(new ArrayList<Answer>());
+		
+		Question question17 = new Question ();
+		question17.setQuestionId(17L);
+		question17.setCommunity("agile");
+		question17.setAnswerCount(0);
+		question17.setCategory("roadmaptodeploy");
+		question17.setQuestionString("As a team, we want to make sure that we retrospect at regular interval and fine tune the behaviour so that we can continuously improve");
+		question17.setDetailedDescription("As a team, we want to make sure that we retrospect at regular interval and fine tune the behaviour so that we can continuously improve");
+		question17.setLastModifiedDate(new Date());
+		question17.setRecommendedSolution("Sprint Retrospective:"
+				+"\nSprint Retrospective meetings are conducted at the end of each sprint. During this meeting, the ScrumMaster and the team discuss the just completed sprint and discuss what can be done to improve future sprints."
+
+				+"\n\nFor more details, refer: https://methodology.accenture.com/dist_agile/#meth.dist_agile/tasks/Sprint%20Retrospective_BA0E5E30.html");
+		question17.setAnswerList(new ArrayList<Answer>());
+		
+		
+		Question question18 = new Question ();
+		question18.setQuestionId(18L);
+		question18.setCommunity("agile");	
+		question18.setAnswerCount(0);
+		question18.setCategory("roadmaptodeploy");
+		question18.setQuestionString("How do I ensure that the goal of continuous delivery is met ?");
+		question18.setDetailedDescription("How do I ensure that the goal of continuous delivery is met ?");
+		question18.setLastModifiedDate(new Date());
+		question18.setRecommendedSolution("Configuration Management:"
+			+"\nConfiguration Management is the backbone for continuous delivery. Having a robust configuration management would ensure a strong foundation for continuous integration, deploy"
+			+"\n\nFor more details:\"https://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Configuration%20Management%20Guidelines_A966194F.html \"");
+		question18.setAnswerList(new ArrayList<Answer>());
+		
+		Question question19 = new Question ();
+		question19.setQuestionId(19L);
+		question19.setCommunity("agile");
+		question19.setAnswerCount(0);
+		question19.setCategory("roadmaptodeploy");
+		question19.setQuestionString("How do I ensure that the team is able to integrate continuously automatically with less manual interventions ?");
+		question19.setDetailedDescription("How do I ensure that the team is able to integrate continuously automatically with less manual interventions ?");
+		question19.setLastModifiedDate(new Date());
+		question19.setRecommendedSolution("Continuous Integration:"
+				+"\nContinuous Integration provides a kind of environment which takes care of the frequent Build, Integration and Testing needs of a project / program. It consists of a series of automated steps which can be executed either when new code is added into repository or at a scheduled time depending on the way it has been configured to run. These automated steps ensure the integration works as desired and at the same time reduce the time associated with the frequent integration. Continuous integration ensures that the code is compiled, unit tested and compliant with standards"
+
+				+"\n\nFor more details, refer: https://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Continuous%20Integration%20Environment%20Guidelines_6CAE42E1.html");
+		question19.setAnswerList(new ArrayList<Answer>());
+
+		Question question20 = new Question ();
+		question20.setQuestionId(20L);
+		question20.setCommunity("agile");
+		question20.setAnswerCount(0);
+		question20.setCategory("roadmaptodeploy");
+		question20.setQuestionString("How do I ensure the progress of the team in the sprint is seamless and transparent ?");
+		question20.setDetailedDescription("How do I ensure the progress of the team in the sprint is seamless and transparent ?");
+		question20.setLastModifiedDate(new Date());
+		question20.setRecommendedSolution("Kanban Wall:"
+				+"\nOne of the core principles of Kanban for software development is “Make it visible”. A Kanban Wall is a visual display of all the tasks along with its progress pertaining to a sprint. It consists of a sequence of defined steps or sub processes or states that a user story moves through until it is complete. The states are defined based on the sequence of activities in which the user stories are developed."
+
+				+"\n\nFor more details, refer:"
+				+"\nhttps://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Kanban%20Board%20Setup%20and%20Management%20Guidelines_D4026BC7.html ");
+		question20.setAnswerList(new ArrayList<Answer>());
+		
+		Question question21 = new Question ();
+		question21.setQuestionId(21L);
+		question21.setCommunity("agile");
+		question21.setAnswerCount(0);
+		question21.setCategory("roadmaptodeploy");
+		question21.setQuestionString("How do I ensure that deployment is fast and continuous ?");
+		question21.setDetailedDescription("How do I ensure that deployment is fast and continuous ?");
+		question21.setLastModifiedDate(new Date());
+		question21.setRecommendedSolution("Automated Deploy:"
+				+"\nThis practice can be achieved by the using a Continuous Integration framework, which will perform the automated deployment at regular and pre-determined intervals or can be triggered by code check in by a developer ");
+		question21.setAnswerList(new ArrayList<Answer>());
+		
+		Question question22 = new Question ();
+		question22.setQuestionId(22L);
+		question22.setCommunity("agile");
+		question22.setAnswerCount(0);
+		question22.setCategory("roadmaptodeploy");
+		question22.setQuestionString("How do I ensure that the IT development is aligned to business requirements ?");
+		question22.setDetailedDescription("How do I ensure that the IT development is aligned to business requirements ?");
+		question22.setLastModifiedDate(new Date());
+		question22.setRecommendedSolution("Behaviour Driven Development:"
+				+"\nBehavior-driven development combines the general techniques and principles of TDD with ideas from domain-driven design and object-oriented analysis and design to provide software developers and business analysts with shared tools and a shared process to collaborate on software development, with the aim of delivering \"software that matters\"."
+
+				+"\n\nFor more details, refer: http://en.wikipedia.org/wiki/Behavior-driven_development ");
+		question22.setAnswerList(new ArrayList<Answer>());
+		
+		
+		Question question23 = new Question ();
+		question23.setQuestionId(23L);
+		question23.setCommunity("agile");
+		question23.setAnswerCount(0);
+		question23.setCategory("deploytovalue");
+		question23.setQuestionString("");
+		question23.setDetailedDescription("");
+		question23.setLastModifiedDate(new Date());
+		question23.setRecommendedSolution("");
+		question23.setAnswerList(new ArrayList<Answer>());
 		
 		questionList.add(question1);
 		questionList.add(question2);
