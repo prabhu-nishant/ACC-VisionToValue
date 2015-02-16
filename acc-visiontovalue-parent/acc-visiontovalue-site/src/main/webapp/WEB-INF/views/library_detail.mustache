@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> WEB-INF/views/common_header_tags.mustache}}
+<script type="text/javascript">
+	
+	function saveAnswer(){
+		
+		var doc = new jsPDF();
+		{{#bestPractice}}
+			doc.text(20, 10, "{{bestPracticeId}}" );
+			doc.text(20, 20, "{{topic}}" );
+			doc.text(20, 30, "{{solutionString}}" );
+			doc.text(20, 40, "{{lastUpdatedTime}}" );
+			doc.save('{{bestPracticeId}}.pdf');
+		{{/bestPractice}}
+	}
+
+</script>
+</head>
+<body>
+{{> WEB-INF/views/header.mustache}}
+{{> WEB-INF/views/link_navigator.mustache}}
+<div id="display_div">
+	
+	<div id="main_div">
+		{{#bestPractice}}
+		<div id="bestPractice_detail_header">{{topic}}</div>
+	
+		<hr color="#E5E4E2">
+	
+		<div id="bestPractice_detailedDescription">{{solutionString}}</div>
+
+		<div id="save_button_div">
+			<button class="save_button_css" id="saveAnswer" onClick="saveAnswer()">Save as PDF</button>
+		</div>
+		
+		{{/bestPractice}}
+	</div>
+	<div id="view_div">
+	</div>
+	
+</div>
+</body>
+</html>

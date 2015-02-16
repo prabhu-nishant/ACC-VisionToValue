@@ -45,7 +45,7 @@
 						<input type="checkbox" name={{bestPracticeId}} value={{bestPracticeId}}>
 					</td>
 					<td width="45%">
-						<a href="#">{{topic}}</a>
+						<a href="{{base_path}}/{{community}}/library/detail/{{bestPracticeId}}">{{topic}}</a>
 					</td>
 					<td width="5%">
 						<a href="#"><img src="{{base_path}}/resources/images/2.png" title="Edit topic" height="20" width="20"/></a>
@@ -64,9 +64,6 @@
 				</tr>
 				{{/bestpracticesList}}
 			</table>
-			<div id="library_button_div">
-				<button class="button_table" id="saveclick" onClick="saveClick()">Save as PDF</button>
-			</div>
 		</div>
 		<div id="view_div">
 		</div>

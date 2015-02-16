@@ -1,4 +1,4 @@
-#question_detail_header,#detailedDescription{
+#question_detail_header,#detailedDescription,#recommendedSolution{
 	display: block;
 	float:left;	
 	font-weight: 700;
@@ -9,7 +9,6 @@
 #question_detail_header{
 	
 	font-size:20px;
-	height:50px;
 	width:900px;
 }
 
@@ -18,14 +17,24 @@
 	
 	background:#E5E4E2;
 	font-size:12px;
-	height:200px;
 	width:900px;
+	white-space: pre-wrap;
+}
+
+
+#recommendedSolution{
+	
+	background:#E5E4E2;
+	font-size:12px;
+	width:900px;
+	position:relative;
+	top:20px;
+	white-space: pre-wrap;
 }
 
 #answers{
 	
 	font-size:12px;
-	height:500px;
 	width:900px;
 }
 
@@ -62,7 +71,7 @@
 	height:200px;
 	width :890px;
 	position:relative;
-	top:20px;
+	top:40px;
 }
 
 #answers_button_div{
@@ -70,13 +79,13 @@
 	display:block;
 	float:left;
 	top:10px;
-	left:600px;
+	left:750px;
 	position:relative;
-	top:20px;
+	top:40px;
 }
 
 
-.save_button{
+.post_button{
 	background:#3BB9FF;
 	border:none;
 	border-radius: 10px;
@@ -91,7 +100,7 @@
 	width: 150px;
 }
 
-.save_button:hover {
+.post_button {
 	background:#38ACEC;
 	border:none;
 	text-decoration: none;
