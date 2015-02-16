@@ -16,11 +16,11 @@
 	padding-bottom: .5em;
 }
 
-.link {
+#table_div a {
 	
 	text-decoration: none;
 	color:#003367;
-	font-size:"3px";
+	font-size:15px;
 }
 
 
