@@ -575,11 +575,51 @@ public class AgilePageController {
 		question23.setCommunity("agile");
 		question23.setAnswerCount(0);
 		question23.setCategory("deploytovalue");
-		question23.setQuestionString("");
-		question23.setDetailedDescription("");
+		question23.setQuestionString("How do I improve productivity of support incidents ?");
+		question23.setDetailedDescription("How do I improve productivity of support incidents ?");
 		question23.setLastModifiedDate(new Date());
-		question23.setRecommendedSolution("");
+		question23.setRecommendedSolution("Value Stream Mapping(VSM):"
+				+"\nVSM is used to analyze an existing process to identify the improvement areas. It is a method of creating \"One Page Picture\" of all the activities and tasks that occur in a process, from the time a customer provides the requirement, until the application, product, or service meeting the requirement is provided to the customer. The goal is to depict data and information flows across and throughput all the process steps that are required to provide the application, product or service to the customer. VSM documents both value and non-value adding (wastes) steps in a process");
 		question23.setAnswerList(new ArrayList<Answer>());
+		
+		Question question24 = new Question ();
+		question24.setQuestionId(24L);
+		question24.setCommunity("agile");
+		question24.setAnswerCount(0);
+		question24.setCategory("deploytovalue");
+		question24.setQuestionString("How do I reduce high resolution time for incidents ?");
+		question24.setDetailedDescription("How do I reduce high resolution time for incidents ?");
+		question24.setLastModifiedDate(new Date());
+		question24.setRecommendedSolution("SIPOC:"
+				+"\nSIPOC is used to identify the key elements (Supplier, Inputs, Process, Outputs and Customers) of a process, which are to be considered to improve process performance. It gives a high-level picture of the process that depicts how the given process is servicing the customer");
+		question24.setAnswerList(new ArrayList<Answer>());
+		
+		Question question25 = new Question ();
+		question25.setQuestionId(25L);
+		question25.setCommunity("agile");
+		question25.setAnswerCount(0);
+		question25.setCategory("deploytovalue");
+		question25.setQuestionString("How do I ensure that the cycle time is reduced between the ticket in the queue till it is available in the production ?");
+		question25.setDetailedDescription("How do I ensure that the cycle time is reduced between the ticket in the queue till it is available in the production ?");
+		question25.setLastModifiedDate(new Date());
+		question25.setRecommendedSolution("Kanban Wall:"
+				+"\nOne of the core principles of Kanban for software development is “Make it visible”. A Kanban Wall is a visual display of all the tasks along with its progress pertaining to a sprint. It consists of a sequence of defined steps or sub processes or states that a user story moves through until it is complete. The states are defined based on the sequence of activities in which the user stories are developed."
+
+				+"\n\nFor more details, refer:"
+				+"\nhttps://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Kanban%20Board%20Setup%20and%20Management%20Guidelines_D4026BC7.html ");
+		question25.setAnswerList(new ArrayList<Answer>());
+		
+		Question question26 = new Question ();
+		question26.setQuestionId(26L);
+		question26.setCommunity("agile");
+		question26.setAnswerCount(0);
+		question26.setCategory("deploytovalue");
+		question26.setQuestionString("How do I ensure that the development and operations transition is seamless ?");
+		question26.setDetailedDescription("How do I ensure that the development and operations transition is seamless ?");
+		question26.setLastModifiedDate(new Date());
+		question26.setRecommendedSolution("Self-Service Provisioning:"
+			+"\nWith the increasing complexity involved in software development, provisioning of environments for development teams has become complex and demanding task for IT operations. As cloud computing enables near infinite computing resources, organizations can now build cloud based self-service provisioning systems. These self systems enable development teams to rapidly clone and bring up environments as per needs, and avoiding to wait for IT operations to provision it. Such self-service solutions with accurate cloud-based provisioning, improves coordination between development and IT operations, in turn reducing development time and improving the quality of software delivered.");
+		question26.setAnswerList(new ArrayList<Answer>());
 		
 		questionList.add(question1);
 		questionList.add(question2);
@@ -595,13 +635,25 @@ public class AgilePageController {
 		questionList.add(question12);
 		questionList.add(question13);
 		questionList.add(question14);
+		questionList.add(question15);
+		questionList.add(question16);
+		questionList.add(question17);
+		questionList.add(question18);
+		questionList.add(question19);
+		questionList.add(question20);
+		questionList.add(question21);
+		questionList.add(question22);
+		questionList.add(question23);
+		questionList.add(question24);
+		questionList.add(question25);
+		questionList.add(question26);
 		
 		return questionList;
 	}
 	
 	private void setCommonAttributes(Model model,String page) {
 		model.addAttribute("base_path",basepath);
-		model.addAttribute("communityName","Agile");
+		model.addAttribute("communityName","Agile Coach");
 		model.addAttribute("community","agile");
 		model.addAttribute("page",page);
 	}
