@@ -2,29 +2,6 @@
 <html>
 <head>
 {{> WEB-INF/views/common_header_tags.mustache}}
-<script type="text/javascript">
-	
-	function saveAnswer(){
-		
-		var doc = new jsPDF();
-		{{#question}}
-			doc.text(20, 10, "{{questionString}}" );
-			doc.text(20, 20, "{{detailedDescription}}" );
-			doc.text(20, 30, "{{community}}" );
-			doc.text(20, 40, "{{category}}" );
-			doc.text(20, 50, "{{lastModifiedDate}}" );
-			var j =60;		
-			{{#answerList}}
-				doc.text(20, j, "{{answerString}}" );
-				doc.text(20, j+10, "{{date}}" );
-				j=j+20;				
-			{{/answerList}}
-					
-			doc.save('{{questionId}}.pdf');
-		{{/question}}
-	}
-
-</script>
 </head>
 <body>
 {{> WEB-INF/views/header.mustache}}
@@ -32,7 +9,11 @@
 <div id="display_div">
 	
 	<div id="main_div">
+		
 		{{#question}}
+		
+		<form action="{{base_path}}/{{community}}/questions/detail/{{questionId}}" method="post" accept-charset="UTF-8">
+		
 		<div id="question_detail_header">
 		
 		<table width="100%">
@@ -81,13 +62,17 @@
 				{{/answerList}}
 			</table>
 		</div>
-		{{/question}}
 		<div id="answer_box">
-			<textarea placeholder="Post your answer"></textarea>
-			<div id="answers_button_div">
-				<button class="post_button" id="submitAnswer" >Post answer</button>
-			</div>
+			
+				<input type="hidden" id="questionId" name="questionId" {{#form.questionId}}value="{{form.questionId}}"{{/form.questionId}} />
+				<input type="textarea" placeholder="Post your answer" name="answerArea" {{#form.textArea}}value="{{form.textArea}}"{{/form.textArea}}/>
+				<div id="answers_button_div">
+					<input type="submit" name="submit" value="Post Answer"/>
+				</div>
 		</div>
+		</form>
+		{{/question}}
+		
 	</div>
 	
 	<div id="view_div">

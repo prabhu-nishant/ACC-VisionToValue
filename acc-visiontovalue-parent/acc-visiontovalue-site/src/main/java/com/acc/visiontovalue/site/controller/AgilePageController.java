@@ -5,15 +5,23 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.acc.visiontovalue.site.form.TextAreaForm;
 import com.acc.visiontovalue.site.model.Answer;
 import com.acc.visiontovalue.site.model.BestPractice;
 import com.acc.visiontovalue.site.model.Question;
@@ -49,75 +57,6 @@ public class AgilePageController {
 		return "library";
 	}
 
-	private List<BestPractice> getBestPracticesList() {
-		List<BestPractice> bestpracticesList = new ArrayList<BestPractice>();
-		
-		BestPractice bestPractice1 = new BestPractice();
-		bestPractice1.setBestPracticeId(1L);
-		bestPractice1.setTopic("Best Practice 1");
-		bestPractice1.setSolutionString("Solution String");
-		bestPractice1.setLastUpdatedTime(new Date());
-		
-		BestPractice bestPractice2 = new BestPractice();
-		bestPractice2.setBestPracticeId(2L);
-		bestPractice2.setTopic("Best Practice 2");
-		bestPractice2.setSolutionString("Solution String");
-		bestPractice2.setLastUpdatedTime(new Date());
-		
-		
-		BestPractice bestPractice3 = new BestPractice();
-		bestPractice3.setBestPracticeId(3L);
-		bestPractice3.setTopic("Best Practice 3");
-		bestPractice3.setSolutionString("Solution String");
-		bestPractice3.setLastUpdatedTime(new Date());
-		
-		BestPractice bestPractice4 = new BestPractice();
-		bestPractice4.setBestPracticeId(4L);
-		bestPractice4.setTopic("Best Practice 4");
-		bestPractice4.setSolutionString("Solution String");
-		bestPractice4.setLastUpdatedTime(new Date());
-		
-		BestPractice bestPractice5 = new BestPractice();
-		bestPractice5.setBestPracticeId(5L);
-		bestPractice5.setTopic("Best Practice 5");
-		bestPractice5.setSolutionString("Solution String");
-		bestPractice5.setLastUpdatedTime(new Date());
-		
-		BestPractice bestPractice6 = new BestPractice();
-		bestPractice6.setBestPracticeId(6L);
-		bestPractice6.setTopic("Best Practice 6");
-		bestPractice6.setSolutionString("Solution String");
-		bestPractice6.setLastUpdatedTime(new Date());
-		
-		BestPractice bestPractice7 = new BestPractice();
-		bestPractice7.setBestPracticeId(7L);
-		bestPractice7.setTopic("Best Practice 7");
-		bestPractice7.setSolutionString("Solution String");
-		bestPractice7.setLastUpdatedTime(new Date());
-		
-		BestPractice bestPractice8 = new BestPractice();
-		bestPractice8.setBestPracticeId(4L);
-		bestPractice8.setTopic("Best Practice 8");
-		bestPractice8.setSolutionString("Solution String");
-		bestPractice8.setLastUpdatedTime(new Date());
-		
-		BestPractice bestPractice9 = new BestPractice();
-		bestPractice9.setBestPracticeId(9L);
-		bestPractice9.setTopic("Best Practice 9");
-		bestPractice9.setSolutionString("Solution String");
-		bestPractice9.setLastUpdatedTime(new Date());
-		
-		bestpracticesList.add(bestPractice1);
-		bestpracticesList.add(bestPractice2);
-		bestpracticesList.add(bestPractice3);
-		bestpracticesList.add(bestPractice4);
-		bestpracticesList.add(bestPractice5);
-		bestpracticesList.add(bestPractice6);
-		bestpracticesList.add(bestPractice7);
-		bestpracticesList.add(bestPractice8);
-		bestpracticesList.add(bestPractice9);
-		return bestpracticesList;
-	}
 	
 	
 
@@ -181,6 +120,23 @@ public class AgilePageController {
 		
 		Question question = null;
 		
+		question = getQuestionDetail(questionId);
+		
+		if (!model.containsAttribute("form")) {
+
+			TextAreaForm form = new TextAreaForm();
+			form.setQuestionId(questionId);
+			model.addAttribute("form", form);
+		}
+		
+		setCommonAttributes(model,"questions");
+		model.addAttribute("question",question);
+		return "questions_detail";
+	}
+
+	private Question getQuestionDetail(long questionId) {
+		
+		Question question = null;
 		for(Question question1:getQuestionList()){
 			
 			if(questionId == question1.getQuestionId()){
@@ -190,10 +146,39 @@ public class AgilePageController {
 			}
 			
 		}
+		return question;
+	}
+	
+	@RequestMapping(value = "/questions/detail/{questionId}", method = RequestMethod.POST)
+	public String submitForm(@ModelAttribute
+	@Valid 	TextAreaForm form, BindingResult result, HttpServletRequest request, HttpSession session, Model model) {
+		
+		
+		Long questionId = form.getQuestionId();
+		Question question = getQuestionDetail(questionId);
+		
+		Answer ans = new Answer();
+		ans.setAnswerId(questionId);
+		
+		System.out.println("Text Area is >>>>> "+form.getTextArea());
+		
+		ans.setAnswerString(form.getTextArea());
+		ans.setDate(new Date());
+		
+		question.getAnswerList().add(ans);
 		
 		setCommonAttributes(model,"questions");
 		model.addAttribute("question",question);
 		return "questions_detail";
+	}
+	
+	
+
+	private void setCommonAttributes(Model model,String page) {
+		model.addAttribute("base_path",basepath);
+		model.addAttribute("communityName","Agile Coach");
+		model.addAttribute("community","agile");
+		model.addAttribute("page",page);
 	}
 	
 	private List<Question> getQuestionList() {
@@ -651,11 +636,75 @@ public class AgilePageController {
 		return questionList;
 	}
 	
-	private void setCommonAttributes(Model model,String page) {
-		model.addAttribute("base_path",basepath);
-		model.addAttribute("communityName","Agile Coach");
-		model.addAttribute("community","agile");
-		model.addAttribute("page",page);
+	
+	private List<BestPractice> getBestPracticesList() {
+		List<BestPractice> bestpracticesList = new ArrayList<BestPractice>();
+		
+		BestPractice bestPractice1 = new BestPractice();
+		bestPractice1.setBestPracticeId(1L);
+		bestPractice1.setTopic("Best Practice 1");
+		bestPractice1.setSolutionString("Solution String");
+		bestPractice1.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice2 = new BestPractice();
+		bestPractice2.setBestPracticeId(2L);
+		bestPractice2.setTopic("Best Practice 2");
+		bestPractice2.setSolutionString("Solution String");
+		bestPractice2.setLastUpdatedTime(new Date());
+		
+		
+		BestPractice bestPractice3 = new BestPractice();
+		bestPractice3.setBestPracticeId(3L);
+		bestPractice3.setTopic("Best Practice 3");
+		bestPractice3.setSolutionString("Solution String");
+		bestPractice3.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice4 = new BestPractice();
+		bestPractice4.setBestPracticeId(4L);
+		bestPractice4.setTopic("Best Practice 4");
+		bestPractice4.setSolutionString("Solution String");
+		bestPractice4.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice5 = new BestPractice();
+		bestPractice5.setBestPracticeId(5L);
+		bestPractice5.setTopic("Best Practice 5");
+		bestPractice5.setSolutionString("Solution String");
+		bestPractice5.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice6 = new BestPractice();
+		bestPractice6.setBestPracticeId(6L);
+		bestPractice6.setTopic("Best Practice 6");
+		bestPractice6.setSolutionString("Solution String");
+		bestPractice6.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice7 = new BestPractice();
+		bestPractice7.setBestPracticeId(7L);
+		bestPractice7.setTopic("Best Practice 7");
+		bestPractice7.setSolutionString("Solution String");
+		bestPractice7.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice8 = new BestPractice();
+		bestPractice8.setBestPracticeId(4L);
+		bestPractice8.setTopic("Best Practice 8");
+		bestPractice8.setSolutionString("Solution String");
+		bestPractice8.setLastUpdatedTime(new Date());
+		
+		BestPractice bestPractice9 = new BestPractice();
+		bestPractice9.setBestPracticeId(9L);
+		bestPractice9.setTopic("Best Practice 9");
+		bestPractice9.setSolutionString("Solution String");
+		bestPractice9.setLastUpdatedTime(new Date());
+		
+		bestpracticesList.add(bestPractice1);
+		bestpracticesList.add(bestPractice2);
+		bestpracticesList.add(bestPractice3);
+		bestpracticesList.add(bestPractice4);
+		bestpracticesList.add(bestPractice5);
+		bestpracticesList.add(bestPractice6);
+		bestpracticesList.add(bestPractice7);
+		bestpracticesList.add(bestPractice8);
+		bestpracticesList.add(bestPractice9);
+		return bestpracticesList;
 	}
 	
 }

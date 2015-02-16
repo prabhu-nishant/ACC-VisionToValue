@@ -68,7 +68,7 @@
 	float:left;
 }
 
-#answer_box textarea{
+#answer_box input[type=textarea]{
 	
 	height:200px;
 	width :890px;
@@ -87,7 +87,7 @@
 }
 
 
-.post_button{
+#answers_button_div input[type=submit]{
 	background:#3BB9FF;
 	border:none;
 	border-radius: 10px;
@@ -102,7 +102,7 @@
 	width: 150px;
 }
 
-.post_button {
+#answers_button_div input[type=submit]:hover {
 	background:#38ACEC;
 	border:none;
 	text-decoration: none;

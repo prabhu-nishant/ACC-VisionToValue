@@ -2,21 +2,6 @@
 <html>
 <head>
 {{> WEB-INF/views/common_header_tags.mustache}}
-<script type="text/javascript">
-	
-	function saveAnswer(){
-		
-		var doc = new jsPDF();
-		{{#bestPractice}}
-			doc.text(20, 10, "{{bestPracticeId}}" );
-			doc.text(20, 20, "{{topic}}" );
-			doc.text(20, 30, "{{solutionString}}" );
-			doc.text(20, 40, "{{lastUpdatedTime}}" );
-			doc.save('{{bestPracticeId}}.pdf');
-		{{/bestPractice}}
-	}
-
-</script>
 </head>
 <body>
 {{> WEB-INF/views/header.mustache}}
