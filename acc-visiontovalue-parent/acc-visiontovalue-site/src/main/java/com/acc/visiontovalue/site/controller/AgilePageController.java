@@ -125,7 +125,6 @@ public class AgilePageController {
 		if (!model.containsAttribute("form")) {
 
 			TextAreaForm form = new TextAreaForm();
-			form.setQuestionId(questionId);
 			model.addAttribute("form", form);
 		}
 		
@@ -151,10 +150,8 @@ public class AgilePageController {
 	
 	@RequestMapping(value = "/questions/detail/{questionId}", method = RequestMethod.POST)
 	public String submitForm(@ModelAttribute
-	@Valid 	TextAreaForm form, BindingResult result, HttpServletRequest request, HttpSession session, Model model) {
+	@Valid 	TextAreaForm form,@PathVariable("questionId") long questionId, BindingResult result, HttpServletRequest request, HttpSession session, Model model) {
 		
-		
-		Long questionId = form.getQuestionId();
 		Question question = getQuestionDetail(questionId);
 		
 		Answer ans = new Answer();
