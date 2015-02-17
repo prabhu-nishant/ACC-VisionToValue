@@ -99,7 +99,32 @@
 #view_div{
 	height:800px;
 	left:920px;
+	font-weight: 700;
+	font-family: Arial, Helvetica, sans-serif;
 	position: absolute;
 	vertical-align:top;
-	width   :250px;
+	width:280px;
 }
+
+#view_div table {
+	text-align:left;	
+}
+
+#view_div table a{
+	
+	color:#003367;
+	font-weight: 700;
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+#view_div table > tr > td{
+	background: #003367;
+	border-radius: 5px;
+	color:#ffffff;
+	font-size:12px;
+	height: 25px;
+	text-align:center;
+}
+

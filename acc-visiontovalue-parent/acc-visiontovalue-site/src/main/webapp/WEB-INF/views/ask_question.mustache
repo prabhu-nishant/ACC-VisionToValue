@@ -13,22 +13,7 @@
 	<div id="main_div">
 	
 	</div>
-	<div id="view_div">
-		<table>
-			<tr>
-				<td>
-					Most viewed questions
-				</td>
-			</tr>
-			{{#view_questions}}
-			<tr>
-				<td>
-					<a href="{{base_path}}/{{community}}/questions/detail/{{questionId}}">{{questionString}}</a>
-				</td>
-			</tr>
-			{{/view_questions}}
-		<table>
-	</div>
+	{{> WEB-INF/views/most_viewed.mustache}}
 </div>
 </body>
 <html>

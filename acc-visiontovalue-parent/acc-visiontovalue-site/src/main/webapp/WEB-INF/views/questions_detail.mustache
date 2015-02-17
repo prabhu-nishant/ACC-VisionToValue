@@ -18,7 +18,7 @@
 		
 		<table width="100%">
 			<tr>
-				<td width="90%">{{questionString}}</td>
+				<td width="90%"><img src="{{base_path}}/resources/images/6.png" title="Question" height="20" width="20"/> {{questionString}}</td>
 				<td width="5%">
 					<a href="#"><img src="{{base_path}}/resources/images/2.png" title="Edit topic" height="20" width="20"/></a>
 				</td>
@@ -72,23 +72,7 @@
 		{{/question}}
 		
 	</div>
-	
-	<div id="view_div">
-		<table>
-			<tr>
-				<td>
-					Most viewed questions
-				</td>
-			</tr>
-			{{#view_questions}}
-			<tr>
-				<td>
-					<a href="{{base_path}}/{{community}}/questions/detail/{{questionId}}">{{questionString}}</a>
-				</td>
-			</tr>
-			{{/view_questions}}
-		<table>
-	</div>
+	{{> WEB-INF/views/most_viewed.mustache}}
 	
 </div>
 </body>
