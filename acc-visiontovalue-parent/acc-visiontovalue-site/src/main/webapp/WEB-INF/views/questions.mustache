@@ -44,17 +44,33 @@
 {{> WEB-INF/views/link_navigator.mustache}}
 <div id="display_div">
 	<div id="main_div">
-		<div id="tabs_div">
-			<ul>
-				<li><div id="tab_title"><span>&nbsp&nbsp Top Questions<span></div></li>
-				<li><button class="tab_active" id="visiontoroadmap" onclick="tabClick('visiontoroadmap')">Vision to RoadMap</button></li>
-				<li><button class="tab_button" id="roadmaptodeploy" onclick="tabClick('roadmaptodeploy')">RoadMap to Deploy</button></li>
-				<li><button class="tab_button" id="deploytovalue" onclick="tabClick('deploytovalue')">Deploy to Value</button></li>
-			</ul>
+		<div id="questions_tab_div">
+			<div id="tabs_div">
+				<ul>
+					<li><div id="tab_title"><span>&nbsp&nbsp Top Questions<span></div></li>
+					<li><button class="tab_active" id="visiontoroadmap" onclick="tabClick('visiontoroadmap')">Vision to RoadMap</button></li>
+					<li><button class="tab_button" id="roadmaptodeploy" onclick="tabClick('roadmaptodeploy')">RoadMap to Deploy</button></li>
+					<li><button class="tab_button" id="deploytovalue" onclick="tabClick('deploytovalue')">Deploy to Value</button></li>
+				</ul>
+			</div>
+			<div id="tab_content_div"/>
 		</div>
-		<div id="tab_content_div"/>
 	</div>
 	<div id="view_div">
+		<table>
+		<tr>
+			<td>
+				Most viewed questions
+			</td>
+		</tr>
+		{{#view_questions}}
+		<tr>
+			<td>
+				<a href="{{base_path}}/{{community}}/questions/detail/{{questionId}}">{{questionString}}</a>
+			</td>
+		</tr>
+		{{/view_questions}}
+		<table>
 	</div>
 </div>
 </body>

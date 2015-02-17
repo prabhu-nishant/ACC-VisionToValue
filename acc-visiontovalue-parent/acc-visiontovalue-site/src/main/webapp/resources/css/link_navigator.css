@@ -91,14 +91,15 @@
 
 #main_div{
 	height : 800px;
-	display: block;
 	width   :900px;
 	position: absolute;
+	vertical-align:top;
 }
 
 #view_div{
 	height:800px;
-	left:900px;
+	left:920px;
 	position: absolute;
+	vertical-align:top;
 	width   :250px;
 }

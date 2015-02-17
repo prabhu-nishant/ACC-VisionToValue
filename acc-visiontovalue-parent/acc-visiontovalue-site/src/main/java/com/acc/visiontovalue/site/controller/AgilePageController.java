@@ -176,6 +176,7 @@ public class AgilePageController {
 		model.addAttribute("communityName","Agile Coach");
 		model.addAttribute("community","agile");
 		model.addAttribute("page",page);
+		model.addAttribute("view_questions",getQuestionList());
 	}
 	
 	private List<Question> getQuestionList() {
