@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.acc.visiontovalue.site.form.EditQuestionForm;
 import com.acc.visiontovalue.site.form.TextAreaForm;
 import com.acc.visiontovalue.site.model.Answer;
 import com.acc.visiontovalue.site.model.BestPractice;
@@ -72,14 +73,7 @@ public class AgilePageController {
 		return "questions_view";
 	}
 
-	
-	@RequestMapping(value="/questions/detail/{questionId}" ,method=RequestMethod.GET)
-	public String loadQuestionsDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
-		
-		Question question = null;
-		
-		question = getQuestionDetail(questionId);
-		
+	private String displayQuestionDetail(Model model, Question question) {
 		if (!model.containsAttribute("form")) {
 
 			TextAreaForm form = new TextAreaForm();
@@ -89,6 +83,13 @@ public class AgilePageController {
 		setCommonAttributes(model,"questions");
 		model.addAttribute("question",question);
 		return "questions_detail";
+	}
+	
+	@RequestMapping(value="/questions/detail/{questionId}" ,method=RequestMethod.GET)
+	public String loadQuestionsDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
+		Question question = getQuestionDetail(questionId);
+		return displayQuestionDetail(model, question);
 	}
 	
 	@RequestMapping(value = "/questions/detail/{questionId}", method = RequestMethod.POST)
@@ -102,16 +103,36 @@ public class AgilePageController {
 		ans.setDate(new Date());
 		question.getAnswerList().add(ans);
 		
+		return displayQuestionDetail(model, question);
+	}
+	
+	@RequestMapping(value="/questions/detail/{questionId}/edit" ,method=RequestMethod.GET)
+	public String editQuestionDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
 		if (!model.containsAttribute("form")) {
 
-			TextAreaForm textform = new TextAreaForm();
-			model.addAttribute("form", textform);
+			Question question = getQuestionDetail(questionId);
+			EditQuestionForm editQuestionform = new EditQuestionForm();
+			editQuestionform.setQuestionString(question.getQuestionString());
+			editQuestionform.setDetailedDescription(question.getDetailedDescription());
+			model.addAttribute("form", editQuestionform);
 		}
 		
 		setCommonAttributes(model,"questions");
-		model.addAttribute("question",question);
-		return "questions_detail";
+		return "question_edit";
 	}
+	
+	@RequestMapping(value="/questions/detail/{questionId}/edit" ,method=RequestMethod.POST)
+	public String submitEdittedQuestionDetail(@ModelAttribute
+			@Valid EditQuestionForm form,@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
+		Question question = getQuestionDetail(questionId);
+		question.setQuestionString(form.getQuestionString());
+		question.setDetailedDescription(form.getDetailedDescription());
+		return displayQuestionDetail(model, question);
+		
+	}
+	
 	
 	@RequestMapping(value="/questions/detail/delete/{questionId}" ,method=RequestMethod.GET)
 	public String deleteQuestionDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
@@ -127,15 +148,7 @@ public class AgilePageController {
 		Question question = getQuestionDetail(questionId);
 		deleteAnswer(question,answerId);
 		
-		if (!model.containsAttribute("form")) {
-
-			TextAreaForm textform = new TextAreaForm();
-			model.addAttribute("form", textform);
-		}
-		
-		setCommonAttributes(model,"questions");
-		model.addAttribute("question",question);
-		return "questions_detail";
+		return displayQuestionDetail(model, question);
 	}
 	
 	

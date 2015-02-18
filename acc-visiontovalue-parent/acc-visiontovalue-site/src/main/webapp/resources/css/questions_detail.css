@@ -26,7 +26,7 @@
 
 #detailedDescription{
 	
-	background:#FFC2C2;
+	background:#F5F5DC;
 	font-size:12px;
 	width:900px;
 	white-space: pre-wrap;
@@ -36,14 +36,14 @@
 
 #recommendedSolution{
 	
-	background:#DBFFDB;
+	background:#F5F5DC;
 	font-size:12px;
 	width:900px;
 	white-space: pre-wrap;
 	word-wrap: break-word; 
 }
 
-#question_detail input[type=textarea]{
+#question_detail textarea{
 	
 	font-size:12px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -54,7 +54,7 @@
 #question_detail input[type=submit]{
 	background:#3BB9FF;
 	border:none;
-	border-radius: 10px;
+	border-radius: 2px;
 	color:#ffffff;
 	font-weight: 700;
 	font-size:15px;
