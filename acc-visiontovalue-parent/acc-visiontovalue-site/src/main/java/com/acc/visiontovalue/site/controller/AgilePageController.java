@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -27,12 +28,18 @@ import com.acc.visiontovalue.site.model.Question;
 @RequestMapping(value="/agile")
 public class AgilePageController {
 
-	private List<Question> questionList = new ArrayList<Question>();
-	private List<BestPractice> bestpracticesList = new ArrayList<BestPractice>();
+	private static List<Question> questionList = new ArrayList<Question>();
+	private static List<BestPractice> bestpracticesList = new ArrayList<BestPractice>();
 	
 	@Value("${acc.visiontovalue.site.basepath}")
 	private String basepath;
 
+	@PostConstruct
+	public void init() {
+		setQuestionList();
+		setBestPracticesList();
+	}
+	
 	@RequestMapping(method=RequestMethod.GET)
 	public String loadAgileCommunityPage(HttpServletRequest request,Model model){
 		return "redirect:/agile/questions" ;
@@ -106,6 +113,32 @@ public class AgilePageController {
 		return "questions_detail";
 	}
 	
+	@RequestMapping(value="/questions/detail/delete/{questionId}" ,method=RequestMethod.GET)
+	public String deleteQuestionDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
+		deleteQuestionDetail(questionId);
+		setCommonAttributes(model,"questions");
+		return "questions";
+	}
+	
+	@RequestMapping(value="/questions/detail/{questionId}/delete/{answerId}" ,method=RequestMethod.GET)
+	public String deleteAnswerDetail(@PathVariable("questionId") long questionId,@PathVariable("answerId") long answerId,HttpServletRequest request,Model model){
+		
+		Question question = getQuestionDetail(questionId);
+		deleteAnswer(question,answerId);
+		
+		if (!model.containsAttribute("form")) {
+
+			TextAreaForm textform = new TextAreaForm();
+			model.addAttribute("form", textform);
+		}
+		
+		setCommonAttributes(model,"questions");
+		model.addAttribute("question",question);
+		return "questions_detail";
+	}
+	
+	
 	@RequestMapping(value="/library" ,method=RequestMethod.GET)
 	public String loadAgileCommunityLibraryPage(HttpServletRequest request,Model model){
 		
@@ -159,6 +192,32 @@ public class AgilePageController {
 		model.addAttribute("view_questions",getQuestionList());
 	}
 	
+	private void deleteAnswer(Question question,long answerId) {
+		
+		for(Answer answer:question.getAnswerList()){
+			
+			if(answerId == answer.getAnswerId()){
+				question.getAnswerList().remove(answer);
+				break;
+			}
+		}
+		
+	}
+	
+	
+	private void deleteQuestionDetail(long questionId) {
+		
+		for(Question question1:getQuestionList()){
+			
+			if(questionId == question1.getQuestionId()){
+				questionList.remove(question1);
+				break;
+			}
+			
+		}
+		
+	}
+	
 	private Question getQuestionDetail(long questionId) {
 		
 		Question question = null;
@@ -175,6 +234,12 @@ public class AgilePageController {
 	}
 	
 	private List<Question> getQuestionList() {
+		
+		return questionList;
+		
+	}
+		
+	private void setQuestionList() {
 		
 		Question question1 = new Question ();
 		question1.setQuestionId(1L);
@@ -624,12 +689,14 @@ public class AgilePageController {
 		questionList.add(question24);
 		questionList.add(question25);
 		questionList.add(question26);
-		
-		return questionList;
 	}
 	
 	
 	private List<BestPractice> getBestPracticesList() {
+		return bestpracticesList;
+	}
+	
+	private void setBestPracticesList() {
 		
 		BestPractice bestPractice1 = new BestPractice();
 		bestPractice1.setBestPracticeId(1L);
@@ -695,7 +762,6 @@ public class AgilePageController {
 		bestpracticesList.add(bestPractice7);
 		bestpracticesList.add(bestPractice8);
 		bestpracticesList.add(bestPractice9);
-		return bestpracticesList;
 	}
 	
 }
