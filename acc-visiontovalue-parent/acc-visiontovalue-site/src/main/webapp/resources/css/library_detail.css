@@ -1,4 +1,4 @@
-#bestPractice_detail_header,#bestPractice_detailedDescription{
+#bestPractice_detail,#bestPractice_detailedDescription{
 	display: block;
 	float:left;	
 	font-weight: 700;
@@ -6,13 +6,13 @@
 }
 
 
-#bestPractice_detail_header{
+#bestPractice_detail{
 	
 	height:50px;
 	width:900px;
 }
 
-#bestPractice_detail_header table {
+#bestPractice_detail table {
 	
 	color:#003367;
 	font-family: Arial, Helvetica, sans-serif;
@@ -20,7 +20,10 @@
 	font-weight: 700;
 }
 
-
+#bestPractice_detail table td {
+	padding-top: .2em;
+	padding-bottom: .2em;
+}
 
 #bestPractice_detailedDescription{
 	
@@ -28,14 +31,4 @@
 	font-size:12px;
 	height:200px;
 	width:900px;
-}
-
-#save_button_div{
-	
-	display:block;
-	float:left;
-	top:10px;
-	left:750px;
-	position:relative;
-	top:20px;
 }

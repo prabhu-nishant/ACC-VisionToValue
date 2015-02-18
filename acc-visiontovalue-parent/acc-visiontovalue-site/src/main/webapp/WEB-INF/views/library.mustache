@@ -63,10 +63,12 @@
 					<td colspan="5"><hr color="#E5E4E2"></td>
 				</tr>
 				{{/bestpracticesList}}
+				<tr>
+					<td colspan="5" align="right">
+						<button class="button_table" id="saveclick" onClick="saveClick()">Save as PDF</button>
+					</td>
+				</tr>
 			</table>
-			<div id="library_button_div">
-				<button class="button_table" id="saveclick" onClick="saveClick()">Save as PDF</button>
-			</div>
 		</div>
 		{{> WEB-INF/views/most_viewed.mustache}}
 	</div>

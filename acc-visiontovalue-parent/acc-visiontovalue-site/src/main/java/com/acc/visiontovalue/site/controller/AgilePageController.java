@@ -6,9 +6,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -30,6 +27,9 @@ import com.acc.visiontovalue.site.model.Question;
 @RequestMapping(value="/agile")
 public class AgilePageController {
 
+	private List<Question> questionList = new ArrayList<Question>();
+	private List<BestPractice> bestpracticesList = new ArrayList<BestPractice>();
+	
 	@Value("${acc.visiontovalue.site.basepath}")
 	private String basepath;
 
@@ -45,6 +45,66 @@ public class AgilePageController {
 		return "questions";
 	}
 
+	@RequestMapping(value="/questions/view" ,method=RequestMethod.GET)
+	public String loadQuestionsTab(@RequestParam("tab") String tab,HttpServletRequest request,Model model){
+		
+		List<Question> questionList = new ArrayList<Question>();
+		
+		for(Question question:getQuestionList()){
+			
+			if(tab.equals(question.getCategory())){
+				
+				questionList.add(question);
+			}
+			
+		}
+		
+		setCommonAttributes(model,"questions");
+		model.addAttribute("questionList",questionList);	
+		
+		return "questions_view";
+	}
+
+	
+	@RequestMapping(value="/questions/detail/{questionId}" ,method=RequestMethod.GET)
+	public String loadQuestionsDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
+		Question question = null;
+		
+		question = getQuestionDetail(questionId);
+		
+		if (!model.containsAttribute("form")) {
+
+			TextAreaForm form = new TextAreaForm();
+			model.addAttribute("form", form);
+		}
+		
+		setCommonAttributes(model,"questions");
+		model.addAttribute("question",question);
+		return "questions_detail";
+	}
+	
+	@RequestMapping(value = "/questions/detail/{questionId}", method = RequestMethod.POST)
+	public String submitForm(@ModelAttribute
+	@Valid TextAreaForm form,@PathVariable("questionId") long questionId, BindingResult result, HttpServletRequest request, HttpSession session, Model model) {
+		
+		Question question = getQuestionDetail(questionId);
+		Answer ans = new Answer();
+		ans.setAnswerId(questionId);
+		ans.setAnswerString(form.getTextArea());
+		ans.setDate(new Date());
+		question.getAnswerList().add(ans);
+		
+		if (!model.containsAttribute("form")) {
+
+			TextAreaForm textform = new TextAreaForm();
+			model.addAttribute("form", textform);
+		}
+		
+		setCommonAttributes(model,"questions");
+		model.addAttribute("question",question);
+		return "questions_detail";
+	}
 	
 	@RequestMapping(value="/library" ,method=RequestMethod.GET)
 	public String loadAgileCommunityLibraryPage(HttpServletRequest request,Model model){
@@ -56,8 +116,6 @@ public class AgilePageController {
 		
 		return "library";
 	}
-
-	
 	
 
 	@RequestMapping(value="/library/detail/{bestPracticeId}" ,method=RequestMethod.GET)
@@ -93,46 +151,14 @@ public class AgilePageController {
 		return "scenarios";
 	}
 	
-	
-	
-	@RequestMapping(value="/questions/view" ,method=RequestMethod.GET)
-	public String loadQuestionsTab(@RequestParam("tab") String tab,HttpServletRequest request,Model model){
-		
-		List<Question> questionList = new ArrayList<Question>();
-		
-		for(Question question:getQuestionList()){
-			
-			if(tab.equals(question.getCategory())){
-				
-				questionList.add(question);
-			}
-			
-		}
-		
-		setCommonAttributes(model,"questions");
-		model.addAttribute("questionList",questionList);	
-		
-		return "questions_view";
+	private void setCommonAttributes(Model model,String page) {
+		model.addAttribute("base_path",basepath);
+		model.addAttribute("communityName","Agile Coach");
+		model.addAttribute("community","agile");
+		model.addAttribute("page",page);
+		model.addAttribute("view_questions",getQuestionList());
 	}
-
-	@RequestMapping(value="/questions/detail/{questionId}" ,method=RequestMethod.GET)
-	public String loadQuestionsDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
-		
-		Question question = null;
-		
-		question = getQuestionDetail(questionId);
-		
-		if (!model.containsAttribute("form")) {
-
-			TextAreaForm form = new TextAreaForm();
-			model.addAttribute("form", form);
-		}
-		
-		setCommonAttributes(model,"questions");
-		model.addAttribute("question",question);
-		return "questions_detail";
-	}
-
+	
 	private Question getQuestionDetail(long questionId) {
 		
 		Question question = null;
@@ -148,40 +174,8 @@ public class AgilePageController {
 		return question;
 	}
 	
-	@RequestMapping(value = "/questions/detail/{questionId}", method = RequestMethod.POST)
-	public String submitForm(@ModelAttribute
-	@Valid 	TextAreaForm form,@PathVariable("questionId") long questionId, BindingResult result, HttpServletRequest request, HttpSession session, Model model) {
-		
-		Question question = getQuestionDetail(questionId);
-		
-		Answer ans = new Answer();
-		ans.setAnswerId(questionId);
-		
-		System.out.println("Text Area is >>>>> "+form.getTextArea());
-		
-		ans.setAnswerString(form.getTextArea());
-		ans.setDate(new Date());
-		
-		question.getAnswerList().add(ans);
-		
-		setCommonAttributes(model,"questions");
-		model.addAttribute("question",question);
-		return "questions_detail";
-	}
-	
-	
-
-	private void setCommonAttributes(Model model,String page) {
-		model.addAttribute("base_path",basepath);
-		model.addAttribute("communityName","Agile Coach");
-		model.addAttribute("community","agile");
-		model.addAttribute("page",page);
-		model.addAttribute("view_questions",getQuestionList());
-	}
-	
 	private List<Question> getQuestionList() {
 		
-		List<Question> questionList = new ArrayList<Question>();
 		Question question1 = new Question ();
 		question1.setQuestionId(1L);
 		question1.setCommunity("agile");
@@ -636,7 +630,6 @@ public class AgilePageController {
 	
 	
 	private List<BestPractice> getBestPracticesList() {
-		List<BestPractice> bestpracticesList = new ArrayList<BestPractice>();
 		
 		BestPractice bestPractice1 = new BestPractice();
 		bestPractice1.setBestPracticeId(1L);

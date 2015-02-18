@@ -1,4 +1,4 @@
-#question_detail_header,#detailedDescription,#recommendedSolution{
+#question_detail,#detailedDescription,#recommendedSolution{
 	display: block;
 	float:left;	
 	font-weight: 700;
@@ -6,17 +6,20 @@
 }
 
 
-#question_detail_header{
+#question_detail{
 	
 	width:900px;
 }
 
-#question_detail_header table {
+#question_detail table {
 	
 	color:#003367;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size:16px;
-	font-weight: 700;
+}
+
+#question_detail table td{
+ 	padding-top: .2em;
+    padding-bottom: .2em;
 }
 
 
@@ -35,66 +38,19 @@
 	background:#DBFFDB;
 	font-size:12px;
 	width:900px;
-	position:relative;
-	top:20px;
 	white-space: pre-wrap;
 	word-wrap: break-word; 
 }
 
-#answers{
+#question_detail input[type=textarea]{
 	
 	font-size:12px;
-	width:900px;
-}
-
-.answer_table{
-	 display: table;
-	 border:0;
-	 cellpadding:10px;
-	 width:900px;
-	 font-family: Arial, Helvetica, sans-serif;
-}
-
-.answer_table tr {
-	
-	align:center;
-}
-
-.answer_table td {
-	padding-top: .5em;
-	padding-bottom: .5em;
-}
-
-#answers_div{
-	float:left;
-}
-
-#answer_box{
-	
-	display:block;
-	float:left;
-}
-
-#answer_box input[type=textarea]{
-	
+	font-family: Arial, Helvetica, sans-serif;
 	height:200px;
 	width :890px;
-	position:relative;
-	top:40px;
 }
 
-#answers_button_div{
-	
-	display:block;
-	float:left;
-	top:10px;
-	left:750px;
-	position:relative;
-	top:40px;
-}
-
-
-#answers_button_div input[type=submit]{
+#question_detail input[type=submit]{
 	background:#3BB9FF;
 	border:none;
 	border-radius: 10px;
@@ -105,11 +61,10 @@
 	text-decoration: none;
 	height : 29px;
 	outline: 0;
-	position: relative;
 	width: 150px;
 }
 
-#answers_button_div input[type=submit]:hover {
+#question_detail input[type=submit]:hover {
 	background:#38ACEC;
 	border:none;
 	text-decoration: none;
