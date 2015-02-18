@@ -1,22 +1,33 @@
 #question_edit table {
 	
-	font-size:12px;
+	font-size:15px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight:700;
 	
 }
 
-#question_edit textarea{
+#editQuestionString{
 	
 	font-size:12px;
 	font-family: Arial, Helvetica, sans-serif;
+	padding-left:10px;
+	padding-top:10px;
+	resize: none;
 	width :890px;
 }
 
-.questionString{
+#editDetailedDescription{
 	
-	height:100px;
-	
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	min-height: 100px;
+	height:auto;
+	padding-left:10px;
+	padding-top:10px;
+	resize: none;
+	width:890px;
+	white-space: pre-wrap;
+	word-wrap: break-word; 
 }
 
 #question_edit input[type=submit]{

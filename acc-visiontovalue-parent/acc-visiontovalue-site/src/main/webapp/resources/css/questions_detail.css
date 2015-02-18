@@ -14,7 +14,7 @@
 #question_detail table {
 	
 	color:#003367;
-	font-size:12px;
+	font-size:15px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -26,21 +26,50 @@
 
 #detailedDescription{
 	
-	background:#F5F5DC;
+	background:#ffffff;
 	font-size:12px;
-	width:900px;
+	font-family: Arial, Helvetica, sans-serif;
+	min-height: 100px;
+	height:auto;
+	padding-left:10px;
+	padding-top:10px;
+	width:890px;
 	white-space: pre-wrap;
-	word-wrap: break-word; 
+	word-wrap: break-word;
 }
 
 
 #recommendedSolution{
 	
-	background:#F5F5DC;
+	background:#ffffff;
 	font-size:12px;
-	width:900px;
+	font-family: Arial, Helvetica, sans-serif;
+	min-height: 200px;
+	height:auto;
+	padding-left:10px;
+	padding-top:10px;
+	width:890px;
 	white-space: pre-wrap;
 	word-wrap: break-word; 
+}
+
+#detailedDescriptionTitle,#recommendedSolutionTitle{
+	
+	background: #ed9017; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ed9017 0%, #f6e6b4 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ed9017), color-stop(100%,#f6e6b4)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ed9017 0%,#f6e6b4 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ed9017 0%,#f6e6b4 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ed9017 0%,#f6e6b4 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ed9017 0%,#f6e6b4 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed9017', endColorstr='#f6e6b4',GradientType=0 ); /* IE6-9 */
+	font-size:15px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:700;
+	height:30px;
+	padding-left:10px;
+	padding-top:10px;
+	width:890px;
 }
 
 #question_detail textarea{
@@ -48,6 +77,7 @@
 	font-size:12px;
 	font-family: Arial, Helvetica, sans-serif;
 	height:200px;
+	resize: none;
 	width :890px;
 }
 
