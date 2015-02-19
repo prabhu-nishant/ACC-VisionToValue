@@ -1,0 +1,80 @@
+<head>
+{{> WEB-INF/views/common_header_tags.mustache}}
+<script type="text/javascript">
+
+
+	function saveClick(){
+	
+		var checkedValues = $('input:checkbox:checked').map(function() {
+    			return this.value;
+		}).get();
+		
+		var doc = new jsPDF();
+		var j = 20;
+		for (var i = 0; i < checkedValues.length; i++) {
+		
+			{{#questionList}}
+		
+				if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
+					
+					doc.text(20, j, "{{questionString}}" );
+					doc.text(20, j+10, "{{detailedDescription}}" );
+					doc.text(20, j+30, "{{community}}" );
+					doc.text(20, j+40, "{{category}}" );
+					doc.text(20, j+50, "{{lastModifiedDate}}" );
+					
+					var k = 80;
+					{{#answerList}}
+						doc.text(20, k, "{{answerString}}" );
+						doc.text(20, k+10, "{{date}}" );
+						k=k+20;				
+					{{/answerList}}
+					
+					j=k+20;
+				}
+				
+			{{/questionList}}
+				
+			j=j+20;
+		}
+		
+		doc.save('Questions.pdf');
+	}
+		
+</script>
+</head>
+<body>
+<div id="table_div">
+<table>
+	{{#questionList}}
+	<tr>
+		<td width="2%" align="center">
+			<input type="checkbox" name={{questionId}} value={{questionId}}>
+		</td>
+		<td align="center"><font size="4" color="#FF9900">{{answerCount}}</font></td>
+		<td align="left">
+			<b>
+				<a href="{{base_path}}/{{community}}/scenarios/detail/{{questionId}}">{{#questionString}}{{questionString}}{{/questionString}}<a>
+			<b>
+		</td>
+	</tr>
+	<tr>
+		<td/>
+		<td align="center"><font size="4" color="#FF9900">Answers</font></td>
+		<td align="right">
+			<font size="2" color="#B6B6B4">
+				<i>modified 10 mins ago <img src="{{base_path}}/resources/images/5.png" height="20" width="15"/> <b>Username</b></i>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4"><hr color="#E5E4E2"></td>
+	</tr>
+	{{/questionList}}
+</table>
+</div>
+<div id="table_button_div">
+	<button class="button_table" id="saveclick" onClick="saveClick()">Save as PDF</button>
+	<button class="button_table" id="morequestions">More scenarios</button>
+</div>
+</body>

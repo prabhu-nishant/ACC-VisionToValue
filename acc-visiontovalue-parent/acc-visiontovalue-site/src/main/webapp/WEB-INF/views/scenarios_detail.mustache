@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> WEB-INF/views/common_header_tags.mustache}}
+</head>
+<body>
+{{> WEB-INF/views/header.mustache}}
+{{> WEB-INF/views/link_navigator.mustache}}
+<div id="display_div">
+	
+	<div id="main_div">
+		
+		{{#question}}
+		
+		<form autocomplete="off" action="{{base_path}}/{{community}}/scenarios/detail/{{questionId}}" method="post" accept-charset="UTF-8">
+		
+		<div id="question_detail">
+			<table width="100%">
+				<tr>
+					<td width="2%"><img src="{{base_path}}/resources/images/6.png" title="Question" height="20" width="20"/></td>
+					<td width="88%" align="left">{{#questionString}}{{questionString}}{{/questionString}}</td>
+					<td width="5%">
+						<a href="{{base_path}}/{{community}}/scenarios/detail/{{questionId}}/edit"><img src="{{base_path}}/resources/images/2.png" title="Edit" height="20" width="20"/></a>
+					</td>
+					<td width="5%">
+						<a href="{{base_path}}/{{community}}/scenarios/detail/delete/{{questionId}}"><img src="{{base_path}}/resources/images/3.png" title="Delete" height="20" width="20"/></a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<hr color="#E5E4E2">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<div id="detailedDescriptionTitle">Detailed Description</div>
+						<div id="detailedDescription">{{#detailedDescription}}{{detailedDescription}}{{/detailedDescription}}</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<div id="recommendedSolutionTitle">Recommended Solution</div>
+						<div id="recommendedSolution">{{#recommendedSolution}}{{recommendedSolution}}{{/recommendedSolution}}</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4"><img src="{{base_path}}/resources/images/7.png" title="Solution" height="20" width="20"/> Answers</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<hr color="#E5E4E2">
+					</td>
+				</tr>
+				{{#answerList}}
+					<tr>
+						<td colspan="2" width="90%">
+							{{#answerString}}{{answerString}}{{/answerString}}
+						</td>
+						<td width="5%">
+							<a href="#"><img src="{{base_path}}/resources/images/2.png" title="Edit" height="20" width="20"/></a>
+						</td>
+						<td width="5%">
+							<a href="{{base_path}}/{{community}}/scenarios/detail/{{questionId}}/delete/{{answerId}}"><img src="{{base_path}}/resources/images/3.png" title="Delete" height="20" width="20"/></a>
+						</td>
+					</tr>
+					<tr/>
+					<tr>
+						<td colspan="4" align="right">
+							<font size="2" color="#B6B6B4">
+								<i>modified 10 mins ago <img src="{{base_path}}/resources/images/5.png" height="20" width="15"/> <b>Username</b></i>
+							</font>
+						</td>
+					</tr>
+					<tr>	
+						<td colspan="4"><hr color="#E5E4E2"></td>
+					</tr>
+				{{/answerList}}
+				
+				<tr>
+					<td colspan="4">
+						<textarea placeholder="Post your answer" name="textArea" id="textArea" {{#form.textArea}}value="{{form.textArea}}"{{/form.textArea}}></textarea>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4" align=right>
+						<input type="submit" name="submit" value="Post Answer"/>
+					</td>
+				</tr>
+				
+			</table>
+		</div>
+		</form>
+		{{/question}}
+		
+	</div>
+	{{> WEB-INF/views/most_viewed.mustache}}
+	
+</div>
+</body>
+</html>

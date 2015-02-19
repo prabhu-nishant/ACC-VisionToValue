@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> WEB-INF/views/common_header_tags.mustache}}
+</head>
+<body>
+{{> WEB-INF/views/header.mustache}}
+{{> WEB-INF/views/link_navigator.mustache}}
+<div id="display_div">
+	
+	<div id="main_div">
+		
+		<form autocomplete="off" action="{{base_path}}/{{community}}/scenarios/detail/{{questionId}}/edit" method="post" accept-charset="UTF-8">
+		<div id="question_edit">
+			<table width="100%">
+				<tr>
+					<td>
+						Question short description
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="questionString" id="editQuestionString" {{#form.questionString}}value="{{form.questionString}}"{{/form.questionString}}>{{#form.questionString}}{{form.questionString}}{{/form.questionString}}</textarea>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<hr color="#E5E4E2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Detailed Description
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="detailedDescription" id="editDetailedDescription" {{#form.detailedDescription}}value="{{form.detailedDescription}}"{{/form.detailedDescription}}>{{#form.detailedDescription}}{{form.detailedDescription}}{{/form.detailedDescription}}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<input type="submit" name="submit" value="Save Edits"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+		</form>
+		
+	</div>
+	{{> WEB-INF/views/most_viewed.mustache}}
+	
+</div>
+</body>
+</html>

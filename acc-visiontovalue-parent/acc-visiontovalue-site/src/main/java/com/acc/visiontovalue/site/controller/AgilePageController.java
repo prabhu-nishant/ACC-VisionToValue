@@ -239,6 +239,107 @@ public class AgilePageController {
 		return "scenarios";
 	}
 	
+	@RequestMapping(value="/scenarios/view" ,method=RequestMethod.GET)
+	public String loadScenariosTab(@RequestParam("tab") String tab,HttpServletRequest request,Model model){
+		
+		List<Question> questionList = new ArrayList<Question>();
+		
+		for(Question question:getQuestionList()){
+			
+			if(tab.equals(question.getCategory())){
+				
+				questionList.add(question);
+			}
+			
+		}
+		
+		setCommonAttributes(model,"questions");
+		model.addAttribute("questionList",questionList);	
+		
+		return "scenarios_view";
+	}
+	
+	@RequestMapping(value="/scenarios/detail/{questionId}" ,method=RequestMethod.GET)
+	public String loadScenariosDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
+		Question question = getQuestionDetail(questionId);
+		return displayScenarioDetail(model, question);
+	}
+	
+	@RequestMapping(value = "/scenarios/detail/{questionId}", method = RequestMethod.POST)
+	public String submitScenarioForm(@ModelAttribute
+	@Valid TextAreaForm form,@PathVariable("questionId") long questionId, BindingResult result, HttpServletRequest request, HttpSession session, Model model) {
+		
+		Question question = getQuestionDetail(questionId);
+		Answer ans = new Answer();
+		ans.setAnswerId(questionId);
+		ans.setAnswerString(form.getTextArea());
+		ans.setDate(new Date());
+		question.getAnswerList().add(ans);
+		
+		return displayScenarioDetail(model, question);
+	}
+	
+	private String displayScenarioDetail(Model model, Question question) {
+		if (!model.containsAttribute("form")) {
+
+			TextAreaForm form = new TextAreaForm();
+			model.addAttribute("form", form);
+		}
+		
+		setCommonAttributes(model,"scenarios");
+		model.addAttribute("question",question);
+		return "scenarios_detail";
+	}
+	
+	
+	@RequestMapping(value="/scenarios/detail/{questionId}/edit" ,method=RequestMethod.GET)
+	public String editScenarioDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
+		if (!model.containsAttribute("form")) {
+
+			Question question = getQuestionDetail(questionId);
+			EditQuestionForm editQuestionform = new EditQuestionForm();
+			editQuestionform.setQuestionString(question.getQuestionString());
+			editQuestionform.setDetailedDescription(question.getDetailedDescription());
+			model.addAttribute("form", editQuestionform);
+		}
+		
+		setCommonAttributes(model,"scenarios");
+		return "scenario_edit";
+	}
+	
+	@RequestMapping(value="/scenarios/detail/{questionId}/edit" ,method=RequestMethod.POST)
+	public String submitEdittedScenarioDetail(@ModelAttribute
+			@Valid EditQuestionForm form,@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
+		Question question = getQuestionDetail(questionId);
+		question.setQuestionString(form.getQuestionString());
+		question.setDetailedDescription(form.getDetailedDescription());
+		return "redirect:/agile/scenarios/detail/"+questionId;
+		
+	}
+	
+	
+	@RequestMapping(value="/scenarios/detail/delete/{questionId}" ,method=RequestMethod.GET)
+	public String deleteScenarioDetail(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
+		deleteQuestionDetail(questionId);
+		setCommonAttributes(model,"scenarios");
+		return "scenarios";
+	}
+	
+	@RequestMapping(value="/scenarios/detail/{questionId}/delete/{answerId}" ,method=RequestMethod.GET)
+	public String deleteScenarioAnswerDetail(@PathVariable("questionId") long questionId,@PathVariable("answerId") long answerId,HttpServletRequest request,Model model){
+		
+		Question question = getQuestionDetail(questionId);
+		deleteAnswer(question,answerId);
+		
+		return displayScenarioDetail(model, question);
+	}
+	
+	
+	
 	private void setCommonAttributes(Model model,String page) {
 		model.addAttribute("base_path",basepath);
 		model.addAttribute("communityName","Agile Coach");

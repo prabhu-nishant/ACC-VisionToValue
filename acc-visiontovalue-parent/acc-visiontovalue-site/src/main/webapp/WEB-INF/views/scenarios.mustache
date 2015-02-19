@@ -3,7 +3,39 @@
 <head>
 {{> WEB-INF/views/common_header_tags.mustache}}
 <script>
-
+	
+	$(document).ready(function() {
+	
+		tabClick('visiontoroadmap');
+	});
+	
+	function tabClick(tabId) {
+	
+		var x = document.getElementsByClassName("tab_button");
+		for (var i = 0; i < x.length; i++) {
+			x[i].style.cssText="background:#FFF5EE;height : 30px;top:12px";
+		}
+		
+		var y = document.getElementsByClassName("tab_active");
+		y[0].style.cssText="background:#FFF5EE;height : 30px;top:12px;";
+		
+		var z = document.getElementById(tabId);
+		z.style.cssText="background:#ffffff;height : 40px;top:8px;";
+		
+		$.ajax({
+			datatype: "html",
+			type: "GET",
+			url: "{{base_path}}/{{community}}/scenarios/view?tab="+tabId,
+			success: function(response) {
+				$("#tab_content_div").empty();
+				$("#tab_content_div").html(response);
+			},
+				error: function(e) {
+				alert("Error: " + e);
+			}
+		});
+		
+	}
 	
 </script>
 </head>
@@ -12,8 +44,17 @@
 {{> WEB-INF/views/link_navigator.mustache}}
 <div id="display_div">
 	<div id="main_div">
-	
-	
+		<div id="questions_tab_div">
+			<div id="tabs_div">
+				<ul>
+					<li><div id="tab_title"><span>&nbsp&nbsp Top Scenarios<span></div></li>
+					<li><button class="tab_active" id="visiontoroadmap" onclick="tabClick('visiontoroadmap')">Vision to RoadMap</button></li>
+					<li><button class="tab_button" id="roadmaptodeploy" onclick="tabClick('roadmaptodeploy')">RoadMap to Deploy</button></li>
+					<li><button class="tab_button" id="deploytovalue" onclick="tabClick('deploytovalue')">Deploy to Value</button></li>
+				</ul>
+			</div>
+			<div id="tab_content_div"/>
+		</div>
 	</div>
 	{{> WEB-INF/views/most_viewed.mustache}}
 </div>
