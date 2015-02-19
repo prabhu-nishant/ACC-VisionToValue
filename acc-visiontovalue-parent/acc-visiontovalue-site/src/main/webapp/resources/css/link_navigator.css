@@ -14,7 +14,7 @@
 	display:inline-block;
 	float:left;
 	height: 40px;
-	width: 650px;
+	width: 630px;
 }
 
 #title span {
@@ -34,7 +34,7 @@
 	display:inline-block;
 	float:right;
 	height: 40px;
-	width:550px;
+	width:570px;
 }
 
 #link_div ul {
@@ -53,7 +53,7 @@
 	position: relative;
 	top:5px;
 	left:10px;
-	width: 130px;
+	width: 135px;
 }
 
 #link_div ul li a {
@@ -69,7 +69,7 @@
 	text-align:center;
   	text-decoration: none;
   	vertical-align:middle;
-  	width:130px;
+  	width:135px;
 }
 
 #link_div ul li:hover {
