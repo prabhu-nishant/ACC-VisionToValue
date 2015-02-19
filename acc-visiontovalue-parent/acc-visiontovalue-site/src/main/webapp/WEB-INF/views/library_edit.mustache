@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> WEB-INF/views/common_header_tags.mustache}}
+</head>
+<body>
+{{> WEB-INF/views/header.mustache}}
+{{> WEB-INF/views/link_navigator.mustache}}
+<div id="display_div">
+	
+	<div id="main_div">
+		
+		<form autocomplete="off" action="{{base_path}}/{{community}}/library/detail/{{bestPracticeId}}/edit" method="post" accept-charset="UTF-8">
+		<div id="library_edit">
+			<table width="100%">
+				<tr>
+					<td>
+						Best practice short description
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="topicString" id="editTopicString" {{#form.topic}}value="{{form.topic}}"{{/form.topic}}>{{#form.topic}}{{form.topic}}{{/form.topic}}</textarea>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Problem Statement
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="problemDescription" id="editProblemDescription" {{#form.problemStatement}}value="{{form.problemStatement}}"{{/form.problemStatement}}>{{#form.problemStatement}}{{form.problemStatement}}{{/form.problemStatement}}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Solution
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="solutionString" id="editSolutionString" {{#form.solutionString}}value="{{form.solutionString}}"{{/form.solutionString}}>{{#form.solutionString}}{{form.solutionString}}{{/form.solutionString}}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<input type="submit" name="submit" value="Save Edits"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+		</form>
+		
+	</div>
+	{{> WEB-INF/views/most_viewed.mustache}}
+	
+</div>
+</body>
+</html>

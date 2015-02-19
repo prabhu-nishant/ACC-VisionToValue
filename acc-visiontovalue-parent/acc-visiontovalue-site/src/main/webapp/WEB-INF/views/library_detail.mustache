@@ -13,16 +13,27 @@
 		<div id="bestPractice_detail">
 			<table width="100%">
 				<tr>
-					<td width="90%">{{topic}}</td>
+					<td width="90%">{{#topic}}{{topic}}{{/topic}}</td>
 					<td width="5%">
-						<a href="#"><img src="{{base_path}}/resources/images/2.png" title="Edit topic" height="20" width="20"/></a>
+						<a href="{{base_path}}/{{community}}/library/detail/{{bestPracticeId}}/edit"><img src="{{base_path}}/resources/images/2.png" title="Edit topic" height="20" width="20"/></a>
 					</td>
 					<td width="5%">
-						<a href="#"><img src="{{base_path}}/resources/images/3.png" title="Delete topic" height="20" width="20"/></a>
+						<a href="{{base_path}}/{{community}}/library/detail/delete/{{bestPracticeId}}"><img src="{{base_path}}/resources/images/3.png" title="Delete topic" height="20" width="20"/></a>
 					</td>
 				</tr>
 				<tr><td colspan="3"><hr color="#E5E4E2"></td></tr>
-				<tr><td colspan="3"><div id="bestPractice_detailedDescription">{{solutionString}}</div></td></tr>
+				<tr>
+					<td colspan="3">
+						<div id="problem_statement_DescriptionTitle">Problem statement</div>
+						<div id="problem_statement_Description">{{#problemStatement}}{{problemStatement}}{{/problemStatement}}</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<div id="solutionTitle">Solution</div>
+						<div id="solutionDescription">{{#solutionString}}{{solutionString}}{{/solutionString}}</div>
+					</td>
+				</tr>
 			</table>
 		</div>
 		{{/bestPractice}}

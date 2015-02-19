@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.acc.visiontovalue.site.form.EditLibraryForm;
 import com.acc.visiontovalue.site.form.EditQuestionForm;
 import com.acc.visiontovalue.site.form.TextAreaForm;
 import com.acc.visiontovalue.site.model.Answer;
@@ -129,7 +130,7 @@ public class AgilePageController {
 		Question question = getQuestionDetail(questionId);
 		question.setQuestionString(form.getQuestionString());
 		question.setDetailedDescription(form.getDetailedDescription());
-		return displayQuestionDetail(model, question);
+		return "redirect:/agile/questions/detail/"+questionId;
 		
 	}
 	
@@ -155,10 +156,8 @@ public class AgilePageController {
 	@RequestMapping(value="/library" ,method=RequestMethod.GET)
 	public String loadAgileCommunityLibraryPage(HttpServletRequest request,Model model){
 		
-		List<BestPractice> bestpracticesList = getBestPracticesList();
-		
 		setCommonAttributes(model,"library");
-		model.addAttribute("bestpracticesList",bestpracticesList);
+		model.addAttribute("bestpracticesList",getBestPracticesList());
 		
 		return "library";
 	}
@@ -167,20 +166,61 @@ public class AgilePageController {
 	@RequestMapping(value="/library/detail/{bestPracticeId}" ,method=RequestMethod.GET)
 	public String loadAgileCommunityLibraryDetailPage(@PathVariable("bestPracticeId") long bestPracticeId,HttpServletRequest request,Model model){
 		
-		BestPractice bestPractice = null;
+		BestPractice bestPractice = getBestPracticeDetail(bestPracticeId);
+		return displayLibraryDetail(model,bestPractice);
+	}
+	
+	
+	private String displayLibraryDetail(Model model, BestPractice bestPractice) {
 		
-		for(BestPractice temp:getBestPracticesList()){
-			
-			if(temp.getBestPracticeId() == bestPracticeId){
-				
-				bestPractice = temp ;
-				break;
-			}
-			
-		}
 		setCommonAttributes(model,"library");
 		model.addAttribute("bestPractice",bestPractice);	
 		return "library_detail";
+	}
+	
+	
+	
+	@RequestMapping(value="/library/detail/{bestPracticeId}/edit" ,method=RequestMethod.GET)
+	public String editLibraryDetail(@ModelAttribute
+			@Valid EditLibraryForm form,@PathVariable("bestPracticeId") long bestPracticeId,HttpServletRequest request,Model model){
+		
+		if (!model.containsAttribute("form")) {
+
+			BestPractice bestPractice = getBestPracticeDetail(bestPracticeId);
+			EditLibraryForm editLibraryform = new EditLibraryForm();
+			editLibraryform.setTopic(bestPractice.getTopic());
+			editLibraryform.setProblemStatement(bestPractice.getProblemStatement());
+			editLibraryform.setSolutionString(bestPractice.getSolutionString());
+			editLibraryform.setLastUpdatedTime(bestPractice.getLastUpdatedTime());
+			model.addAttribute("form", editLibraryform);
+		}
+		
+		setCommonAttributes(model,"library");
+		return "library_edit";
+		
+	}
+	
+	@RequestMapping(value="/library/detail/{bestPracticeId}/edit" ,method=RequestMethod.POST)
+	public String submitEdittedLibraryDetail(@ModelAttribute
+			@Valid EditLibraryForm form,@PathVariable("bestPracticeId") long bestPracticeId,HttpServletRequest request,Model model){
+		
+		BestPractice bestPractice1 = getBestPracticeDetail(bestPracticeId);
+		bestPractice1.setTopic(form.getTopic());
+		bestPractice1.setProblemStatement(form.getProblemStatement());
+		bestPractice1.setSolutionString(form.getSolutionString());
+		bestPractice1.setLastUpdatedTime(form.getLastUpdatedTime());
+		return "redirect:/agile/library/detail/"+bestPracticeId ;
+		
+	}
+	
+	
+	@RequestMapping(value="/library/detail/delete/{bestPracticeId}" ,method=RequestMethod.GET)
+	public String deleteLibraryDetails(@PathVariable("bestPracticeId") long bestPracticeId,HttpServletRequest request,Model model){
+		
+		deleteLibraryDetail(bestPracticeId);
+		setCommonAttributes(model,"library");
+		model.addAttribute("bestpracticesList",getBestPracticesList());
+		return "library";
 	}
 	
 	@RequestMapping(value="/ask_question" ,method=RequestMethod.GET)
@@ -231,6 +271,20 @@ public class AgilePageController {
 		
 	}
 	
+	private void deleteLibraryDetail(long bestPracticeId) {
+		
+		for(BestPractice temp:getBestPracticesList()){
+			
+			if(temp.getBestPracticeId() == bestPracticeId){
+				
+				bestpracticesList.remove(temp);
+				break;
+			}
+			
+		}
+	}
+	
+	
 	private Question getQuestionDetail(long questionId) {
 		
 		Question question = null;
@@ -244,6 +298,21 @@ public class AgilePageController {
 			
 		}
 		return question;
+	}
+	
+	private BestPractice getBestPracticeDetail(long bestPracticeId) {
+		
+		BestPractice bestPractice = null;
+		for(BestPractice temp:getBestPracticesList()){
+			
+			if(bestPracticeId == temp.getBestPracticeId()){
+				
+				bestPractice = temp;
+				break;
+			}
+			
+		}
+		return bestPractice;
 	}
 	
 	private List<Question> getQuestionList() {
@@ -714,12 +783,14 @@ public class AgilePageController {
 		BestPractice bestPractice1 = new BestPractice();
 		bestPractice1.setBestPracticeId(1L);
 		bestPractice1.setTopic("Best Practice 1");
+		bestPractice1.setProblemStatement("What is the best practice");
 		bestPractice1.setSolutionString("Solution String");
 		bestPractice1.setLastUpdatedTime(new Date());
 		
 		BestPractice bestPractice2 = new BestPractice();
 		bestPractice2.setBestPracticeId(2L);
 		bestPractice2.setTopic("Best Practice 2");
+		bestPractice2.setProblemStatement("What is the best practice");
 		bestPractice2.setSolutionString("Solution String");
 		bestPractice2.setLastUpdatedTime(new Date());
 		
@@ -727,42 +798,49 @@ public class AgilePageController {
 		BestPractice bestPractice3 = new BestPractice();
 		bestPractice3.setBestPracticeId(3L);
 		bestPractice3.setTopic("Best Practice 3");
+		bestPractice3.setProblemStatement("What is the best practice");
 		bestPractice3.setSolutionString("Solution String");
 		bestPractice3.setLastUpdatedTime(new Date());
 		
 		BestPractice bestPractice4 = new BestPractice();
 		bestPractice4.setBestPracticeId(4L);
 		bestPractice4.setTopic("Best Practice 4");
+		bestPractice4.setProblemStatement("What is the best practice");
 		bestPractice4.setSolutionString("Solution String");
 		bestPractice4.setLastUpdatedTime(new Date());
 		
 		BestPractice bestPractice5 = new BestPractice();
 		bestPractice5.setBestPracticeId(5L);
 		bestPractice5.setTopic("Best Practice 5");
+		bestPractice5.setProblemStatement("What is the best practice");
 		bestPractice5.setSolutionString("Solution String");
 		bestPractice5.setLastUpdatedTime(new Date());
 		
 		BestPractice bestPractice6 = new BestPractice();
 		bestPractice6.setBestPracticeId(6L);
 		bestPractice6.setTopic("Best Practice 6");
+		bestPractice6.setProblemStatement("What is the best practice");
 		bestPractice6.setSolutionString("Solution String");
 		bestPractice6.setLastUpdatedTime(new Date());
 		
 		BestPractice bestPractice7 = new BestPractice();
 		bestPractice7.setBestPracticeId(7L);
 		bestPractice7.setTopic("Best Practice 7");
+		bestPractice7.setProblemStatement("What is the best practice");
 		bestPractice7.setSolutionString("Solution String");
 		bestPractice7.setLastUpdatedTime(new Date());
 		
 		BestPractice bestPractice8 = new BestPractice();
-		bestPractice8.setBestPracticeId(4L);
+		bestPractice8.setBestPracticeId(8L);
 		bestPractice8.setTopic("Best Practice 8");
+		bestPractice8.setProblemStatement("What is the best practice");
 		bestPractice8.setSolutionString("Solution String");
 		bestPractice8.setLastUpdatedTime(new Date());
 		
 		BestPractice bestPractice9 = new BestPractice();
 		bestPractice9.setBestPracticeId(9L);
 		bestPractice9.setTopic("Best Practice 9");
+		bestPractice9.setProblemStatement("What is the best practice");
 		bestPractice9.setSolutionString("Solution String");
 		bestPractice9.setLastUpdatedTime(new Date());
 		

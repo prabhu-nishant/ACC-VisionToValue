@@ -1,0 +1,51 @@
+#library_edit table {
+	
+	font-size:15px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:700;
+	
+}
+
+#editTopicString{
+	
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-left:10px;
+	padding-top:10px;
+	resize: none;
+	width :890px;
+}
+
+#editProblemDescription,#editSolutionString{
+	
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	min-height: 100px;
+	height:auto;
+	padding-left:10px;
+	padding-top:10px;
+	resize: none;
+	width:890px;
+	white-space: pre-wrap;
+	word-wrap: break-word; 
+}
+
+#library_edit input[type=submit]{
+	background:#3BB9FF;
+	border:none;
+	border-radius: 2px;
+	color:#ffffff;
+	font-weight: 700;
+	font-size:15px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	height : 29px;
+	outline: 0;
+	width: 150px;
+}
+
+#library_edit input[type=submit]:hover {
+	background:#38ACEC;
+	border:none;
+	text-decoration: none;
+}

@@ -3,6 +3,7 @@
 <head>
 {{> WEB-INF/views/common_header_tags.mustache}}
 <script>
+	
 	function saveClick(){
 	
 		var checkedValues = $('input:checkbox:checked').map(function() {
@@ -17,8 +18,9 @@
 		
 				if((checkedValues[i]).localeCompare({{bestPracticeId}}) == 0 ){
 					
-					doc.text(20, j, "{{topic}}" );
-					doc.text(20, j+10, "{{solutionString}}" );
+					doc.text(20, j, "{{topic}}");
+					doc.text(20, j+10, "{{problemStatement}}");
+					doc.text(20, j+20, "{{solutionString}}" );
 					doc.text(20, j+30, "{{lastUpdatedTime}}" );
 				}
 				
@@ -42,16 +44,10 @@
 				{{#bestpracticesList}}
 				<tr>
 					<td width="2%" align="center">
-						<input type="checkbox" name={{bestPracticeId}} value={{bestPracticeId}}>
+						<input type="checkbox" {{#bestPracticeId}}name={{bestPracticeId}}{{/bestPracticeId}} {{#bestPracticeId}}value={{bestPracticeId}}{{/bestPracticeId}}>
 					</td>
 					<td width="45%">
-						<a href="{{base_path}}/{{community}}/library/detail/{{bestPracticeId}}">{{topic}}</a>
-					</td>
-					<td width="5%">
-						<a href="#"><img src="{{base_path}}/resources/images/2.png" title="Edit" height="20" width="20"/></a>
-					</td>
-					<td width="5%">
-						<a href="#"><img src="{{base_path}}/resources/images/3.png" title="Delete" height="20" width="20"/></a>
+						<a href="{{base_path}}/{{community}}/library/detail/{{bestPracticeId}}">{{#topic}}{{topic}}{{/topic}}</a>
 					</td>
 					<td align="right" width="30%">
 						<font size="2" color="#B6B6B4">
@@ -60,11 +56,11 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="5"><hr color="#E5E4E2"></td>
+					<td colspan="3"><hr color="#E5E4E2"></td>
 				</tr>
 				{{/bestpracticesList}}
 				<tr>
-					<td colspan="5" align="right">
+					<td colspan="3" align="right">
 						<button class="button_table" id="saveclick" onClick="saveClick()">Save as PDF</button>
 					</td>
 				</tr>
