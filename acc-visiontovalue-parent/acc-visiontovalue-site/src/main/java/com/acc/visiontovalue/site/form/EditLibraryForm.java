@@ -1,6 +1,5 @@
 package com.acc.visiontovalue.site.form;
 
-import java.util.Date;
 
 public class EditLibraryForm {
 
@@ -10,7 +9,7 @@ public class EditLibraryForm {
 	
 	private String solutionString;
 
-	private Date lastUpdatedTime;
+	private String lastUpdatedTime;
 
 	public String getTopic() {
 		return topic;
@@ -36,11 +35,11 @@ public class EditLibraryForm {
 		this.solutionString = solutionString;
 	}
 
-	public Date getLastUpdatedTime() {
+	public String getLastUpdatedTime() {
 		return lastUpdatedTime;
 	}
 
-	public void setLastUpdatedTime(Date lastUpdatedTime) {
+	public void setLastUpdatedTime(String lastUpdatedTime) {
 		this.lastUpdatedTime = lastUpdatedTime;
 	}
 }

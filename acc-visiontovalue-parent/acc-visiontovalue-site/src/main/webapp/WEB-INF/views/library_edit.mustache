@@ -12,6 +12,7 @@
 		
 		<form autocomplete="off" action="{{base_path}}/{{community}}/library/detail/{{bestPracticeId}}/edit" method="post" accept-charset="UTF-8">
 		<div id="library_edit">
+			<input type="hidden" name="lastUpdatedTime" id="lastUpdatedTime" {{#form.lastUpdatedTime}}value="{{form.lastUpdatedTime}}"{{/form.lastUpdatedTime}}>
 			<table width="100%">
 				<tr>
 					<td>
@@ -20,8 +21,7 @@
 				</tr>
 				<tr>
 					<td>
-						<textarea name="topicString" id="editTopicString" {{#form.topic}}value="{{form.topic}}"{{/form.topic}}>{{#form.topic}}{{form.topic}}{{/form.topic}}</textarea>
-						
+						<textarea name="topic" id="topic" {{#form.topic}}value="{{form.topic}}"{{/form.topic}}>{{#form.topic}}{{form.topic}}{{/form.topic}}</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -31,7 +31,7 @@
 				</tr>
 				<tr>
 					<td>
-						<textarea name="problemDescription" id="editProblemDescription" {{#form.problemStatement}}value="{{form.problemStatement}}"{{/form.problemStatement}}>{{#form.problemStatement}}{{form.problemStatement}}{{/form.problemStatement}}</textarea>
+						<textarea name="problemStatement" id="problemStatement" {{#form.problemStatement}}value="{{form.problemStatement}}"{{/form.problemStatement}}>{{#form.problemStatement}}{{form.problemStatement}}{{/form.problemStatement}}</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -41,7 +41,7 @@
 				</tr>
 				<tr>
 					<td>
-						<textarea name="solutionString" id="editSolutionString" {{#form.solutionString}}value="{{form.solutionString}}"{{/form.solutionString}}>{{#form.solutionString}}{{form.solutionString}}{{/form.solutionString}}</textarea>
+						<textarea name="solutionString" id="solutionString" {{#form.solutionString}}value="{{form.solutionString}}"{{/form.solutionString}}>{{#form.solutionString}}{{form.solutionString}}{{/form.solutionString}}</textarea>
 					</td>
 				</tr>
 				<tr>

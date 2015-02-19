@@ -1,7 +1,5 @@
 package com.acc.visiontovalue.site.model;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -30,7 +28,7 @@ public class BestPractice {
 	private String solutionString;
 
 	@JsonProperty
-	private Date lastUpdatedTime;
+	private String lastUpdatedTime;
 	
 	public Long getBestPracticeId() {
 		return bestPracticeId;
@@ -64,11 +62,11 @@ public class BestPractice {
 		this.solutionString = solutionString;
 	}
 
-	public Date getLastUpdatedTime() {
+	public String getLastUpdatedTime() {
 		return lastUpdatedTime;
 	}
 
-	public void setLastUpdatedTime(Date lastUpdatedTime) {
+	public void setLastUpdatedTime(String lastUpdatedTime) {
 		this.lastUpdatedTime = lastUpdatedTime;
 	}
 	

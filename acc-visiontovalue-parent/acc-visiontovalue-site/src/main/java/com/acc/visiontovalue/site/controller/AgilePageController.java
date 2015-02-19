@@ -1,5 +1,7 @@
 package com.acc.visiontovalue.site.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -313,6 +315,27 @@ public class AgilePageController {
 			
 		}
 		return bestPractice;
+	}
+	
+	private String convertDateToString(Date date){
+		
+		 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		 String dateString = sdf.format(date);
+		 return dateString;
+	}
+	
+	private Date convertStringToDate(String dateString){
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		Date date = null;
+		try {
+		
+			date = sdf.parse(dateString);
+		
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		 return date;
 	}
 	
 	private List<Question> getQuestionList() {
@@ -785,14 +808,14 @@ public class AgilePageController {
 		bestPractice1.setTopic("Best Practice 1");
 		bestPractice1.setProblemStatement("What is the best practice");
 		bestPractice1.setSolutionString("Solution String");
-		bestPractice1.setLastUpdatedTime(new Date());
+		bestPractice1.setLastUpdatedTime(convertDateToString(new Date()));
 		
 		BestPractice bestPractice2 = new BestPractice();
 		bestPractice2.setBestPracticeId(2L);
 		bestPractice2.setTopic("Best Practice 2");
 		bestPractice2.setProblemStatement("What is the best practice");
 		bestPractice2.setSolutionString("Solution String");
-		bestPractice2.setLastUpdatedTime(new Date());
+		bestPractice2.setLastUpdatedTime(convertDateToString(new Date()));
 		
 		
 		BestPractice bestPractice3 = new BestPractice();
@@ -800,49 +823,49 @@ public class AgilePageController {
 		bestPractice3.setTopic("Best Practice 3");
 		bestPractice3.setProblemStatement("What is the best practice");
 		bestPractice3.setSolutionString("Solution String");
-		bestPractice3.setLastUpdatedTime(new Date());
+		bestPractice3.setLastUpdatedTime(convertDateToString(new Date()));
 		
 		BestPractice bestPractice4 = new BestPractice();
 		bestPractice4.setBestPracticeId(4L);
 		bestPractice4.setTopic("Best Practice 4");
 		bestPractice4.setProblemStatement("What is the best practice");
 		bestPractice4.setSolutionString("Solution String");
-		bestPractice4.setLastUpdatedTime(new Date());
+		bestPractice4.setLastUpdatedTime(convertDateToString(new Date()));
 		
 		BestPractice bestPractice5 = new BestPractice();
 		bestPractice5.setBestPracticeId(5L);
 		bestPractice5.setTopic("Best Practice 5");
 		bestPractice5.setProblemStatement("What is the best practice");
 		bestPractice5.setSolutionString("Solution String");
-		bestPractice5.setLastUpdatedTime(new Date());
+		bestPractice5.setLastUpdatedTime(convertDateToString(new Date()));
 		
 		BestPractice bestPractice6 = new BestPractice();
 		bestPractice6.setBestPracticeId(6L);
 		bestPractice6.setTopic("Best Practice 6");
 		bestPractice6.setProblemStatement("What is the best practice");
 		bestPractice6.setSolutionString("Solution String");
-		bestPractice6.setLastUpdatedTime(new Date());
+		bestPractice6.setLastUpdatedTime(convertDateToString(new Date()));
 		
 		BestPractice bestPractice7 = new BestPractice();
 		bestPractice7.setBestPracticeId(7L);
 		bestPractice7.setTopic("Best Practice 7");
 		bestPractice7.setProblemStatement("What is the best practice");
 		bestPractice7.setSolutionString("Solution String");
-		bestPractice7.setLastUpdatedTime(new Date());
+		bestPractice7.setLastUpdatedTime(convertDateToString(new Date()));
 		
 		BestPractice bestPractice8 = new BestPractice();
 		bestPractice8.setBestPracticeId(8L);
 		bestPractice8.setTopic("Best Practice 8");
 		bestPractice8.setProblemStatement("What is the best practice");
 		bestPractice8.setSolutionString("Solution String");
-		bestPractice8.setLastUpdatedTime(new Date());
+		bestPractice8.setLastUpdatedTime(convertDateToString(new Date()));
 		
 		BestPractice bestPractice9 = new BestPractice();
 		bestPractice9.setBestPracticeId(9L);
 		bestPractice9.setTopic("Best Practice 9");
 		bestPractice9.setProblemStatement("What is the best practice");
 		bestPractice9.setSolutionString("Solution String");
-		bestPractice9.setLastUpdatedTime(new Date());
+		bestPractice9.setLastUpdatedTime(convertDateToString(new Date()));
 		
 		bestpracticesList.add(bestPractice1);
 		bestpracticesList.add(bestPractice2);
