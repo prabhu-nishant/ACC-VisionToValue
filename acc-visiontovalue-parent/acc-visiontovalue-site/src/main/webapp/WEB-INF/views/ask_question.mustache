@@ -4,6 +4,19 @@
 {{> WEB-INF/views/common_header_tags.mustache}}
 <script>
 	
+	$(document).ready(function() {
+	
+		$( "#openAskQuestionDialog" ).dialog({
+  			autoOpen: false
+		});
+	
+	});
+	
+	function askQuestion(){
+		$( "#openAskQuestionDialog" ).dialog("open");
+	}
+
+	
 </script>
 </head>
 <body>
@@ -12,7 +25,37 @@
 <div id="display_div">
 	<div id="main_div">
 	
+		<div id="openAskQuestionDialog">
+			<form autocomplete="off" action="{{base_path}}/{{community}}/ask_question/new" method="post" accept-charset="UTF-8">
+			<table>
+				<tr>
+					<td>Short Description</td>
+					<td><input type="text" id="shortDesc" {{#form.shortDescription}}value="{{form.shortDescription}}"{{/form.shortDescription}}></td>
+				</tr>
+				<tr>
+					<td>Detailed Description</td>
+					<td><input type="text" id="detailDesc" {{#form.detailedDescription}}value="{{form.detailedDescription}}"{{/form.detailedDescription}}></td>
+				</tr>
+				<tr>
+					<td>Select Category</td>
+					<td>
+						<select name="category" id="category">
+  							<option value="visiontoroadmap">Vision to roadmap</option>
+  							<option value="roadmaptodeploy">Roadmap to deploy</option>
+  							<option value="deploytovalue">Deploy to value</option>
+  						</select>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" name="submit" value="Post"/></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+		
 		<div id="ask_question">
+			
 			<table>
 				<tr>
 					<td colspan="3" align="left" width="30%">

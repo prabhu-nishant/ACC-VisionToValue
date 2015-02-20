@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.acc.visiontovalue.site.form.EditLibraryForm;
 import com.acc.visiontovalue.site.form.EditQuestionForm;
+import com.acc.visiontovalue.site.form.SubmitQuestionForm;
 import com.acc.visiontovalue.site.form.TextAreaForm;
 import com.acc.visiontovalue.site.model.Answer;
 import com.acc.visiontovalue.site.model.BestPractice;
@@ -229,6 +230,12 @@ public class AgilePageController {
 	
 	@RequestMapping(value="/ask_question" ,method=RequestMethod.GET)
 	public String loadAgileCommunityAskQuestionPage(HttpServletRequest request,Model model){
+		
+		if (!model.containsAttribute("form")) {
+
+			SubmitQuestionForm submitQuestionForm = new SubmitQuestionForm();
+			model.addAttribute("form", submitQuestionForm);
+		}
 		
 		setCommonAttributes(model,"ask_question");
 		model.addAttribute("questionList",getQuestionList());
