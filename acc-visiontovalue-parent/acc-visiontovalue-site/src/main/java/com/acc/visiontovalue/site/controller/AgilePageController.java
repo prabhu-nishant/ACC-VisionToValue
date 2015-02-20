@@ -345,7 +345,14 @@ public class AgilePageController {
 		model.addAttribute("communityName","Agile Coach");
 		model.addAttribute("community","agile");
 		model.addAttribute("page",page);
-		model.addAttribute("view_questions",getQuestionList());
+		
+		if(page.equals("library")){
+			model.addAttribute("view_list",getBestPracticesList());
+		}
+		else {
+			model.addAttribute("view_list",getQuestionList());
+		}
+		
 	}
 	
 	private void deleteAnswer(Question question,long answerId) {

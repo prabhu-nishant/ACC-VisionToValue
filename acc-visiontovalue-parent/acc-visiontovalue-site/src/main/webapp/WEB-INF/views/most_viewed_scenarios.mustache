@@ -1,0 +1,22 @@
+<div id="view_div">
+	<table width=100%>
+		<tr>
+			<td height="25" align="center">
+				<font size="3" color="#003367">
+					<img src="{{base_path}}/resources/images/6.png" title="Scenarios" height="25" width="25"/> Most viewed scenarios
+				</font>
+			</td>
+		</tr>
+		<tr><td><hr color="#E5E4E2"></td></tr>
+		{{#view_list}}
+		<tr>
+			<td>
+				<a href="{{base_path}}/{{community}}/scenarios/detail/{{questionId}}">{{questionString}}</a>
+			</td>
+		</tr>
+		<tr/>
+		<tr><td><hr color="#E5E4E2"></td></tr>
+		<tr/>
+		{{/view_list}}
+	<table>
+</div>

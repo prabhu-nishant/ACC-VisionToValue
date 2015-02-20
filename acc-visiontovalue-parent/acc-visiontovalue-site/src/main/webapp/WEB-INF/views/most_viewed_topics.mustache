@@ -1,22 +1,22 @@
 <div id="view_div">
-	<table>
+	<table width=100%>
 		<tr>
 			<td height="25" align="center">
 				<font size="3" color="#003367">
-					<img src="{{base_path}}/resources/images/6.png" title="Questions" height="25" width="25"/> Most viewed recommendations
+					<img src="{{base_path}}/resources/images/6.png" title="Topics" height="25" width="25"/> Most viewed topics
 				</font>
 			</td>
 		</tr>
 		<tr><td><hr color="#E5E4E2"></td></tr>
-		{{#view_questions}}
+		{{#view_list}}
 		<tr>
 			<td>
-				<a href="{{base_path}}/{{community}}/questions/detail/{{questionId}}">{{questionString}}</a>
+				<a href="{{base_path}}/{{community}}/library/detail/{{bestPracticeId}}">{{topic}}</a>
 			</td>
 		</tr>
 		<tr/>
 		<tr><td><hr color="#E5E4E2"></td></tr>
 		<tr/>
-		{{/view_questions}}
+		{{/view_list}}
 	<table>
 </div>
