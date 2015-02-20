@@ -1,0 +1,41 @@
+#ask_question{
+	
+	display:block;
+	float:left
+}
+
+#ask_question table{
+	
+ 	border:0;
+	cellpadding:10px;
+	display: table;
+	font-family: Arial, Helvetica, sans-serif;
+	position:relative;
+	top:20px;
+	width:900px;
+}
+
+#ask_question table tr {
+	
+	align:center;
+}
+
+#ask_question  table td {
+	color:#003367;
+	padding-top: .2em;
+	padding-bottom: .2em;
+}
+
+#ask_question a {
+	text-decoration: none;
+	color:#003367;
+	font-size:15px;
+	font-weight: 700;
+}
+
+#ask_question > a {
+	
+	font-weight: 700;
+	font-size:18px;
+	font-family: Arial, Helvetica, sans-serif;
+}

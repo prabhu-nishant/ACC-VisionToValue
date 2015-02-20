@@ -12,6 +12,36 @@
 <div id="display_div">
 	<div id="main_div">
 	
+		<div id="ask_question">
+			<table>
+				<tr>
+					<td colspan="3" align="left" width="30%">
+						<button class="button_table" id="ask_question" onClick="askQuestion()">Ask New Question</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center" style="background: #febf01"><b>Questions<b></td>
+					<td width="30%" align="center" style="background: #febf01"><b>Status<b></td>
+				</tr>
+				{{#questionList}}
+				<tr>
+					<td width="2%" align="center">
+						<input type="checkbox" {{#questionId}}name={{questionId}}{{/questionId}} {{#questionId}}value={{questionId}}{{/questionId}}>
+					</td>
+					<td width="45%">
+						<a href="{{base_path}}/{{community}}/ask_question/detail/{{questionId}}">{{#questionString}}{{questionString}}{{/questionString}}</a>
+					</td>
+					<td width="30%" align="center">
+						{{#status}}{{status}}{{/status}}
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3"><hr color="#F0F0F0"></td>
+				</tr>
+				{{/questionList}}
+			</table>
+		</div>
+		
 	</div>
 	{{> WEB-INF/views/most_viewed_recommendations.mustache}}
 </div>

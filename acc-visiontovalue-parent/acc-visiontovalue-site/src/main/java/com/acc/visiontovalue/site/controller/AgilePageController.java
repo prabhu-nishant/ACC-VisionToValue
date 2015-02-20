@@ -118,6 +118,7 @@ public class AgilePageController {
 			EditQuestionForm editQuestionform = new EditQuestionForm();
 			editQuestionform.setQuestionString(question.getQuestionString());
 			editQuestionform.setDetailedDescription(question.getDetailedDescription());
+			editQuestionform.setRecommendedSolution(question.getRecommendedSolution());
 			model.addAttribute("form", editQuestionform);
 		}
 		
@@ -132,6 +133,7 @@ public class AgilePageController {
 		Question question = getQuestionDetail(questionId);
 		question.setQuestionString(form.getQuestionString());
 		question.setDetailedDescription(form.getDetailedDescription());
+		question.setRecommendedSolution(form.getRecommendedSolution());
 		return "redirect:/agile/questions/detail/"+questionId;
 		
 	}
@@ -229,7 +231,17 @@ public class AgilePageController {
 	public String loadAgileCommunityAskQuestionPage(HttpServletRequest request,Model model){
 		
 		setCommonAttributes(model,"ask_question");
+		model.addAttribute("questionList",getQuestionList());
 		return "ask_question";
+	}
+	
+	@RequestMapping(value="/ask_question/detail/{questionId}" ,method=RequestMethod.GET)
+	public String loadAgileCommunityAskQuestionDetailPage(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		
+		Question question = getQuestionDetail(questionId);
+		setCommonAttributes(model,"ask_question");
+		model.addAttribute("question",question);
+		return "ask_question_detail";
 	}
 	
 	@RequestMapping(value="/scenarios" ,method=RequestMethod.GET)
@@ -461,6 +473,7 @@ public class AgilePageController {
 		question1.setCategory("visiontoroadmap");
 		question1.setQuestionString("How do I create vision for my product/program that is crisp yet compelling ?");
 		question1.setDetailedDescription("What would be the best techniques ?");
+		question1.setStatus("Answered");
 		question1.setLastModifiedDate(new Date());
 		question1.setRecommendedSolution("Vision Box:"
 								+ "\nTechnique to identify the most exiting features of a product."
@@ -479,6 +492,7 @@ public class AgilePageController {
 		question2.setCategory("visiontoroadmap");
 		question2.setQuestionString("What are the essential ingredients of vision statement that will bring out the real essence of product vision ?");
 		question2.setDetailedDescription("What are the essential ingredients of vision statement that will bring out the real essence of product vision ?");
+		question2.setStatus("Answered");
 		question2.setLastModifiedDate(new Date());
 		question2.setRecommendedSolution("Elevator Pitch/Speech/Statement:"
 				+"\nAn elevator pitch, elevator speech, or elevator statement is a short summary used to quickly and simply define a person, profession, product, service, organization or event and its value proposition"
@@ -500,6 +514,7 @@ public class AgilePageController {
 		question3.setCategory("visiontoroadmap");
 		question3.setQuestionString("How do I make sure that the business needs are consolidated from different sources as organization is complex and there are too many stakeholders influencing the product/features being developed");
 		question3.setDetailedDescription("How do I make sure that the business needs are consolidated from different sources as organization is complex and there are too many stakeholders influencing the product/features being developed");
+		question3.setStatus("Answered");
 		question3.setLastModifiedDate(new Date());
 		question3.setRecommendedSolution("Voice of Customer (VOC):"
 				+"\nVoice of the customer (VOC) is a term used to describe the in-depth process of capturing a customer's expectations, preferences and aversions. It is a market research technique that produces a detailed set of customer wants and needs, organized into a hierarchical structure, and then prioritized in terms of relative importance and satisfaction with current alternatives."
@@ -515,6 +530,7 @@ public class AgilePageController {
 		question4.setCategory("visiontoroadmap");
 		question4.setQuestionString("How do I ensure that the high business value requirements flow seamlessly from business stakeholders to IT team?");
 		question4.setDetailedDescription("How do I ensure that the high business value requirements flow seamlessly from business stakeholders to IT team?");
+		question4.setStatus("Answered");
 		question4.setLastModifiedDate(new Date());
 		question4.setRecommendedSolution("Value Stream Mapping(VSM):"
 				+"\nVSM is used to analyze an existing process to identify the improvement areas. It is a method of creating \"One Page Picture\" of all the activities and tasks that occur in a process, from the time a customer provides the requirement, until the application, product, or service meeting the requirement is provided to the customer. The goal is to depict data and information flows across and throughput all the process steps that are required to provide the application, product or service to the customer. VSM documents both value and non-value adding (wastes) steps in a process"
@@ -535,6 +551,7 @@ public class AgilePageController {
 		question5.setCategory("visiontoroadmap");
 		question5.setQuestionString("How do I define roadmap for my product/program ?");
 		question5.setDetailedDescription("How do I define roadmap for my product/program ?");
+		question5.setStatus("Answered");
 		question5.setLastModifiedDate(new Date());
 		question5.setRecommendedSolution("Prune the Product Tree:"
 				+"\nPrune the Product Tree is a technique to shape the requirements as per business needs"
@@ -554,6 +571,7 @@ public class AgilePageController {
 		question6.setCategory("visiontoroadmap");
 		question6.setQuestionString("How do I make sure that the 3 constraints are properly balanced ?");
 		question6.setDetailedDescription("How do I make sure that the 3 constraints are properly balanced ?");
+		question6.setStatus("Answered");
 		question6.setLastModifiedDate(new Date());
 		question6.setRecommendedSolution("Trade-Off Matrix:"
 				+"\nTrade-Off Matrix is a coaching tool to educate stakeholders on constraints – Scope, Schedule and Resources. It promotes transparency among the stakeholders"
@@ -569,6 +587,7 @@ public class AgilePageController {
 		question7.setCategory("visiontoroadmap");
 		question7.setQuestionString("How do I prioritize the business requirements ?");
 		question7.setDetailedDescription("How do I prioritize the business requirements ?");
+		question7.setStatus("Answered");
 		question7.setLastModifiedDate(new Date());
 		question7.setRecommendedSolution("Buy a feature:"
 				+"\nBuy a feature improves the quality of this decision by asking your customers to help you make it.Participants see a list of proposed product features and a cost (expressed as development effort or street-level pricing) associated with each. Each participant “buys” a desirable feature; participants may also pool resources to buy features too expensive to be purchased with individual funds."
@@ -596,6 +615,7 @@ public class AgilePageController {
 		question8.setCategory("visiontoroadmap");
 		question8.setQuestionString("How do I compute Business value for features?");
 		question8.setDetailedDescription("How do I compute Business value for features?");
+		question8.setStatus("Answered");
 		question8.setLastModifiedDate(new Date());
 		question8.setRecommendedSolution("Kano Analysis:"
 				+"\nKano model helps to uncover, classify, and integrate customer needs and attributes into software or services that you are developing. It is used during requirement analysis to identify, prioritize and categorize requirements"
@@ -612,6 +632,7 @@ public class AgilePageController {
 		question9.setCategory("visiontoroadmap");
 		question9.setQuestionString("How do I handle the challenge of high story point backlog?");
 		question9.setDetailedDescription("How do I handle the challenge of high story point backlog?");
+		question9.setStatus("Answered");
 		question9.setLastModifiedDate(new Date());
 		question9.setRecommendedSolution("Affinity Diagram:"
 				+ "Affinity Diagram is a tool that gathers large amount of textual data(ideas, opinions, issues) and organise them into groups based on their natural relationship. This method taps a team's creativity and intuition.");
@@ -624,6 +645,7 @@ public class AgilePageController {
 		question10.setCategory("roadmaptodeploy");
 		question10.setQuestionString("As a Business User, I want  to see the solutions faster and provide feedbacks so that the solutions can align closer to our Business Users Requirements and improve Speed to Market");
 		question10.setDetailedDescription("As a Business User, I want  to see the solutions faster and provide feedbacks so that the solutions can align closer to our Business Users Requirements and improve Speed to Market");
+		question10.setStatus("Answered");
 		question10.setLastModifiedDate(new Date());
 		question10.setRecommendedSolution("Accenture Prototype Accelerator Factory:"
 				+"\nIt is a prototyping service that is used to create the prototype for new applications or while modeling new business processes"
@@ -651,6 +673,7 @@ public class AgilePageController {
 		question11.setCategory("roadmaptodeploy");
 		question11.setQuestionString("As a Developer, I want to make sure that I write optimized lines of code so that there is defect rate is low");
 		question11.setDetailedDescription("As a Developer, I want to make sure that I write optimized lines of code so that there is defect rate is low");
+		question11.setStatus("Answered");
 		question11.setLastModifiedDate(new Date());
 		question11.setRecommendedSolution("Test Driven Development (TDD):"
 				+"\nTest-driven development (TDD) is an evolutionary approach to development which combines test-first development where you write a test before you write just enough production code to fulfill that test and refactoring."
@@ -668,6 +691,7 @@ public class AgilePageController {
 		question12.setCategory("roadmaptodeploy");
 		question12.setQuestionString("How do I know what is the release goal and by when can we achieve it ?");
 		question12.setDetailedDescription("How do I know what is the release goal and by when can we achieve it ?");
+		question12.setStatus("Answered");
 		question12.setLastModifiedDate(new Date());
 		
 		question12.setRecommendedSolution("Release Planning:"
@@ -683,6 +707,7 @@ public class AgilePageController {
 		question13.setCategory("roadmaptodeploy");
 		question13.setQuestionString("How do I ensure that there is a continuous focus on productivity gain ?");
 		question13.setDetailedDescription("How do I ensure that there is a continuous focus on productivity gain ?");
+		question13.setStatus("Answered");
 		question13.setLastModifiedDate(new Date());
 		question13.setRecommendedSolution("Kaizen (Continuous Improvement):"
 				+"\nKaizen refers to philosophy or practices that focus upon continuous improvement of processes in manufacturing ,engineering, business management or any process"
@@ -701,6 +726,7 @@ public class AgilePageController {
 		question14.setCategory("roadmaptodeploy");
 		question14.setQuestionString("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
 		question14.setDetailedDescription("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
+		question14.setStatus("Answered");
 		question14.setLastModifiedDate(new Date());
 		question14.setRecommendedSolution("Sprint Planning:"
 				+"\nThis is a planning meeting that is conducted at the beginning of a Sprint to identify the goal of the Sprint and create the Sprint Backlog. The Product Owner, the Scrum Master, the team, and the manager attend this meeting. The stories selected for the Sprint are broken into tasks, and the tasks are estimated in hours"
@@ -715,6 +741,7 @@ public class AgilePageController {
 		question15.setCategory("roadmaptodeploy");
 		question15.setQuestionString("How do I perform daily planning and resolve day to day impediments ?");
 		question15.setDetailedDescription("How do I perform daily planning and resolve day to day impediments ?");
+		question15.setStatus("Answered");
 		question15.setLastModifiedDate(new Date());
 		question15.setRecommendedSolution("Daily Standup:"
 				+"\nThis is a daily meeting of the team where all the team members and the Scrum master are present and discuss the progress, plan the day and highlight the impediments. This meeting is time-boxed to 15 minutes. "
@@ -734,6 +761,7 @@ public class AgilePageController {
 		question16.setCategory("roadmaptodeploy");
 		question16.setQuestionString("How do I ensure that the sprint goals are delivered and meet the expectations ?");
 		question16.setDetailedDescription("How do I ensure that the sprint goals are delivered and meet the expectations ?");
+		question16.setStatus("Answered");
 		question16.setLastModifiedDate(new Date());
 		question16.setRecommendedSolution("Sprint Review:"
 				+"\nThis is a review meeting with the Product Owner conducted at the end of the sprint. The Team demo the user stories committed for the sprint and the Product Owner provides feedback. Finally the user stories are accepted or rejected by the Product Owner."
@@ -748,6 +776,7 @@ public class AgilePageController {
 		question17.setCategory("roadmaptodeploy");
 		question17.setQuestionString("As a team, we want to make sure that we retrospect at regular interval and fine tune the behaviour so that we can continuously improve");
 		question17.setDetailedDescription("As a team, we want to make sure that we retrospect at regular interval and fine tune the behaviour so that we can continuously improve");
+		question17.setStatus("Answered");
 		question17.setLastModifiedDate(new Date());
 		question17.setRecommendedSolution("Sprint Retrospective:"
 				+"\nSprint Retrospective meetings are conducted at the end of each sprint. During this meeting, the ScrumMaster and the team discuss the just completed sprint and discuss what can be done to improve future sprints."
@@ -763,6 +792,7 @@ public class AgilePageController {
 		question18.setCategory("roadmaptodeploy");
 		question18.setQuestionString("How do I ensure that the goal of continuous delivery is met ?");
 		question18.setDetailedDescription("How do I ensure that the goal of continuous delivery is met ?");
+		question18.setStatus("Answered");
 		question18.setLastModifiedDate(new Date());
 		question18.setRecommendedSolution("Configuration Management:"
 			+"\nConfiguration Management is the backbone for continuous delivery. Having a robust configuration management would ensure a strong foundation for continuous integration, deploy"
@@ -776,6 +806,7 @@ public class AgilePageController {
 		question19.setCategory("roadmaptodeploy");
 		question19.setQuestionString("How do I ensure that the team is able to integrate continuously automatically with less manual interventions ?");
 		question19.setDetailedDescription("How do I ensure that the team is able to integrate continuously automatically with less manual interventions ?");
+		question19.setStatus("Answered");
 		question19.setLastModifiedDate(new Date());
 		question19.setRecommendedSolution("Continuous Integration:"
 				+"\nContinuous Integration provides a kind of environment which takes care of the frequent Build, Integration and Testing needs of a project / program. It consists of a series of automated steps which can be executed either when new code is added into repository or at a scheduled time depending on the way it has been configured to run. These automated steps ensure the integration works as desired and at the same time reduce the time associated with the frequent integration. Continuous integration ensures that the code is compiled, unit tested and compliant with standards"
@@ -790,6 +821,7 @@ public class AgilePageController {
 		question20.setCategory("roadmaptodeploy");
 		question20.setQuestionString("How do I ensure the progress of the team in the sprint is seamless and transparent ?");
 		question20.setDetailedDescription("How do I ensure the progress of the team in the sprint is seamless and transparent ?");
+		question20.setStatus("Answered");
 		question20.setLastModifiedDate(new Date());
 		question20.setRecommendedSolution("Kanban Wall:"
 				+"\nOne of the core principles of Kanban for software development is “Make it visible”. A Kanban Wall is a visual display of all the tasks along with its progress pertaining to a sprint. It consists of a sequence of defined steps or sub processes or states that a user story moves through until it is complete. The states are defined based on the sequence of activities in which the user stories are developed."
@@ -805,6 +837,7 @@ public class AgilePageController {
 		question21.setCategory("roadmaptodeploy");
 		question21.setQuestionString("How do I ensure that deployment is fast and continuous ?");
 		question21.setDetailedDescription("How do I ensure that deployment is fast and continuous ?");
+		question21.setStatus("Answered");
 		question21.setLastModifiedDate(new Date());
 		question21.setRecommendedSolution("Automated Deploy:"
 				+"\nThis practice can be achieved by the using a Continuous Integration framework, which will perform the automated deployment at regular and pre-determined intervals or can be triggered by code check in by a developer ");
@@ -817,6 +850,7 @@ public class AgilePageController {
 		question22.setCategory("roadmaptodeploy");
 		question22.setQuestionString("How do I ensure that the IT development is aligned to business requirements ?");
 		question22.setDetailedDescription("How do I ensure that the IT development is aligned to business requirements ?");
+		question22.setStatus("Answered");
 		question22.setLastModifiedDate(new Date());
 		question22.setRecommendedSolution("Behaviour Driven Development:"
 				+"\nBehavior-driven development combines the general techniques and principles of TDD with ideas from domain-driven design and object-oriented analysis and design to provide software developers and business analysts with shared tools and a shared process to collaborate on software development, with the aim of delivering \"software that matters\"."
@@ -832,6 +866,7 @@ public class AgilePageController {
 		question23.setCategory("deploytovalue");
 		question23.setQuestionString("How do I improve productivity of support incidents ?");
 		question23.setDetailedDescription("How do I improve productivity of support incidents ?");
+		question23.setStatus("Answered");
 		question23.setLastModifiedDate(new Date());
 		question23.setRecommendedSolution("Value Stream Mapping(VSM):"
 				+"\nVSM is used to analyze an existing process to identify the improvement areas. It is a method of creating \"One Page Picture\" of all the activities and tasks that occur in a process, from the time a customer provides the requirement, until the application, product, or service meeting the requirement is provided to the customer. The goal is to depict data and information flows across and throughput all the process steps that are required to provide the application, product or service to the customer. VSM documents both value and non-value adding (wastes) steps in a process");
@@ -844,6 +879,7 @@ public class AgilePageController {
 		question24.setCategory("deploytovalue");
 		question24.setQuestionString("How do I reduce high resolution time for incidents ?");
 		question24.setDetailedDescription("How do I reduce high resolution time for incidents ?");
+		question24.setStatus("Answered");
 		question24.setLastModifiedDate(new Date());
 		question24.setRecommendedSolution("SIPOC:"
 				+"\nSIPOC is used to identify the key elements (Supplier, Inputs, Process, Outputs and Customers) of a process, which are to be considered to improve process performance. It gives a high-level picture of the process that depicts how the given process is servicing the customer");
@@ -856,6 +892,7 @@ public class AgilePageController {
 		question25.setCategory("deploytovalue");
 		question25.setQuestionString("How do I ensure that the cycle time is reduced between the ticket in the queue till it is available in the production ?");
 		question25.setDetailedDescription("How do I ensure that the cycle time is reduced between the ticket in the queue till it is available in the production ?");
+		question25.setStatus("Answered");
 		question25.setLastModifiedDate(new Date());
 		question25.setRecommendedSolution("Kanban Wall:"
 				+"\nOne of the core principles of Kanban for software development is “Make it visible”. A Kanban Wall is a visual display of all the tasks along with its progress pertaining to a sprint. It consists of a sequence of defined steps or sub processes or states that a user story moves through until it is complete. The states are defined based on the sequence of activities in which the user stories are developed."
@@ -871,6 +908,7 @@ public class AgilePageController {
 		question26.setCategory("deploytovalue");
 		question26.setQuestionString("How do I ensure that the development and operations transition is seamless ?");
 		question26.setDetailedDescription("How do I ensure that the development and operations transition is seamless ?");
+		question26.setStatus("Answered");
 		question26.setLastModifiedDate(new Date());
 		question26.setRecommendedSolution("Self-Service Provisioning:"
 			+"\nWith the increasing complexity involved in software development, provisioning of environments for development teams has become complex and demanding task for IT operations. As cloud computing enables near infinite computing resources, organizations can now build cloud based self-service provisioning systems. These self systems enable development teams to rapidly clone and bring up environments as per needs, and avoiding to wait for IT operations to provision it. Such self-service solutions with accurate cloud-based provisioning, improves coordination between development and IT operations, in turn reducing development time and improving the quality of software delivered.");

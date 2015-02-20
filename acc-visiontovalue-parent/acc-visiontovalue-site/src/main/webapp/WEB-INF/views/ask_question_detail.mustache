@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> WEB-INF/views/common_header_tags.mustache}}
+</head>
+<body>
+{{> WEB-INF/views/header.mustache}}
+{{> WEB-INF/views/link_navigator.mustache}}
+<div id="display_div">
+	
+	<div id="main_div">
+		
+		{{#question}}
+	
+		<div id="question_detail">
+			<table width="100%">
+				<tr>
+					<td width="2%"><img src="{{base_path}}/resources/images/6.png" title="Question" height="20" width="20"/></td>
+					<td width="88%" align="left">{{#questionString}}{{questionString}}{{/questionString}}</td>
+					<td width="5%">
+						<a href="#"><img src="{{base_path}}/resources/images/2.png" title="Edit" height="20" width="20"/></a>
+					</td>
+					<td width="5%">
+						<a href="#"><img src="{{base_path}}/resources/images/3.png" title="Delete" height="20" width="20"/></a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<hr color="#F0F0F0">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<div id="detailedDescriptionTitle">Detailed Description</div>
+						<div id="detailedDescription">{{#detailedDescription}}{{detailedDescription}}{{/detailedDescription}}</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		{{/question}}
+		
+	</div>
+	{{> WEB-INF/views/most_viewed_recommendations.mustache}}
+	
+</div>
+</body>
+</html>

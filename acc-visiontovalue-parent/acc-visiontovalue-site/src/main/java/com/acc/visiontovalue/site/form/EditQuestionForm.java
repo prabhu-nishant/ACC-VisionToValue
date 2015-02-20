@@ -7,6 +7,8 @@ public class EditQuestionForm {
 	
 	private String detailedDescription;
 	
+	private String recommendedSolution;
+	
 	public String getQuestionString() {
 		return questionString;
 	}
@@ -21,6 +23,14 @@ public class EditQuestionForm {
 
 	public void setDetailedDescription(String detailedDescription) {
 		this.detailedDescription = detailedDescription;
+	}
+
+	public String getRecommendedSolution() {
+		return recommendedSolution;
+	}
+
+	public void setRecommendedSolution(String recommendedSolution) {
+		this.recommendedSolution = recommendedSolution;
 	}
 	
 }
