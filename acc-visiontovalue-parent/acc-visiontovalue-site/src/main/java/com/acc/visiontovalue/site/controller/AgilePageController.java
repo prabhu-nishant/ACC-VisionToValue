@@ -251,6 +251,22 @@ public class AgilePageController {
 		return "ask_question_detail";
 	}
 	
+	
+	@RequestMapping(value="/ask_question/new" ,method=RequestMethod.GET)
+	public String addNewQuestion(HttpServletRequest request,Model model){
+		
+		if (!model.containsAttribute("form")) {
+
+			SubmitQuestionForm submitQuestionForm = new SubmitQuestionForm();
+			model.addAttribute("form", submitQuestionForm);
+		}
+		
+		setCommonAttributes(model,"ask_question");
+		model.addAttribute("questionList",getQuestionList());
+		return "ask_question";
+	}
+	
+	
 	@RequestMapping(value="/scenarios" ,method=RequestMethod.GET)
 	public String loadAgileCommunityScenariosPage(HttpServletRequest request,Model model){
 		

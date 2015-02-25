@@ -47,12 +47,12 @@ public class BAPageController {
 		}
 		
 		@RequestMapping(method=RequestMethod.GET)
-		public String loadAgileCommunityPage(HttpServletRequest request,Model model){
+		public String loadBACommunityPage(HttpServletRequest request,Model model){
 			return "redirect:/ba/questions" ;
 		}
 		
 		@RequestMapping(value="/questions" ,method=RequestMethod.GET)
-		public String loadAgileCommunityQuestionsPage(HttpServletRequest request,Model model){
+		public String loadBACommunityQuestionsPage(HttpServletRequest request,Model model){
 			
 			setCommonAttributes(model,"questions");
 			return "questions";
@@ -160,7 +160,7 @@ public class BAPageController {
 		
 		
 		@RequestMapping(value="/library" ,method=RequestMethod.GET)
-		public String loadAgileCommunityLibraryPage(HttpServletRequest request,Model model){
+		public String loadBACommunityLibraryPage(HttpServletRequest request,Model model){
 			
 			setCommonAttributes(model,"library");
 			model.addAttribute("bestpracticesList",getBestPracticesList());
@@ -170,7 +170,7 @@ public class BAPageController {
 		
 
 		@RequestMapping(value="/library/detail/{bestPracticeId}" ,method=RequestMethod.GET)
-		public String loadAgileCommunityLibraryDetailPage(@PathVariable("bestPracticeId") long bestPracticeId,HttpServletRequest request,Model model){
+		public String loadBACommunityLibraryDetailPage(@PathVariable("bestPracticeId") long bestPracticeId,HttpServletRequest request,Model model){
 			
 			BestPractice bestPractice = getBestPracticeDetail(bestPracticeId);
 			return displayLibraryDetail(model,bestPractice);
@@ -230,7 +230,7 @@ public class BAPageController {
 		}
 		
 		@RequestMapping(value="/ask_question" ,method=RequestMethod.GET)
-		public String loadAgileCommunityAskQuestionPage(HttpServletRequest request,Model model){
+		public String loadBACommunityAskQuestionPage(HttpServletRequest request,Model model){
 			
 			if (!model.containsAttribute("form")) {
 
@@ -244,7 +244,7 @@ public class BAPageController {
 		}
 		
 		@RequestMapping(value="/ask_question/detail/{questionId}" ,method=RequestMethod.GET)
-		public String loadAgileCommunityAskQuestionDetailPage(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
+		public String loadBACommunityAskQuestionDetailPage(@PathVariable("questionId") long questionId,HttpServletRequest request,Model model){
 			
 			Question question = getQuestionDetail(questionId);
 			setCommonAttributes(model,"ask_question");
@@ -253,7 +253,7 @@ public class BAPageController {
 		}
 		
 		@RequestMapping(value="/scenarios" ,method=RequestMethod.GET)
-		public String loadAgileCommunityScenariosPage(HttpServletRequest request,Model model){
+		public String loadBACommunityScenariosPage(HttpServletRequest request,Model model){
 			
 			setCommonAttributes(model,"scenarios");
 			return "scenarios";
@@ -362,7 +362,7 @@ public class BAPageController {
 		
 		private void setCommonAttributes(Model model,String page) {
 			model.addAttribute("base_path",basepath);
-			model.addAttribute("communityName","Agile Coach");
+			model.addAttribute("communityName","BA Coach");
 			model.addAttribute("community","ba");
 			model.addAttribute("page",page);
 			
@@ -710,7 +710,7 @@ public class BAPageController {
 			question12.setRecommendedSolution("Release Planning:"
 			+"\nRelease Planning is performed during Sprint 0 at the beginning of a release to identify the release timelines (typically 3-6 months), the goals of the release, the scope and the number of Iterations in that release"
 
-			+"\n\nFor more details, refer: https://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Release%20Planning%20Guidelines_E73369A2.html ");
+			+"\n\nFor more details, refer: https://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/BA%20Release%20Planning%20Guidelines_E73369A2.html ");
 			question12.setAnswerList(new ArrayList<Answer>());
 			
 			Question question13 = new Question ();
@@ -824,7 +824,7 @@ public class BAPageController {
 			question19.setRecommendedSolution("Continuous Integration:"
 					+"\nContinuous Integration provides a kind of environment which takes care of the frequent Build, Integration and Testing needs of a project / program. It consists of a series of automated steps which can be executed either when new code is added into repository or at a scheduled time depending on the way it has been configured to run. These automated steps ensure the integration works as desired and at the same time reduce the time associated with the frequent integration. Continuous integration ensures that the code is compiled, unit tested and compliant with standards"
 
-					+"\n\nFor more details, refer: https://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Continuous%20Integration%20Environment%20Guidelines_6CAE42E1.html");
+					+"\n\nFor more details, refer: https://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/BA%20Continuous%20Integration%20Environment%20Guidelines_6CAE42E1.html");
 			question19.setAnswerList(new ArrayList<Answer>());
 
 			Question question20 = new Question ();
@@ -840,7 +840,7 @@ public class BAPageController {
 					+"\nOne of the core principles of Kanban for software development is “Make it visible”. A Kanban Wall is a visual display of all the tasks along with its progress pertaining to a sprint. It consists of a sequence of defined steps or sub processes or states that a user story moves through until it is complete. The states are defined based on the sequence of activities in which the user stories are developed."
 
 					+"\n\nFor more details, refer:"
-					+"\nhttps://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Kanban%20Board%20Setup%20and%20Management%20Guidelines_D4026BC7.html ");
+					+"\nhttps://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/BA%20Kanban%20Board%20Setup%20and%20Management%20Guidelines_D4026BC7.html ");
 			question20.setAnswerList(new ArrayList<Answer>());
 			
 			Question question21 = new Question ();
@@ -911,7 +911,7 @@ public class BAPageController {
 					+"\nOne of the core principles of Kanban for software development is “Make it visible”. A Kanban Wall is a visual display of all the tasks along with its progress pertaining to a sprint. It consists of a sequence of defined steps or sub processes or states that a user story moves through until it is complete. The states are defined based on the sequence of activities in which the user stories are developed."
 
 					+"\n\nFor more details, refer:"
-					+"\nhttps://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Kanban%20Board%20Setup%20and%20Management%20Guidelines_D4026BC7.html ");
+					+"\nhttps://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/BA%20Kanban%20Board%20Setup%20and%20Management%20Guidelines_D4026BC7.html ");
 			question25.setAnswerList(new ArrayList<Answer>());
 			
 			Question question26 = new Question ();

@@ -7,7 +7,23 @@
 	$(document).ready(function() {
 		
 		$( "#openAskQuestionDialog" ).dialog({
-  			autoOpen: false
+			autoOpen: false,
+			buttons: {
+			
+				Submit:function() {
+					$('#dialogForm').submit();
+				},
+				Cancel:function() {
+					$('#openAskQuestionDialog').find('form')[0].reset();
+					$( "#openAskQuestionDialog" ).dialog("close");
+				},
+			},
+			draggable:false,
+			hide:false,
+			height:500,
+			modal: true,
+			resizable:false,
+			width:500
 		});
 	
 	});
@@ -25,30 +41,26 @@
 <div id="display_div">
 	<div id="main_div">
 	
-		<div id="openAskQuestionDialog">
-			<form autocomplete="off" action="{{base_path}}/{{community}}/ask_question/new" method="post" accept-charset="UTF-8">
-			<table>
+		<div id="openAskQuestionDialog" title="New Question">
+			<form id="dialogForm" autocomplete="off" action="{{base_path}}/{{community}}/ask_question/new" method="post" accept-charset="UTF-8">
+			<table width=100%>
 				<tr>
-					<td>Short Description</td>
-					<td><input type="text" id="shortDesc" {{#form.shortDescription}}value="{{form.shortDescription}}"{{/form.shortDescription}}></td>
+					<td width=30%>Short Description</td>
+					<td width=70%><input type="text" id="shortDesc" {{#form.shortDescription}}value="{{form.shortDescription}}"{{/form.shortDescription}}></td>
 				</tr>
 				<tr>
-					<td>Detailed Description</td>
-					<td><input type="text" id="detailDesc" {{#form.detailedDescription}}value="{{form.detailedDescription}}"{{/form.detailedDescription}}></td>
+					<td width=30%>Detailed Description</td>
+					<td width=70%><textarea name="detailDesc" id="detailDesc" {{#form.detailedDescription}}value="{{form.detailedDescription}}"{{/form.detailedDescription}}></textarea></td>
 				</tr>
 				<tr>
-					<td>Select Category</td>
-					<td>
+					<td width=30%>Select Category</td>
+					<td width=70%>
 						<select name="category" id="category">
   							<option value="visiontoroadmap">Vision to roadmap</option>
   							<option value="roadmaptodeploy">Roadmap to deploy</option>
   							<option value="deploytovalue">Deploy to value</option>
   						</select>
 					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" name="submit" value="Post"/></td>
 				</tr>
 			</table>
 			</form>
