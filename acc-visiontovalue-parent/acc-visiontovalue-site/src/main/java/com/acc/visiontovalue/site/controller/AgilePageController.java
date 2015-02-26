@@ -194,7 +194,14 @@ public class AgilePageController {
 		Question question = getQuestionDetail(questionId);
 		question.setQuestionString(form.getQuestionString());
 		question.setDetailedDescription(form.getDetailedDescription());
-		question.setRecommendedSolution(form.getRecommendedSolution());
+		
+		if(StringUtils.isNotBlank(form.getRecommendedSolution())){
+			question.setRecommendedSolution(form.getRecommendedSolution());
+		}
+		else{
+			question.setRecommendedSolution(null);
+		}
+		
 		return "redirect:/agile/library/detail/"+questionId;
 	}
 	
