@@ -103,7 +103,8 @@ public class AgilePageController {
 		comment.setCommentString(form.getTextArea());
 		comment.setDate(new Date());
 		question.getCommentList().add(comment);
-		
+		Integer i = question.getCommentCount();
+		question.setCommentCount(i+1);
 		return displayQuestionDetail(model, question);
 	}
 			
@@ -344,6 +345,8 @@ public class AgilePageController {
 			
 			if(commentId == answer.getCommentId()){
 				question.getCommentList().remove(answer);
+				Integer i = question.getCommentCount();
+				question.setCommentCount(i-1);
 				break;
 			}
 		}

@@ -104,6 +104,8 @@ private static List<Question> questionList = new ArrayList<Question>();
 		comment.setCommentString(form.getTextArea());
 		comment.setDate(new Date());
 		question.getCommentList().add(comment);
+		Integer i = question.getCommentCount();
+		question.setCommentCount(i+1);
 		
 		return displayQuestionDetail(model, question);
 	}
@@ -277,6 +279,8 @@ private static List<Question> questionList = new ArrayList<Question>();
 		comment.setCommentString(form.getTextArea());
 		comment.setDate(new Date());
 		question.getCommentList().add(comment);
+		Integer i = question.getCommentCount();
+		question.setCommentCount(i+1);
 		return displayScenarioDetail(model, question);
 	}
 	
@@ -324,6 +328,8 @@ private static List<Question> questionList = new ArrayList<Question>();
 			
 			if(commentId == answer.getCommentId()){
 				question.getCommentList().remove(answer);
+				Integer i = question.getCommentCount();
+				question.setCommentCount(i-1);
 				break;
 			}
 		}
