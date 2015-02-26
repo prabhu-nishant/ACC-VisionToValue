@@ -57,7 +57,7 @@
 						<input type="checkbox" {{#questionId}}name={{questionId}}{{/questionId}} {{#questionId}}value={{questionId}}{{/questionId}}>
 					</td>
 					<td width="45%">
-						<a href="{{base_path}}/{{community}}/library/detail/{{questionId}}">{{#questionString}}{{questionString}}{{/questionString}}</a>
+						<a {{^recommendedSolution}}style="color:#8B0000"{{/recommendedSolution}} href="{{base_path}}/{{community}}/library/detail/{{questionId}}">{{#questionString}}{{questionString}}{{/questionString}}</a>
 					</td>
 					<td align="right" width="30%">
 						<font size="2" color="#B6B6B4">
