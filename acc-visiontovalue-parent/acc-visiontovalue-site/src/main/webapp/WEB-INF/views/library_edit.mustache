@@ -10,38 +10,43 @@
 	
 	<div id="main_div">
 		
-		<form autocomplete="off" action="{{base_path}}/{{community}}/library/detail/{{bestPracticeId}}/edit" method="post" accept-charset="UTF-8">
-		<div id="library_edit">
-			<input type="hidden" name="lastUpdatedTime" id="lastUpdatedTime" {{#form.lastUpdatedTime}}value="{{form.lastUpdatedTime}}"{{/form.lastUpdatedTime}}>
+		<form autocomplete="off" action="{{base_path}}/{{community}}/library/detail/{{questionId}}/edit" method="post" accept-charset="UTF-8">
+		<div id="question_edit">
 			<table width="100%">
 				<tr>
 					<td>
-						Best practice short description
+						Question short description
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<textarea name="topic" id="topic" {{#form.topic}}value="{{form.topic}}"{{/form.topic}}>{{#form.topic}}{{form.topic}}{{/form.topic}}</textarea>
+						<textarea name="questionString" id="editQuestionString" {{#form.questionString}}value="{{form.questionString}}"{{/form.questionString}}>{{#form.questionString}}{{form.questionString}}{{/form.questionString}}</textarea>
+						
 					</td>
 				</tr>
 				<tr>
 					<td>
-						Problem Statement
+						<hr color="#F0F0F0">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<textarea name="problemStatement" id="problemStatement" {{#form.problemStatement}}value="{{form.problemStatement}}"{{/form.problemStatement}}>{{#form.problemStatement}}{{form.problemStatement}}{{/form.problemStatement}}</textarea>
+						Detailed Description
 					</td>
 				</tr>
 				<tr>
 					<td>
-						Solution
+						<textarea name="detailedDescription" id="editDetailedDescription" {{#form.detailedDescription}}value="{{form.detailedDescription}}"{{/form.detailedDescription}}>{{#form.detailedDescription}}{{form.detailedDescription}}{{/form.detailedDescription}}</textarea>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<textarea name="solutionString" id="solutionString" {{#form.solutionString}}value="{{form.solutionString}}"{{/form.solutionString}}>{{#form.solutionString}}{{form.solutionString}}{{/form.solutionString}}</textarea>
+						Recommended Solution
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="recommendedSolution" id="editRecommendedSolution" {{#form.recommendedSolution}}value="{{form.recommendedSolution}}"{{/form.recommendedSolution}}>{{#form.recommendedSolution}}{{form.recommendedSolution}}{{/form.recommendedSolution}}</textarea>
 					</td>
 				</tr>
 				<tr>

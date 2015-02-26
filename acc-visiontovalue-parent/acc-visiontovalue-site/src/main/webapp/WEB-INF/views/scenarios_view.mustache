@@ -24,11 +24,11 @@
 					doc.text(20, j+50, "{{lastModifiedDate}}" );
 					
 					var k = 80;
-					{{#answerList}}
-						doc.text(20, k, "{{answerString}}" );
+					{{#commentList}}
+						doc.text(20, k, "{{commentString}}" );
 						doc.text(20, k+10, "{{date}}" );
 						k=k+20;				
-					{{/answerList}}
+					{{/commentList}}
 					
 					j=k+20;
 				}
@@ -51,7 +51,7 @@
 		<td width="2%" align="center">
 			<input type="checkbox" name={{questionId}} value={{questionId}}>
 		</td>
-		<td align="center"><font size="4" color="#FF9900">{{answerCount}}</font></td>
+		<td align="center"><font size="4" color="#FF9900">{{commentCount}}</font></td>
 		<td align="left">
 			<b>
 				<a href="{{base_path}}/{{community}}/scenarios/detail/{{questionId}}"  title="Please click the link to view recommended solution">{{#questionString}}{{questionString}}{{/questionString}}<a>

@@ -42,7 +42,7 @@
 	<div id="main_div">
 	
 		<div id="openAskQuestionDialog" title="New Question">
-			<form id="dialogForm" autocomplete="off" action="{{base_path}}/{{community}}/ask_question/new" method="post" accept-charset="UTF-8">
+			<form id="dialogForm" autocomplete="off" action="{{base_path}}/{{community}}/ask/question/new" method="post" accept-charset="UTF-8">
 			<table width=100%>
 				<tr>
 					<td width=30%>Short Description</td>
@@ -84,7 +84,7 @@
 						<input type="checkbox" {{#questionId}}name={{questionId}}{{/questionId}} {{#questionId}}value={{questionId}}{{/questionId}}>
 					</td>
 					<td width="45%">
-						<a href="{{base_path}}/{{community}}/ask_question/detail/{{questionId}}">{{#questionString}}{{questionString}}{{/questionString}}</a>
+						<a href="{{base_path}}/{{community}}/ask/question/detail/{{questionId}}">{{#questionString}}{{questionString}}{{/questionString}}</a>
 					</td>
 					<td width="30%" align="center">
 						{{#status}}{{status}}{{/status}}

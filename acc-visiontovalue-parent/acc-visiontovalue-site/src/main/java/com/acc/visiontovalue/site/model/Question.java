@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(Include.NON_NULL)
 @JsonAutoDetect(getterVisibility = Visibility.NONE)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonPropertyOrder({ "questionId","questionString","detailedDescription","recommendedSolution","answerCount","answerList","community","category","status","lastModifiedDate" })
+@JsonPropertyOrder({ "questionId","questionString","detailedDescription","recommendedSolution","commentCount","commentList","community","category","status","lastModifiedDate" })
 public class Question {
 
 	private static final long serialVersionUID = 3056018561552669496L;
@@ -33,10 +33,10 @@ public class Question {
 	
 	
 	@JsonProperty
-	private Integer answerCount;
+	private Integer commentCount;
 	
 	@JsonProperty
-	private List<Answer> answerList;
+	private List<Comment> commentList;
 	
 	@JsonProperty
 	private String community;
@@ -50,12 +50,12 @@ public class Question {
 	@JsonProperty
 	private Date lastModifiedDate;
 	
-	public List<Answer> getAnswerList() {
-		return answerList;
+	public List<Comment> getCommentList() {
+		return commentList;
 	}
 
-	public void setAnswerList(List<Answer> answerList) {
-		this.answerList = answerList;
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
 	}
 
 	public Date getLastModifiedDate() {
@@ -115,12 +115,12 @@ public class Question {
 		this.recommendedSolution = recommendedSolution;
 	}
 
-	public Integer getAnswerCount() {
-		return answerCount;
+	public Integer getCommentCount() {
+		return commentCount;
 	}
 
-	public void setAnswerCount(Integer answerCount) {
-		this.answerCount = answerCount;
+	public void setCommentCount(Integer commentCount) {
+		this.commentCount = commentCount;
 	}
 
 	public String getStatus() {
