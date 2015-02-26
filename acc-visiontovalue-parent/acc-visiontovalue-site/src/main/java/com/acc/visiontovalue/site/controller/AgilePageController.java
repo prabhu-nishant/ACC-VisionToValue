@@ -467,8 +467,6 @@ public class AgilePageController {
 		question4.setDetailedDescription("How do I ensure that the high business value requirements flow seamlessly from business stakeholders to IT team?");
 		question4.setStatus("Pending with SME");
 		question4.setLastModifiedDate(new Date());
-		question4.setRecommendedSolution("");
-		
 		question4.setCommentList(new ArrayList<Comment>());
 		
 		Question question5 = new Question ();
@@ -480,8 +478,6 @@ public class AgilePageController {
 		question5.setDetailedDescription("How do I define roadmap for my product/program ?");
 		question5.setStatus("Pending with SME");
 		question5.setLastModifiedDate(new Date());
-		question5.setRecommendedSolution("");
-		
 		question5.setCommentList(new ArrayList<Comment>());
 		
 		Question question6 = new Question ();
@@ -648,7 +644,6 @@ public class AgilePageController {
 		question14.setDetailedDescription("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
 		question14.setStatus("Pending with SME");
 		question14.setLastModifiedDate(new Date());
-		question14.setRecommendedSolution("");
 		question14.setCommentList(new ArrayList<Comment>());
 		
 		Question question15 = new Question ();
@@ -680,7 +675,6 @@ public class AgilePageController {
 		question16.setDetailedDescription("How do I ensure that the sprint goals are delivered and meet the expectations ?");
 		question16.setStatus("Pending with SME");
 		question16.setLastModifiedDate(new Date());
-		question16.setRecommendedSolution("");
 		question16.setCommentList(new ArrayList<Comment>());
 		
 		Question question17 = new Question ();
@@ -808,11 +802,6 @@ public class AgilePageController {
 		question25.setDetailedDescription("How do I ensure that the cycle time is reduced between the ticket in the queue till it is available in the production ?");
 		question25.setStatus("Pending with SME");
 		question25.setLastModifiedDate(new Date());
-		question25.setRecommendedSolution("Kanban Wall:"
-				+"\nOne of the core principles of Kanban for software development is “Make it visible”. A Kanban Wall is a visual display of all the tasks along with its progress pertaining to a sprint. It consists of a sequence of defined steps or sub processes or states that a user story moves through until it is complete. The states are defined based on the sequence of activities in which the user stories are developed."
-
-				+"\n\nFor more details, refer:"
-				+"\nhttps://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Kanban%20Board%20Setup%20and%20Management%20Guidelines_D4026BC7.html ");
 		question25.setCommentList(new ArrayList<Comment>());
 		
 		Question question26 = new Question ();

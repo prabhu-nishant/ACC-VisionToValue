@@ -454,8 +454,6 @@ private void setQuestionList() {
 		question4.setDetailedDescription("How do I ensure that the high business value requirements flow seamlessly from business stakeholders to IT team?");
 		question4.setStatus("Pending with SME");
 		question4.setLastModifiedDate(new Date());
-		question4.setRecommendedSolution("");
-		
 		question4.setCommentList(new ArrayList<Comment>());
 		
 		Question question5 = new Question ();
@@ -467,8 +465,6 @@ private void setQuestionList() {
 		question5.setDetailedDescription("How do I define roadmap for my product/program ?");
 		question5.setStatus("Pending with SME");
 		question5.setLastModifiedDate(new Date());
-		question5.setRecommendedSolution("");
-		
 		question5.setCommentList(new ArrayList<Comment>());
 		
 		Question question6 = new Question ();
@@ -478,13 +474,8 @@ private void setQuestionList() {
 		question6.setCategory("visiontoroadmap");
 		question6.setQuestionString("How do I make sure that the 3 constraints are properly balanced ?");
 		question6.setDetailedDescription("How do I make sure that the 3 constraints are properly balanced ?");
-		question6.setStatus("Solution available");
+		question6.setStatus("Pending with SME");
 		question6.setLastModifiedDate(new Date());
-		question6.setRecommendedSolution("Trade-Off Matrix:"
-				+"\nTrade-Off Matrix is a coaching tool to educate stakeholders on constraints – Scope, Schedule and Resources. It promotes transparency among the stakeholders"
-
-				+"\n\nHow-To:"
-				+"\nGet the stakeholders together to agree on \"Given fixed <<first constraint>>, we will choose a <<second constraint>> and adjust <<third constraint>> as necessary\"");
 		question6.setCommentList(new ArrayList<Comment>());
 		
 		Question question7 = new Question ();
@@ -635,7 +626,6 @@ private void setQuestionList() {
 		question14.setDetailedDescription("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
 		question14.setStatus("Pending with SME");
 		question14.setLastModifiedDate(new Date());
-		question14.setRecommendedSolution("");
 		question14.setCommentList(new ArrayList<Comment>());
 		
 		Question question15 = new Question ();
@@ -667,7 +657,6 @@ private void setQuestionList() {
 		question16.setDetailedDescription("How do I ensure that the sprint goals are delivered and meet the expectations ?");
 		question16.setStatus("Pending with SME");
 		question16.setLastModifiedDate(new Date());
-		question16.setRecommendedSolution("");
 		question16.setCommentList(new ArrayList<Comment>());
 		
 		Question question17 = new Question ();
@@ -795,11 +784,6 @@ private void setQuestionList() {
 		question25.setDetailedDescription("How do I ensure that the cycle time is reduced between the ticket in the queue till it is available in the production ?");
 		question25.setStatus("Pending with SME");
 		question25.setLastModifiedDate(new Date());
-		question25.setRecommendedSolution("Kanban Wall:"
-				+"\nOne of the core principles of Kanban for software development is “Make it visible”. A Kanban Wall is a visual display of all the tasks along with its progress pertaining to a sprint. It consists of a sequence of defined steps or sub processes or states that a user story moves through until it is complete. The states are defined based on the sequence of activities in which the user stories are developed."
-
-				+"\n\nFor more details, refer:"
-				+"\nhttps://methodology.accenture.com/dist_agile/#meth.dist_agile/guidances/guidelines/Agile%20Kanban%20Board%20Setup%20and%20Management%20Guidelines_D4026BC7.html ");
 		question25.setCommentList(new ArrayList<Comment>());
 		
 		Question question26 = new Question ();

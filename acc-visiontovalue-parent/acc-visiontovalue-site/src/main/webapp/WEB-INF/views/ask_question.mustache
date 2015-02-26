@@ -84,7 +84,12 @@
 						<input type="checkbox" {{#questionId}}name={{questionId}}{{/questionId}} {{#questionId}}value={{questionId}}{{/questionId}}>
 					</td>
 					<td width="45%">
-						<a href="{{base_path}}/{{community}}/ask/question/detail/{{questionId}}">{{#questionString}}{{questionString}}{{/questionString}}</a>
+						{{#recommendedSolution}}
+							<a href="{{base_path}}/{{community}}/questions/detail/{{questionId}}">{{#questionString}}{{questionString}}{{/questionString}}</a>
+						{{/recommendedSolution}}
+						{{^recommendedSolution}}
+							<a href="{{base_path}}/{{community}}/ask/question/detail/{{questionId}}">{{#questionString}}{{questionString}}{{/questionString}}</a>
+						{{/recommendedSolution}}
 					</td>
 					<td width="30%" align="center">
 						{{#status}}{{status}}{{/status}}
