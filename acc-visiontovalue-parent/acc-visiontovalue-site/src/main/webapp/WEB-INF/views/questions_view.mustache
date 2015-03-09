@@ -9,38 +9,58 @@
     			return this.value;
 		}).get();
 		
-		var doc = new jsPDF();
-		var j = 20;
 		for (var i = 0; i < checkedValues.length; i++) {
-		
+			
 			{{#questionList}}
-		
-				if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
-					
-					doc.text(20, j, "{{questionString}}" );
-					doc.text(20, j+10, "{{detailedDescription}}" );
-					doc.text(20, j+30, "{{community}}" );
-					doc.text(20, j+40, "{{category}}" );
-					doc.text(20, j+50, "{{lastModifiedDate}}" );
-					
-					var k = 80;
-					{{#commentList}}
-						doc.text(20, k, "{{commentString}}" );
-						doc.text(20, k+10, "{{date}}" );
-						k=k+20;				
-					{{/commentList}}
-					
-					j=k+20;
+			if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
+				
+				var docDefinition = {
+					content: [
+						{ 
+							text: 'Problem statement', 
+							style: 'header' 
+						},
+						'{{questionString}}',
+						{
+							text: 'Detailed description',
+							style: 'header'
+						},
+						'{{detailedDescription}}',
+						{
+							text: 'Community',
+							style: 'header'	
+						},
+						'{{community}}',
+						{ 
+							text: 'Category',
+							style: 'header'	
+						},
+						'{{category}}',
+						{ 
+							text: 'Comments',
+							style: 'header'	
+						},
+						{
+							ol: [	
+								{{#commentList}}
+									'{{commentString}}',
+								{{/commentList}}
+							]
+						}
+					],
+					styles: {
+						header: {
+							fontSize: 12,
+							bold: true
+						}
+					}
 				}
-				
+			}
 			{{/questionList}}
-				
-			j=j+20;
 		}
-		
-		doc.save('Questions.pdf');
+		pdfMake.createPdf(docDefinition).download();
 	}
-		
+			
 </script>
 </head>
 <body>
