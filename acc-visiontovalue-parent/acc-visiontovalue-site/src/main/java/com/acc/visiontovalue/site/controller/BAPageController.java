@@ -398,6 +398,7 @@ private void setQuestionList() {
 		question1.setCommunity("agile");
 		question1.setCommentCount(0);
 		question1.setCategory("visiontoroadmap");
+		question1.setIsScenario(false);
 		question1.setQuestionString("How do I create vision for my product/program that is crisp yet compelling ?");
 		question1.setDetailedDescription("What would be the best techniques ?");
 		question1.setStatus("Solution available");
@@ -417,6 +418,7 @@ private void setQuestionList() {
 		question2.setCommunity("agile");
 		question2.setCommentCount(0);
 		question2.setCategory("visiontoroadmap");
+		question2.setIsScenario(false);
 		question2.setQuestionString("What are the essential ingredients of vision statement that will bring out the real essence of product vision ?");
 		question2.setDetailedDescription("What are the essential ingredients of vision statement that will bring out the real essence of product vision ?");
 		question2.setStatus("Solution available");
@@ -439,6 +441,7 @@ private void setQuestionList() {
 		question3.setCommunity("agile");
 		question3.setCommentCount(0);
 		question3.setCategory("visiontoroadmap");
+		question3.setIsScenario(false);
 		question3.setQuestionString("How do I make sure that the business needs are consolidated from different sources as organization is complex and there are too many stakeholders influencing the product/features being developed");
 		question3.setDetailedDescription("How do I make sure that the business needs are consolidated from different sources as organization is complex and there are too many stakeholders influencing the product/features being developed");
 		question3.setStatus("Solution available");
@@ -455,6 +458,7 @@ private void setQuestionList() {
 		question4.setCommunity("agile");
 		question4.setCommentCount(0);
 		question4.setCategory("visiontoroadmap");
+		question4.setIsScenario(false);
 		question4.setQuestionString("How do I ensure that the high business value requirements flow seamlessly from business stakeholders to IT team?");
 		question4.setDetailedDescription("How do I ensure that the high business value requirements flow seamlessly from business stakeholders to IT team?");
 		question4.setStatus("Pending with SME");
@@ -466,6 +470,7 @@ private void setQuestionList() {
 		question5.setCommunity("agile");
 		question5.setCommentCount(0);
 		question5.setCategory("visiontoroadmap");
+		question5.setIsScenario(false);
 		question5.setQuestionString("How do I define roadmap for my product/program ?");
 		question5.setDetailedDescription("How do I define roadmap for my product/program ?");
 		question5.setStatus("Pending with SME");
@@ -477,6 +482,7 @@ private void setQuestionList() {
 		question6.setCommunity("agile");
 		question6.setCommentCount(0);
 		question6.setCategory("visiontoroadmap");
+		question6.setIsScenario(false);
 		question6.setQuestionString("How do I make sure that the 3 constraints are properly balanced ?");
 		question6.setDetailedDescription("How do I make sure that the 3 constraints are properly balanced ?");
 		question6.setStatus("Solution available");
@@ -493,6 +499,7 @@ private void setQuestionList() {
 		question7.setCommunity("agile");
 		question7.setCommentCount(0);
 		question7.setCategory("visiontoroadmap");
+		question7.setIsScenario(false);
 		question7.setQuestionString("How do I prioritize the business requirements ?");
 		question7.setDetailedDescription("How do I prioritize the business requirements ?");
 		question7.setStatus("Solution available");
@@ -521,6 +528,7 @@ private void setQuestionList() {
 		question8.setCommunity("agile");
 		question8.setCommentCount(0);
 		question8.setCategory("visiontoroadmap");
+		question8.setIsScenario(false);
 		question8.setQuestionString("How do I compute Business value for features?");
 		question8.setDetailedDescription("How do I compute Business value for features?");
 		question8.setStatus("Solution available");
@@ -538,6 +546,7 @@ private void setQuestionList() {
 		question9.setCommunity("agile");
 		question9.setCommentCount(0);
 		question9.setCategory("visiontoroadmap");
+		question9.setIsScenario(false);
 		question9.setQuestionString("How do I handle the challenge of high story point backlog?");
 		question9.setDetailedDescription("How do I handle the challenge of high story point backlog?");
 		question9.setStatus("Solution available");
@@ -551,6 +560,7 @@ private void setQuestionList() {
 		question10.setCommunity("agile");
 		question10.setCommentCount(0);
 		question10.setCategory("roadmaptodeploy");
+		question10.setIsScenario(false);
 		question10.setQuestionString("As a Business User, I want  to see the solutions faster and provide feedbacks so that the solutions can align closer to our Business Users Requirements and improve Speed to Market");
 		question10.setDetailedDescription("As a Business User, I want  to see the solutions faster and provide feedbacks so that the solutions can align closer to our Business Users Requirements and improve Speed to Market");
 		question10.setStatus("Solution available");
@@ -579,6 +589,7 @@ private void setQuestionList() {
 		question11.setCommunity("agile");
 		question11.setCommentCount(0);
 		question11.setCategory("roadmaptodeploy");
+		question11.setIsScenario(false);
 		question11.setQuestionString("As a Developer, I want to make sure that I write optimized lines of code so that there is defect rate is low");
 		question11.setDetailedDescription("As a Developer, I want to make sure that I write optimized lines of code so that there is defect rate is low");
 		question11.setStatus("Solution available");
@@ -597,6 +608,7 @@ private void setQuestionList() {
 		question12.setCommunity("agile");
 		question12.setCommentCount(0);
 		question12.setCategory("roadmaptodeploy");
+		question12.setIsScenario(false);
 		question12.setQuestionString("How do I know what is the release goal and by when can we achieve it ?");
 		question12.setDetailedDescription("How do I know what is the release goal and by when can we achieve it ?");
 		question12.setStatus("Solution available");
@@ -613,6 +625,7 @@ private void setQuestionList() {
 		question13.setCommunity("agile");
 		question13.setCommentCount(0);
 		question13.setCategory("roadmaptodeploy");
+		question13.setIsScenario(true);
 		question13.setQuestionString("How do I ensure that there is a continuous focus on productivity gain ?");
 		question13.setDetailedDescription("How do I ensure that there is a continuous focus on productivity gain ?");
 		question13.setStatus("Solution available");
@@ -632,6 +645,7 @@ private void setQuestionList() {
 		question14.setCommunity("agile");
 		question14.setCommentCount(0);
 		question14.setCategory("roadmaptodeploy");
+		question14.setIsScenario(true);
 		question14.setQuestionString("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
 		question14.setDetailedDescription("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
 		question14.setStatus("Pending with SME");
@@ -643,6 +657,7 @@ private void setQuestionList() {
 		question15.setCommunity("agile");
 		question15.setCommentCount(0);
 		question15.setCategory("roadmaptodeploy");
+		question15.setIsScenario(false);
 		question15.setQuestionString("How do I perform daily planning and resolve day to day impediments ?");
 		question15.setDetailedDescription("How do I perform daily planning and resolve day to day impediments ?");
 		question15.setStatus("Solution available");
@@ -663,6 +678,7 @@ private void setQuestionList() {
 		question16.setCommunity("agile");
 		question16.setCommentCount(0);
 		question16.setCategory("roadmaptodeploy");
+		question16.setIsScenario(false);
 		question16.setQuestionString("How do I ensure that the sprint goals are delivered and meet the expectations ?");
 		question16.setDetailedDescription("How do I ensure that the sprint goals are delivered and meet the expectations ?");
 		question16.setStatus("Pending with SME");
@@ -674,6 +690,7 @@ private void setQuestionList() {
 		question17.setCommunity("agile");
 		question17.setCommentCount(0);
 		question17.setCategory("roadmaptodeploy");
+		question17.setIsScenario(false);
 		question17.setQuestionString("As a team, we want to make sure that we retrospect at regular interval and fine tune the behaviour so that we can continuously improve");
 		question17.setDetailedDescription("As a team, we want to make sure that we retrospect at regular interval and fine tune the behaviour so that we can continuously improve");
 		question17.setStatus("Solution available");
@@ -690,6 +707,7 @@ private void setQuestionList() {
 		question18.setCommunity("agile");	
 		question18.setCommentCount(0);
 		question18.setCategory("roadmaptodeploy");
+		question18.setIsScenario(false);
 		question18.setQuestionString("How do I ensure that the goal of continuous delivery is met ?");
 		question18.setDetailedDescription("How do I ensure that the goal of continuous delivery is met ?");
 		question18.setStatus("Solution available");
@@ -704,6 +722,7 @@ private void setQuestionList() {
 		question19.setCommunity("agile");
 		question19.setCommentCount(0);
 		question19.setCategory("roadmaptodeploy");
+		question19.setIsScenario(false);
 		question19.setQuestionString("How do I ensure that the team is able to integrate continuously automatically with less manual interventions ?");
 		question19.setDetailedDescription("How do I ensure that the team is able to integrate continuously automatically with less manual interventions ?");
 		question19.setStatus("Solution available");
@@ -719,6 +738,7 @@ private void setQuestionList() {
 		question20.setCommunity("agile");
 		question20.setCommentCount(0);
 		question20.setCategory("roadmaptodeploy");
+		question20.setIsScenario(false);
 		question20.setQuestionString("How do I ensure the progress of the team in the sprint is seamless and transparent ?");
 		question20.setDetailedDescription("How do I ensure the progress of the team in the sprint is seamless and transparent ?");
 		question20.setStatus("Solution available");
@@ -735,6 +755,7 @@ private void setQuestionList() {
 		question21.setCommunity("agile");
 		question21.setCommentCount(0);
 		question21.setCategory("roadmaptodeploy");
+		question21.setIsScenario(true);
 		question21.setQuestionString("How do I ensure that deployment is fast and continuous ?");
 		question21.setDetailedDescription("How do I ensure that deployment is fast and continuous ?");
 		question21.setStatus("Solution available");
@@ -748,6 +769,7 @@ private void setQuestionList() {
 		question22.setCommunity("agile");
 		question22.setCommentCount(0);
 		question22.setCategory("roadmaptodeploy");
+		question22.setIsScenario(true);
 		question22.setQuestionString("How do I ensure that the IT development is aligned to business requirements ?");
 		question22.setDetailedDescription("How do I ensure that the IT development is aligned to business requirements ?");
 		question22.setStatus("Solution available");
@@ -764,6 +786,7 @@ private void setQuestionList() {
 		question23.setCommunity("agile");
 		question23.setCommentCount(0);
 		question23.setCategory("deploytovalue");
+		question23.setIsScenario(true);
 		question23.setQuestionString("How do I improve productivity of support incidents ?");
 		question23.setDetailedDescription("How do I improve productivity of support incidents ?");
 		question23.setStatus("Solution available");
@@ -777,6 +800,7 @@ private void setQuestionList() {
 		question24.setCommunity("agile");
 		question24.setCommentCount(0);
 		question24.setCategory("deploytovalue");
+		question24.setIsScenario(true);
 		question24.setQuestionString("How do I reduce high resolution time for incidents ?");
 		question24.setDetailedDescription("How do I reduce high resolution time for incidents ?");
 		question24.setStatus("Solution available");
@@ -790,6 +814,7 @@ private void setQuestionList() {
 		question25.setCommunity("agile");
 		question25.setCommentCount(0);
 		question25.setCategory("deploytovalue");
+		question25.setIsScenario(false);
 		question25.setQuestionString("How do I ensure that the cycle time is reduced between the ticket in the queue till it is available in the production ?");
 		question25.setDetailedDescription("How do I ensure that the cycle time is reduced between the ticket in the queue till it is available in the production ?");
 		question25.setStatus("Pending with SME");
@@ -801,6 +826,7 @@ private void setQuestionList() {
 		question26.setCommunity("agile");
 		question26.setCommentCount(0);
 		question26.setCategory("deploytovalue");
+		question26.setIsScenario(false);
 		question26.setQuestionString("How do I ensure that the development and operations transition is seamless ?");
 		question26.setDetailedDescription("How do I ensure that the development and operations transition is seamless ?");
 		question26.setStatus("Solution available");
@@ -808,6 +834,52 @@ private void setQuestionList() {
 		question26.setRecommendedSolution("Self-Service Provisioning:"
 			+"\nWith the increasing complexity involved in software development, provisioning of environments for development teams has become complex and demanding task for IT operations. As cloud computing enables near infinite computing resources, organizations can now build cloud based self-service provisioning systems. These self systems enable development teams to rapidly clone and bring up environments as per needs, and avoiding to wait for IT operations to provision it. Such self-service solutions with accurate cloud-based provisioning, improves coordination between development and IT operations, in turn reducing development time and improving the quality of software delivered.");
 		question26.setCommentList(new ArrayList<Comment>());
+		
+		
+		Question question27 = new Question ();
+		question27.setQuestionId(27L);
+		question27.setCommunity("agile");
+		question27.setCommentCount(0);
+		question27.setCategory("visiontoroadmap");
+		question27.setIsScenario(true);
+		question27.setQuestionString("How can we better plan the releases/sprints to handle multiple issues during each iteration?");
+		question27.setDetailedDescription("As a project manager of 'ABC' project, I am observing multiple issues/defects that my team is identifying during every iteration. And my team is spending extra effort almost every day in fixing/testing these issues within the sprint duration of 2 weeks. How better we can plan the releases/sprints to handle such situations?");
+		question27.setStatus("Solution available");
+		question27.setLastModifiedDate(new Date());
+		question27.setRecommendedSolution("During release planning, project should account a fixed percentage of time in each Sprint for defect fixes. Also project can plan for a hardening sprint that the teams run at the completion all the regular sprints. The hardening sprint focuses on final integration before the release.");
+		question27.setCommentList(new ArrayList<Comment>());
+		
+		Question question28 = new Question ();
+		question28.setQuestionId(28L);
+		question28.setCommunity("agile");
+		question28.setCommentCount(0);
+		question28.setCategory("visiontoroadmap");
+		question28.setIsScenario(true);
+		question28.setQuestionString("What are the key considerations that I need to focus on to execute this new Agile project effectively?");
+		question28.setDetailedDescription("As a Project Manager, I have good experience in delivering projects that follow waterfall methodology. I have been assigned to a new project that needs to be delivered in Agile mode. What are the key considerations that I need to focus on to execute this new Agile project effectively?");
+		question28.setStatus("Solution available");
+		question28.setLastModifiedDate(new Date());
+		question28.setRecommendedSolution("- Focus on the customer needs over following standard project management guidelines"+
+										   "\n- Value the innovation and practical processes over sticking to a plan"+
+										   "\n- Empower, involve and motivate the team, promote team collaboration"+
+										   "\n- Be comfortable with a changing and uncertain environment");
+		question28.setCommentList(new ArrayList<Comment>());
+		
+		Question question29 = new Question ();
+		question29.setQuestionId(29L);
+		question29.setCommunity("agile");
+		question29.setCommentCount(0);
+		question29.setCategory("visiontoroadmap");
+		question29.setIsScenario(true);
+		question29.setQuestionString("What are the key/best practices to be followed during release planning?");
+		question29.setDetailedDescription("Accenture is working with a different vendor to deliver an 'Application Development' project running in Agile mode. As a Scrum master for Accenture team, what are the key/best practices to be followed during release planning?");
+		question29.setStatus("Solution available");
+		question29.setLastModifiedDate(new Date());
+		question29.setRecommendedSolution("- Joint release planning involving teams from all the vendors"+
+										   "\n- Decide the priorities and estimates considering cross-vendor dependencies"+
+										   "\n Release planning based on architectural and testing dependencies");
+		question29.setCommentList(new ArrayList<Comment>());
+		
 		
 		questionList.add(question1);
 		questionList.add(question2);
@@ -835,5 +907,8 @@ private void setQuestionList() {
 		questionList.add(question24);
 		questionList.add(question25);
 		questionList.add(question26);
+		questionList.add(question27);
+		questionList.add(question28);
+		questionList.add(question29);
 	}
 }

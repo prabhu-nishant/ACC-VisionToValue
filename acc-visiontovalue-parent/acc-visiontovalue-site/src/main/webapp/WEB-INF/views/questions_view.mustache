@@ -9,15 +9,25 @@
     			return this.value;
 		}).get();
 		
+		var contentData = [];
+		var docDefinition = {
+							 content: contentData, 
+			   				 styles: {
+										header: {
+												fontSize: 12,
+												bold: true
+										}
+									 }
+							 }
+		
 		for (var i = 0; i < checkedValues.length; i++) {
 			
 			{{#questionList}}
 			if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
 				
-				var docDefinition = {
-					content: [
+						contentData.push(
 						{ 
-							text: 'Problem statement', 
+							text: i+1+'.Problem statement', 
 							style: 'header' 
 						},
 						'{{questionString}}',
@@ -46,19 +56,16 @@
 									'{{commentString}}',
 								{{/commentList}}
 							]
-						}
-					],
-					styles: {
-						header: {
-							fontSize: 12,
-							bold: true
-						}
-					}
-				}
+						},
+						{ 
+							text: ' ',
+							style: 'header'	
+						});
+						
 			}
 			{{/questionList}}
 		}
-		pdfMake.createPdf(docDefinition).download();
+		pdfMake.createPdf(docDefinition).download('Recommendations.pdf');
 	}
 			
 </script>

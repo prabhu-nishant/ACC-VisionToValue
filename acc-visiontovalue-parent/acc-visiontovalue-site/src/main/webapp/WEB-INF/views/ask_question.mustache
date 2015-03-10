@@ -32,6 +32,71 @@
 		$( "#openAskQuestionDialog" ).dialog("open");
 	}
 
+	function saveClick(){
+	
+		var checkedValues = $('input:checkbox:checked').map(function() {
+    			return this.value;
+		}).get();
+		
+		var contentData = [];
+		var docDefinition = {
+							 content: contentData, 
+			   				 styles: {
+										header: {
+												fontSize: 12,
+												bold: true
+										}
+									 }
+							 }
+		
+		for (var i = 0; i < checkedValues.length; i++) {
+			
+			{{#questionList}}
+			if((checkedValues[i]).localeCompare({{questionId}}) == 0 ){
+				
+						contentData.push(
+						{ 
+							text: i+1+'.Problem statement', 
+							style: 'header' 
+						},
+						'{{questionString}}',
+						{
+							text: 'Detailed description',
+							style: 'header'
+						},
+						'{{detailedDescription}}',
+						{
+							text: 'Community',
+							style: 'header'	
+						},
+						'{{community}}',
+						{ 
+							text: 'Category',
+							style: 'header'	
+						},
+						'{{category}}',
+						{ 
+							text: 'Comments',
+							style: 'header'	
+						},
+						{
+							ol: [	
+								{{#commentList}}
+									'{{commentString}}',
+								{{/commentList}}
+							]
+						},
+						{ 
+							text: ' ',
+							style: 'header'	
+						});
+						
+			}
+			{{/questionList}}
+		}
+		pdfMake.createPdf(docDefinition).download('Your questions.pdf');
+	}
+
 	
 </script>
 </head>
@@ -101,7 +166,10 @@
 				{{/questionList}}
 			</table>
 		</div>
-		
+		<div id="table_button_div">
+			<button class="button_table" id="saveclick" onClick="saveClick()">Save as PDF</button>
+			<button class="button_table" id="morequestions">More questions</button>
+		</div>
 	</div>
 	{{> WEB-INF/views/most_viewed_recommendations.mustache}}
 </div>

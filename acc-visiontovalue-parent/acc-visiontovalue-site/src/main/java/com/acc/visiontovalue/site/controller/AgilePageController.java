@@ -61,7 +61,7 @@ public class AgilePageController {
 		
 		for(Question question:getQuestionList()){
 			
-			if(tab.equals(question.getCategory()) && StringUtils.isNotBlank(question.getRecommendedSolution())){
+			if(tab.equals(question.getCategory()) && question.getIsScenario() == false && StringUtils.isNotBlank(question.getRecommendedSolution())){
 				
 				questionList.add(question);
 			}
@@ -643,7 +643,7 @@ public class AgilePageController {
 		question13.setCommunity("agile");
 		question13.setCommentCount(0);
 		question13.setCategory("roadmaptodeploy");
-		question13.setIsScenario(false);
+		question13.setIsScenario(true);
 		question13.setQuestionString("How do I ensure that there is a continuous focus on productivity gain ?");
 		question13.setDetailedDescription("How do I ensure that there is a continuous focus on productivity gain ?");
 		question13.setStatus("Solution available");
@@ -663,7 +663,7 @@ public class AgilePageController {
 		question14.setCommunity("agile");
 		question14.setCommentCount(0);
 		question14.setCategory("roadmaptodeploy");
-		question14.setIsScenario(false);
+		question14.setIsScenario(true);
 		question14.setQuestionString("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
 		question14.setDetailedDescription("How do I know the Sprint Goal and what activities to be performed in the sprint ?");
 		question14.setStatus("Pending with SME");
@@ -773,7 +773,7 @@ public class AgilePageController {
 		question21.setCommunity("agile");
 		question21.setCommentCount(0);
 		question21.setCategory("roadmaptodeploy");
-		question21.setIsScenario(false);
+		question21.setIsScenario(true);
 		question21.setQuestionString("How do I ensure that deployment is fast and continuous ?");
 		question21.setDetailedDescription("How do I ensure that deployment is fast and continuous ?");
 		question21.setStatus("Solution available");
@@ -787,7 +787,7 @@ public class AgilePageController {
 		question22.setCommunity("agile");
 		question22.setCommentCount(0);
 		question22.setCategory("roadmaptodeploy");
-		question22.setIsScenario(false);
+		question22.setIsScenario(true);
 		question22.setQuestionString("How do I ensure that the IT development is aligned to business requirements ?");
 		question22.setDetailedDescription("How do I ensure that the IT development is aligned to business requirements ?");
 		question22.setStatus("Solution available");
@@ -804,7 +804,7 @@ public class AgilePageController {
 		question23.setCommunity("agile");
 		question23.setCommentCount(0);
 		question23.setCategory("deploytovalue");
-		question23.setIsScenario(false);
+		question23.setIsScenario(true);
 		question23.setQuestionString("How do I improve productivity of support incidents ?");
 		question23.setDetailedDescription("How do I improve productivity of support incidents ?");
 		question23.setStatus("Solution available");
@@ -818,7 +818,7 @@ public class AgilePageController {
 		question24.setCommunity("agile");
 		question24.setCommentCount(0);
 		question24.setCategory("deploytovalue");
-		question24.setIsScenario(false);
+		question24.setIsScenario(true);
 		question24.setQuestionString("How do I reduce high resolution time for incidents ?");
 		question24.setDetailedDescription("How do I reduce high resolution time for incidents ?");
 		question24.setStatus("Solution available");
